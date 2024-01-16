@@ -1,0 +1,182 @@
+{% extends 'index.html' %}
+
+{% block title %} | Register {% endblock %}
+{% block content %}
+{% load static %}
+
+		<!-- main start -->
+		<main class="js-animsition-overlay" data-animsition-overlay="true">
+			<!-- pos-rel start -->
+			<section id="up" class="pos-rel js-parallax-bg" style="background-image:url({% static 'assets/images/slide/1.jpg' %})">
+				<!-- bg-overlay -->
+				<div class="bg-overlay-black"></div>
+				<!-- pos-rel start -->
+				<div class="pos-rel flex-min-height-100vh">
+					<div class="padding-top-bottom-120 container small after-preloader-anim">
+						<!-- title start -->
+						<h2 class="headline-xl">
+							<span class="hidden-box d-block">
+								<span class="anim-slide">LAYENE DIGITAL</span>
+							</span>
+							<span class="hidden-box d-block">
+								<span class="anim-slide tr-delay-01">LE PORTAIL DIGITAL</span>
+							</span>
+							<span class="hidden-box d-block">
+								<span class="anim-slide tr-delay-02">DE LA COMMUNAUTÉ LAYENE</span>
+							</span>
+						</h2><!-- title end -->
+					</div>
+				</div><!-- pos-rel end -->
+			</section><!-- pos-rel end -->
+
+
+			<!-- form section start -->
+			<section class="pos-rel bg-img-cover" style="background-image:url({% static 'assets/images/slide/slide1.png' %})">
+				<!-- bg-overlay -->
+				<div class="bg-overlay-black"></div>
+				<!-- pos-rel start -->
+				<div class="pos-rel flex-min-height-100vh">
+					<!-- container start -->
+					<div class="container small padding-top-bottom-120 form-box">
+						<h4 class="headline-xxxxs text-center">Lets Get In Touch!</h4>
+                                    <div class="contact-section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12">
+                            <div class="form-section">
+                                <div class="logo-2">
+                                    <a href="index.html">
+                                        <img src="{% static 'img/logos/black-logo.png' %}" alt="logo">
+                                    </a>
+                                </div>
+                                <h3>Create an account</h3>
+
+                                {% include 'includes/messages.html' %}
+                                <form action="{% url 'register' %}" method="POST">
+                                {% csrf_token %}
+                                    <div class="form-group form-box">
+                                        <input type="text" name="firstname" class="input-text" placeholder="First Name" required>
+                                        <i class="fa fa-user"></i>
+                                    </div>
+                                    <div class="form-group form-box">
+                                        <input type="text" name="lastname" class="input-text" placeholder="Last Name" required>
+                                        <i class="fa fa-user"></i>
+                                    </div>
+                                    <div class="form-group form-box">
+                                        <input type="text" name="username" class="input-text" placeholder="Username" required>
+                                        <i class="fa fa-user"></i>
+                                    </div>
+                                    <div class="form-group form-box">
+                                        <input type="email" name="email" class="input-text" placeholder="Email Address" required>
+                                        <i class="flaticon-mail"></i>
+                                    </div>
+                                    <div class="form-group form-box">
+                                        <input type="password" name="password" class="input-text" placeholder="Password" required>
+                                        <i class="flaticon-lock"></i>
+                                    </div>
+                                    <div class="form-group form-box">
+                                        <input type="password" name="confirm_password" class="input-text" placeholder="Confirm Password" required>
+                                        <i class="flaticon-lock"></i>
+                                    </div>
+                                    <div class="form-group mb-0 clearfix">
+                                        <button type="submit" class="btn-md btn-theme float-left">Register</button>
+                                    </div>
+                                    <div class="extra-login clearfix">
+                                        <span>Or Login With</span>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <ul class="social-list">
+                                    </ul>
+                                </form>
+                                <p>Already a member? <a href="{% url 'login' %}" class="thembo"> Login here</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+						<!-- flex-container start -->
+						<form action="#" method="post" name="formobrsv" id="send_form" class="flex-container padding-top-90">
+							<!-- column start -->
+							<div class="four-columns">
+								<div class="column-r-margin-10">
+									<input type="text" name="first_name" placeholder="Enter your name" id="first_name" required class="form-input js-pointer-small">
+								</div>
+							</div><!-- column end -->
+							<!-- column start -->
+							<div class="four-columns">
+								<div class="column-l-r-margin-5">
+									<input type="text" name="last_name" placeholder="Enter your last name" id="last_name" required class="form-input js-pointer-small">
+								</div>
+							</div><!-- column end -->
+							<!-- column start -->
+							<div class="four-columns">
+								<div class="column-l-margin-10">
+									<input type="email" name="email" placeholder="Enter your email address" id="email" required class="form-input js-pointer-small">
+								</div>
+							</div><!-- column end -->
+							<!-- column start -->
+							<div class="twelve-columns">
+								<textarea name="message" placeholder="Enter your message" id="message" required class="form-input js-pointer-small"></textarea>
+							</div><!-- column end -->
+							<!-- column start -->
+							<div class="twelve-columns text-center padding-top-90">
+								<button id="send" class="border-btn js-pointer-large">
+									<span class="border-btn__inner">submit</span>
+									<span class="btn-wait">Wait</span>
+									<span class="border-btn__lines-1"></span>
+									<span class="border-btn__lines-2"></span>
+								</button>
+							</div><!-- column end -->
+						</form><!-- flex-container end -->
+					</div><!-- container end -->
+
+					<!-- alert start -->
+					<div class="js-popup-fade" id="m_sent">
+						<div class="js-popup">
+							<div class="popup-icon">
+								<i class="fas fa-check"></i>
+							</div>
+							<p class="popup-alert headline-xs">
+								Thank you!<br>
+								Your submission<br>
+								has been received!
+							</p>
+							<div class="js-popup-close js-pointer-large">
+								<div class="flip-btn" data-text="Close">Close</div>
+							</div>
+						</div>
+					</div><!-- alert end -->
+
+					<!-- alert start -->
+					<div class="js-popup-fade" id="m_err">
+						<div class="js-popup">
+							<div class="popup-icon">
+								<i class="fas fa-times"></i>
+							</div>
+							<p class="popup-alert headline-xs">Error</p>
+							<div class="js-popup-close js-pointer-large">
+								<div class="flip-btn" data-text="Close">Close</div>
+							</div>
+						</div>
+					</div><!-- alert end -->
+				</div><!-- pos-rel end -->
+			</section><!-- form section end -->
+
+            <div class="sub-banner overview-bgi">
+                <div class="container breadcrumb-area">
+                    <div class="breadcrumb-areas">
+                        <h1>Register</h1>
+                        <ul class="breadcrumbs">
+                            <li><a href="{% url 'home' %}">Home</a></li>
+                            <li class="active">Register</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <br><br><br>
+		</main><!-- main end -->
+
+
+
+{% endblock %}

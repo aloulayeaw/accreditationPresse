@@ -1,0 +1,39 @@
+{% extends 'includes/admin/layout.html' %} 
+
+{% block title %} | Dashboard {% endblock %}
+{% block content %}
+            <div class="layout-px-spacing">
+                <div class="row layout-top-spacing">
+                
+                    <div class="col-xl-12 col-lg-12 col-sm-12 layout-spacing">
+                        <div class="widget-content widget-content-area br-6">
+                            <table id="invoice-list" class="table table-hover" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th class="checkbox-column"> # </th>
+                                        <th style="text-align: center;">Nom de L'entreprise</th>
+                                        <th style="text-align: center;">Responsable</th>
+                                        <th style="text-align: center;">Statut</th>
+                                        <th style="text-align: center;">Mon Badge</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for deman in demand %}                          
+                                        <tr>
+                                            <td>{{deman.id }}</td>
+                                            <td class="checkbox-column" style="text-align: center;">{{deman.nom|upper }}</td>
+                                            <td style="text-align: center;"><span class="inv-number">{{deman.responsable|upper }}</span></td>
+                                            <td style="text-align: center;"><button class="btn btn-primary mb-2">{{ deman.statut }}</button></td>
+                                            {% if deman.statut == "Accepted" %}
+                                                <td style="text-align: center;">
+                                                  <a target="_blank" class="btn btn-primary btn-wide" href="{% url 'print_badge_pdf' deman.id %}">Télécharger le badge</a></td>
+                                            {% endif %}
+                                        </tr>
+                                    {% endfor %}  
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'includes/admin/layout.html' %}
+{% load crispy_forms_tags %} 
+
+{% block title %} | Dashboard {% endblock %}
+{% block content %}
+<br><br>
+    {% if dempresse == 0 %}
+        <div class="container-sm" style='max-width: 920px; margin: auto'>{% crispy form %}</div>
+    {% endif %}
+    {% if dempresse == 1 %}
+        <div class="container-sm" style='max-width: 1020px; margin: auto'>
+            <div class="card" style="padding: 10px; ">
+                <h5>Votre demande a été déja envoyé.<br> Vous serez notifié s'il y a une réponse de la part du groupement central layene<br>Merci</h5>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
+

@@ -1,0 +1,135 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Layene digital">
+		<meta name="description" content="Layene digital">
+		<meta name="keywords" content="creative, modern, clean, html5, css3, portfolio, blog, agency, templates, minimal">
+
+		<!-- favicon -->
+		<link rel="shortcut icon" href="{% static 'assets/images/slide/logo/favicon2.png' %}">
+		<link rel="apple-touch-icon" href="{% static 'assets/images/slide/logo/favicon2.png' %}">
+		<link rel="apple-touch-icon" sizes="72x72" href="{% static 'assets/images/slide/logo/favicon2.png' %}">
+		<link rel="apple-touch-icon" sizes="114x114" href="{% static 'assets/images/slide/logo/favicon2.png' %}">
+
+		<title>LAYENE DIGITAL</title>
+
+		<!-- fonts -->
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
+
+		<!-- styles -->
+		<link href="{% static 'assets/css/plugins.css' %}" rel="stylesheet" type="text/css">
+		<link href="{% static 'assets/css/style.css' %}" rel="stylesheet" type="text/css">
+</head>
+<body class="preloader cursor-anim-enable dark-nav">
+		
+		<!-- preloader-loading start -->
+		<div class="preloader__logoload-box">
+			<img class="preloader__logo" src="{% static 'assets/images/slide/logo/logo-1.png' %}" alt="logo">
+			<div class="preloader__pulse"></div>
+		</div><!-- preloader-loading end -->
+
+		<!-- pointer start -->
+		<div class="pointer js-pointer" id="js-pointer">
+			<i class="pointer__inner fas fa-long-arrow-alt-right"></i>
+			<i class="pointer__inner fas fa-search"></i>
+			<i class="pointer__inner fas fa-link"></i>
+		</div><!-- pointer end -->
+
+		{% comment %} <!-- to top btn start -->
+		<a href="#up" class="scroll-to-btn js-headroom js-midnight-color js-smooth-scroll js-pointer-large">
+			<span class="scroll-to-btn__box">
+				<span class="scroll-to-btn__arrow"></span>
+			</span>
+		</a><!-- to top btn end -->
+
+		<!-- scroll down btn start -->
+		<a href="#down" class="scroll-to-btn to-down js-headroom js-midnight-color js-smooth-scroll js-pointer-large js-scroll-btn">
+			<span class="scroll-to-btn__box">
+				<span class="scroll-to-btn__arrow"></span>
+			</span>
+		</a><!-- scroll down btn end --> {% endcomment %}
+
+		<!-- header start -->
+		<header class="fixed-header">
+			<!-- logo start -->
+			<div class="header-logo js-midnight-color js-headroom">
+				<div class="hidden-box">
+					{% comment %} <a href="{% url 'home' %}" class="header-logo__box js-pointer-large js-animsition-link">
+						<img class="header-logo__img white" src="{% static 'assets/images/slide/logo/logo-1.png' %}" alt="logo">
+						<img class="header-logo__img black" src="{% static 'assets/images/slide/logo/logo-1.png' %}" alt="logo">
+					</a> {% endcomment %}
+				</div>
+			</div><!-- logo end -->
+
+			<!-- menu-icon start -->
+			<div class="menu-icon js-menu-open-close js-pointer-large js-midnight-color js-headroom">
+				{% comment %} <div class="menu-icon__box">
+					<span class="menu-icon__inner"></span>
+					<span class="menu-icon__close"></span>
+				</div> {% endcomment %}
+			</div><!-- menu-icon end -->
+
+			<!-- header-contact start -->
+			<div class="header-contact js-midnight-color js-headroom">
+				<div class="header-contact__flex">
+					<div class="header-contact__anim">
+					</div>
+				</div>
+			</div><!-- header-contact end -->
+
+			<!-- header-social start -->
+			<div class="header-social after-preloader-anim js-midnight-color js-headroom">
+				<ul class="list list_center list_margin-20px hidden-box">
+					<li class="list__item">
+						<div class="hidden-box d-inline-block">
+							<a href="#" class="anim-slide js-pointer-small">
+								<i class="fab fa-facebook-f"></i>
+							</a>
+						</div>
+					</li>
+					<li class="list__item">
+						<div class="hidden-box d-inline-block">
+							<a href="#" class="anim-slide tr-delay-02 js-pointer-small">
+								<i class="fab fa-twitter"></i>
+							</a>
+						</div>
+					</li>
+					<li class="list__item">
+						<div class="hidden-box d-inline-block">
+							<a href="#" class="anim-slide tr-delay-04 js-pointer-small">
+								<i class="fab fa-instagram"></i>
+							</a>
+						</div>
+					</li>
+					<li class="list__item">
+						<div class="hidden-box d-inline-block">
+							<a href="#" class="anim-slide tr-delay-10 js-pointer-small">
+								<i class="fab fa-youtube"></i>
+							</a>
+						</div>
+					</li>
+				</ul>
+			</div><!-- header-social end -->
+		</header><!-- header end -->
+
+          {% include 'includes/navbar.html' %}
+
+			{% block content %}
+			
+			{% endblock %}
+
+        
+          {% comment %} {% include 'includes/footer.html' %} {% endcomment %}
+
+		<!-- scripts -->
+		<script src="{% static 'assets/js/plugins.js'%}"></script>
+		<script src="{% static 'assets/js/footer-reveal.js'%}"></script>
+		<script src="{% static 'assets/js/main.js'%}"></script>
+		<script src="{% static 'assets/js/footer-reveal_init.js'%}"></script>
+</body>
+</html>

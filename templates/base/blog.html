@@ -1,0 +1,70 @@
+{% extends 'index.html' %}
+{% block content %}
+
+{% load static %}
+		<!-- main start -->
+		<main class="js-animsition-overlay" data-animsition-overlay="true">
+			<!-- pos-rel start -->
+			<section id="up" class="pos-rel js-parallax-bg" style="background-image:url({% static 'assets/images/img/sliders/slide1.png' %})">
+				<!-- bg-overlay -->
+				<div class="bg-overlay-black"></div>
+				<!-- lines-container start -->
+				<div class="lines-container pos-rel anim-lines flex-min-height-100vh">
+					<div class="padding-top-bottom-120 width-100perc">
+					<!-- title start -->
+					<h2 class="headline-xl after-preloader-anim">
+						<span class="hidden-box d-block">
+							<span class="anim-slide tr-delay-01">
+								<font style="vertical-align: inherit;">
+									<font style="vertical-align: inherit;">LAYENE DIGITAL</font>
+								</font>
+							</span>
+						</span>
+						<span class="hidden-box d-block">
+							<span class="anim-slide tr-delay01">
+								<span class="text-color-red">
+									<font style="vertical-align: inherit;">
+										<font style="vertical-align: inherit;">LE PORTAIL DIGITAL</font>
+									</font>
+								</span>
+								<font style="vertical-align: inherit;">
+									<font style="vertical-align: inherit;">
+								</font></font>
+								</span>
+						</span>	
+						<span class="hidden-box d-block">
+							<span class="anim-slide tr-delay02">
+								<font style="vertical-align: inherit;"><span class="text-color-red"><font style="vertical-align: inherit;">DE LA COMMUNAUTÉ</font></span>
+								<font style="vertical-align: inherit;">LAYENE</font></font><span class="text-color-red"><font style="vertical-align: inherit;"></font></span>
+							</span>
+						</span>
+					</h2><!-- title end -->
+					</div>
+				</div><!-- lines-container end -->
+			</section><!-- pos-rel end -->
+
+			<!-- blog start -->
+			<div id="down" class="pos-rel section-bg-light-2" data-midnight="black">
+				<!-- pos-rel start -->
+				<div class="pos-rel padding-top-90 padding-bottom-120">
+					<!-- js-isotope-grid-box start -->
+					<div class="js-isotope-grid-box padding-top-10 margin-left-right-10">
+						<!-- grid-item start -->
+						{% for bg in blog %}
+							<article class="padding-top-20 grid-item-25-50-100 js-isotope-grid-item">
+								<div class="grid-margin-box_10px hover-box pos-rel">
+									<a href="{% url 'details' id=bg.id %}" class="d-block pos-rel hidden-box content-bg-dark-1 js-pointer-large js-animsition-link">
+										<img class="img-hover-scale" src="{{bg.photo.url}}" alt="Post">
+										<!-- bg-overlay -->
+										<div class="bg-overlay-black"></div>
+										<h3 class="pos-abs pos-left-bottom headline-xxxxs hover-move-right">{{bg.tittle}}</h3>
+									</a>
+								</div>
+							</article><!-- grid-item end -->
+						{% endfor %}
+					</div><!-- js-isotope-grid-box end -->
+				</div><!-- pos-rel end -->
+			</div><!-- blog end -->
+		</main><!-- main end -->
+
+{% endblock %}

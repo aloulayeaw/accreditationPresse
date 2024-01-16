@@ -1,0 +1,38 @@
+{% extends 'includes/admin/layout.html' %} 
+
+{% block title %} | Dashboard {% endblock %}
+{% block content %}
+            <div class="layout-px-spacing">
+                <div class="row layout-top-spacing">
+                
+                    <div class="col-xl-12 col-lg-12 col-sm-12 layout-spacing">
+                        <div class="widget-content widget-content-area br-6">
+                            <table id="invoice-list" class="table table-hover" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th class="checkbox-column"> # </th>
+                                        <th>Nom de L'entreprise</th>
+                                        <th>Responsable</th>
+                                        <th>Téléphone</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    {% for demand in demande %}                          
+                                        <tr>
+                                            <td>{{demand.id }}</td>
+                                            <td class="checkbox-column">{{demand.nom|upper }}</td>
+                                            <td><span class="inv-number">{{demand.responsable|upper }}</span></td>
+                                            <td>{{demand.telephone }}</td>
+                                            <td><a href="{% url 'presse_detail' demand.id %}"><button class="btn btn-primary mb-2">Voir Plus</button></a></td>
+                                            <td><demand style="width: 40px; heigth: 40px; border-radius: 20px;" src="{{ demand.photo.url }}"></td>
+                                        </tr>
+                                    {% endfor %}  
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+{% endblock %}

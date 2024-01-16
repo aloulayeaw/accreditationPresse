@@ -1,0 +1,172 @@
+{% load static %}
+<script type="text/javascript">
+  window.onload = printDiv;
+</script>
+<!DOCTYPE html>
+<html lang="fr">
+
+<!-- Mirrored from designreset.com/cork/ltr/demo3/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Jul 2021 14:22:52 GMT -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
+    <title>Espace Membre</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'assets/images/slide/logo/favicon2.png' %}"/>
+    <link href="{% static 'admin/assets/css/loader.css' %}" rel="stylesheet" type="text/css" />
+    <script src="{% static 'admin/assets/js/loader.js' %}"></script>
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
+    <link href="{% static 'admin/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'admin/assets/css/plugins.css' %}" rel="stylesheet" type="text/css" />
+    <!-- END GLOBAL MANDATORY STYLES -->
+
+    <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM STYLES -->
+    <link href="{% static 'admin/plugins/apex/apexcharts.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'admin/assets/css/dashboard/dash_1.css' %}" rel="stylesheet" type="text/css" />
+    <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
+    <link rel="stylesheet" type="text/css" href="/static/css/styletable.css" media="print" />
+
+
+</head>
+  <body onload="printDiv('printableArea');">
+  <div id="printableArea"><br><br>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <img class="header-logo__img white" src="{% static 'assets/images/slide/logo/logo-1.png' %}" alt="logo">
+        </div>
+        <div class="col">
+          <img class="" style="height: 130px;width: 110px;float:right;" src="{% static 'assets/images/slide/logo/khalif.png' %}" alt="logo">
+        </div>
+      </div>
+    </div>
+    <img class="" style="height: 400px;width: 100%" src="{% static 'assets/images/slide/logo/FORUM-APPEL-2022.jpg' %}" alt="logo">
+    <br><br>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title" style="color: black">Nom de l'entreprise</h5>
+            <p class="card-text" style="color: black">{{reponse.nom}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title" style="color: black">Eamil</h5>
+            <p class="card-text" style="color: black">{{reponse.email}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title" style="color: black">Adresse</h5>
+              <p class="card-text" style="color: black">{{reponse.adresse}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title" style="color: black">Contact</h5>
+              <p class="card-text" style="color: black">{{reponse.telephone}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title" style="color: black">Nombre de Journaliste</h5>
+              <p class="card-text" style="color: black">{{reponse.nbre}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title" style="color: black">Noms des Journalistes</h5>
+              <p class="card-text" style="color: black">{{reponse.pearson}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title" style="color: black">Nom du Responsable</h5>
+              <p class="card-text" style="color: black">{{reponse.responsable}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title" style="color: black">Date Demande</h5>
+              <p class="card-text" style="color: black">{{reponse.created_date}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title" style="color: black">Statut</h5>
+              <p class="card-text" style="color: black">{{reponse.statut}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="">
+            <div class="card-body">
+              <h5 class="card-title" style="color: black">{{ svg|safe }}</h5>
+            </div>
+          </div>
+        </div>
+    </div>
+    <p style="font-family: italic;color: black;">A présenter au groupement central pour recupérer son badge!</p>
+    <br><br><br>
+    <div class="footer-wrapper">
+      <div class="footer-section f-section-1">
+          <p class="" style="text-align: center;">Copyright © 2023 <a target="_blank" href="#">LAYENE DIGITAL</a></p>
+      </div>
+  </div>
+</div>
+<!--  END CONTENT AREA  -->
+
+</div>
+<!-- END MAIN CONTAINER -->
+
+
+<!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
+<script src="{% static 'admin/assets/js/libs/jquery-3.1.1.min.js' %}"></script>
+<script src="{% static 'admin/bootstrap/js/popper.min.js' %}"></script>
+<script src="{% static 'admin/bootstrap/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'admin/plugins/perfect-scrollbar/perfect-scrollbar.min.js' %}"></script>
+<script src="{% static 'admin/assets/js/app.js' %}"></script>
+<script>
+$(document).ready(function() {
+  App.init();
+});
+</script>
+<script src="{% static 'admin/assets/js/custom.js' %}"></script>
+<!-- END GLOBAL MANDATORY SCRIPTS -->
+
+<!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
+<script src="{% static 'admin/plugins/apex/apexcharts.min.js' %}"></script>
+<script src="{% static 'admin/assets/js/dashboard/dash_1.js' %}"></script>
+<!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
+</div>
+</body>
+</html>
+
+<script type="text/javascript">
+function printDiv(divName) {
+var printContents = document.getElementById(divName).innerHTML;
+var originalContents = document.body.innerHTML;
+document.body.innerHTML = printContents;
+window.print();
+document.body.innerHTML = originalContents;
+}
+</script>

@@ -1,0 +1,71 @@
+{% extends 'includes/admin/layout.html' %}
+{% load crispy_forms_tags %} 
+
+{% block title %} | Dashboard {% endblock %}
+{% block content %}
+    <div class="row" >
+    <br><br>
+        <h4 class="display-4" style="padding: 10px;">Demande de Presse</h4>
+       
+            <div class='col-sm-6 bg-transparent'>        
+                
+            </div>
+            <div class='col-sm-6'>
+                <ul class="list-group ">
+                    <li class="list-group-item d-flex justify-content-between align-items-center bg-transparent">
+                        Nom de L'entreprise
+                        <span class="badge badge-primary badge-pill"> {{presse_detail.nom}}</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center bg-transparent">
+                        Email
+                        <span class="badge badge-primary badge-pill"> {{presse_detail.email}}</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center bg-transparent">
+                        Téléphone
+                        <span class="badge badge-primary badge-pill"> {{presse_detail.telephone}} </span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center bg-transparent">
+                        Adresse
+                        <span class="badge badge-primary badge-pill"> {{presse_detail.adresse}} </span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class='col-sm-6'>
+                <ul class="list-group ">
+                    <li class="list-group-item d-flex justify-content-between align-items-center bg-transparent">
+                        Nombre de Personne
+                        <span class="badge badge-primary badge-pill"> {{presse_detail.nbre}}</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center bg-transparent">
+                        Les Personnes envoyés
+                        <span class="badge badge-primary badge-pill"> {{presse_detail.pearson}}</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center bg-transparent">
+                        Le Responsable
+                        <span class="badge badge-primary badge-pill"> {{presse_detail.responsable}} </span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center bg-transparent">
+                        Commentaire
+                        <span class="badge badge-primary badge-pill"> {{presse_detail.comments}} </span>
+                    </li>
+                </ul>
+            </div>
+
+    </div>
+                <div class="form-group row">
+                    <div class="col-sm-4">
+                    </div>
+                    <div class="col-sm-2">
+                        <a href="{% url 'presseAccepted' id=presse_detail.id %}">
+                            <button   class="btn btn-success  btn-rounded">Accepter</button>
+                        </a>
+                    </div>
+                    <div class="col-sm-2">
+                        <a  href="{% url 'presseDenied' presse_detail.id %}">
+                            <button class="btn btn-danger  btn-rounded">Refuser</button>
+                        </a>
+                    </div>
+                </div>
+{% endblock %}
+
