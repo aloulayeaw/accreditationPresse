@@ -4,7 +4,7 @@ from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractUser, Group, Permission
 
 from .managers import CustomUserManager
 import uuid
@@ -36,19 +36,41 @@ class CustomUser(AbstractUser):
         ('digital', 'digital'),
         )
 
+    ORGANE_CHOICES = (
+        ('TFM', 'TFM'),
+        ('SENEWEB', 'SENEWEB'),
+        ('autre', 'autre'),
+        )
+
     id = models.AutoField(primary_key=True) 
     email = models.EmailField(_("email address"), unique=True)
     address = models.CharField(max_length=255, blank=True, null=True)
     username = models.CharField(max_length=255, blank=True, null=True)
     #profession = models.CharField(max_length=45, blank=True)
     telephone = models.CharField(max_length=45, blank=True, null=True)
-    profile = models.CharField(choices=PROFILE_CHOICES, max_length=255,blank=True, null=True)     
+    profile = models.CharField(choices=PROFILE_CHOICES, max_length=255,blank=True, null=True)
+    organe = models.CharField(choices=ORGANE_CHOICES, max_length=255,blank=True, null=True)      
     date_joined = models.DateTimeField(default=timezone.now)
-    
+    groups = models.ManyToManyField(
+        Group,
+        verbose_name=_('groups'),
+        blank=True,
+        related_name='customuser_groups',  # Nom d'accessor inversé personnalisé pour les groupes
+        related_query_name='customuser',
+    )
+
+    # Champ d'autorisations d'utilisateur avec un related_name personnalisé
+    user_permissions = models.ManyToManyField(
+        Permission,
+        verbose_name=_('user permissions'),
+        blank=True,
+        related_name='customuser_permissions',  # Nom d'accessor inversé personnalisé pour les autorisations d'utilisateur
+        related_query_name='customuser',
+    )
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []
 
-    #objects = CustomUserManager()
+    objects = CustomUserManager()
     
     def __str__(self):
         return self.username

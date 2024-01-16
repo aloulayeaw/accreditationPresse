@@ -3,15 +3,15 @@
                 <div class="row layout-top-spacing">
 
                     <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12 layout-spacing">
-                        <div class="widget-two">
+                        <div class="widget widget-three">
                                 <div class="widget-content">
                                     <div class="card">
-                                            <h5 class="card-header">Nombre de demande</h5>
+                                            <h5 class="card-header">Demande En Cours</h5>
                                             <div class="card-body">
                                             {% if response == 0 %}
-                                                <button class="btn btn-primary">0</button>
+                                                <button class="btn btn-warning">0</button>
                                             {% else %}
-                                                <button class="btn btn-primary">1</button>
+                                                <button class="btn btn-warning">{{response}}</button>
                                             {% endif %}
                                             </div>
                                     </div>
@@ -25,9 +25,22 @@
                         <div class="widget widget-three">
                             <div class="widget-heading">
                                   <div class="card">
-                                        <h5 class="card-header">Nombre de réponses</h5>
+                                        <h5 class="card-header">Demande Traités</h5>
                                         <div class="card-body">
-                                            <button class="btn btn-primary">{{response}}</button>
+                                            <button class="btn btn-success">{{response}}</button>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12 layout-spacing">
+                        <div class="widget widget-three">
+                            <div class="widget-heading">
+                                  <div class="card">
+                                        <h5 class="card-header">Nombre de Personnes Total</h5>
+                                        <div class="card-body">
+                                            <button class="btn btn-info">{{somme_totale}}</button>
                                         </div>
                                     </div>
 
@@ -35,8 +48,89 @@
                         </div>
                     </div>
 
-
                 </div>
+                <br><br><br>   
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8 d-flex justify-content-center">
+                            <div id="Personne-chart"></div>
+                        </div>
+                        <div class="col-md-6 d-flex justify-content-center">
+                            <!-- Ajoutez ceci à votre modèle HTML pour afficher le graphique -->
+                            <div id="hashtags-chart"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <script>
+                    Highcharts.chart('Personne-chart', {
+                        chart: {
+                            type: 'column'
+                        },
+                        title: {
+                            text: 'Nombre de Personne par Organe'
+                        },
+                        xAxis: {
+                            categories: {{ organe_values|safe }}
+                        },
+                        yAxis: {
+                            title: {
+                                text: 'Nombre de Personne'
+                            }
+                        },
+                        series: [{
+                            name: 'Nombre de Personne',
+                            data: {{ nbre_values|safe }},
+                            colorByPoint: true,
+                            dataLabels: {
+                                enabled: true,
+                                format: '{point.y:.0f}'
+                            }
+                        }],
+                        drilldown: {
+                            series: [{
+                                name: 'Détails',
+                                id: 'details',
+                                data: [
+                                    {% for organe, nbre in organe_nbre_details %}
+                                    ['{{ organe }}', {{ nbre }}],
+                                    {% endfor %}
+                                ]
+                            }]
+                        }
+                    });
+                </script>
+                <!-- Ajoutez ce script JavaScript à votre modèle HTML -->
+                {% comment %} <script>
+                    Highcharts.chart('hashtags-chart', {
+                        chart: {
+                            type: 'column'
+                        },
+                        title: {
+                            text: 'Tweets avec le hashtag #Appel2023'
+                        },
+                        xAxis: {
+                            categories: {{ tweet_dates|safe }},
+                            title: {
+                                text: 'Date et heure'
+                            }
+                        },
+                        yAxis: {
+                            title: {
+                                text: 'Texte du tweet'
+                            }
+                        },
+                        series: [{
+                            name: 'Tweets',
+                            data: {{ tweet_texts|safe }}
+                        }]
+                    });
+                </script>
 
-            </div>
+            </div> {% endcomment %}
 
+
+<br><br><br><br>
+                
+                

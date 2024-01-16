@@ -10,26 +10,44 @@
                             <table id="invoice-list" class="table table-hover" style="width:100%">
                                 <thead>
                                     <tr>
-                                        <th class="checkbox-column"> # </th>
-                                        <th style="text-align: center;">Nom de L'entreprise</th>
+                                        {% comment %} <th class="checkbox-column"> # </th> {% endcomment %}
+                                        <th style="text-align: center;">Organe de Presse</th>
                                         <th style="text-align: center;">Responsable</th>
+                                        <th style="text-align: center;">Télephone</th>
                                         <th style="text-align: center;">Statut</th>
                                         <th style="text-align: center;">Mon Badge</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {% for deman in demand %}                          
-                                        <tr>
-                                            <td>{{deman.id }}</td>
-                                            <td class="checkbox-column" style="text-align: center;">{{deman.nom|upper }}</td>
-                                            <td style="text-align: center;"><span class="inv-number">{{deman.responsable|upper }}</span></td>
-                                            <td style="text-align: center;"><button class="btn btn-primary mb-2">{{ deman.statut }}</button></td>
-                                            {% if deman.statut == "Accepted" %}
-                                                <td style="text-align: center;">
-                                                  <a target="_blank" class="btn btn-primary btn-wide" href="{% url 'print_badge_pdf' deman.id %}">Télécharger le badge</a></td>
-                                            {% endif %}
-                                        </tr>
-                                    {% endfor %}  
+                                    {% if request.user.profile == 'presse'%}
+                                        {% for deman in demandes_user %}                          
+                                            <tr>
+                                                {% comment %} <td>{{deman.id }}</td> {% endcomment %}
+                                                <td class="checkbox-column" style="text-align: center;">{{deman.user.organe|upper }}</td>
+                                                <td style="text-align: center;"><span class="inv-number">{{deman.responsable|upper }}</span></td>
+                                                <td style="text-align: center;"><span class="inv-number">{{deman.telephone|upper }}</span></td>
+                                                <td style="text-align: center;"><button class="btn btn-primary mb-2">{{ deman.statut }}</button></td>
+                                                {% if deman.statut == "Accepted" %}
+                                                    <td style="text-align: center;">
+                                                    <a target="_blank" class="btn btn-primary btn-wide" href="{% url 'print_badge_pdf' deman.id %}">Télécharger le badge</a></td>
+                                                {% endif %}
+                                            </tr>
+                                        {% endfor %}  
+                                    {% else %}
+                                        {% for deman in demand %}                          
+                                            <tr>
+                                                {% comment %} <td>{{deman.id }}</td> {% endcomment %}
+                                                <td class="checkbox-column" style="text-align: center;">{{deman.user.organe|upper }}</td>
+                                                <td style="text-align: center;"><span class="inv-number">{{deman.responsable|upper }}</span></td>
+                                                <td style="text-align: center;"><span class="inv-number">{{deman.telephone|upper }}</span></td>
+                                                <td style="text-align: center;"><button class="btn btn-primary mb-2">{{ deman.statut }}</button></td>
+                                                {% if deman.statut == "Accepted" %}
+                                                    <td style="text-align: center;">
+                                                    <a target="_blank" class="btn btn-primary btn-wide" href="{% url 'print_badge_pdf' deman.id %}">Télécharger le badge</a></td>
+                                                {% endif %}
+                                            </tr>
+                                        {% endfor %}  
+                                    {% endif %} 
                                 </tbody>
                             </table>
                         </div>

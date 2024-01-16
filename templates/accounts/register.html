@@ -1,182 +1,542 @@
 {% extends 'index.html' %}
 
-{% block title %} | Register {% endblock %}
 {% block content %}
-{% load static %}
 
+{% load static %}
 		<!-- main start -->
 		<main class="js-animsition-overlay" data-animsition-overlay="true">
-			<!-- pos-rel start -->
-			<section id="up" class="pos-rel js-parallax-bg" style="background-image:url({% static 'assets/images/slide/1.jpg' %})">
-				<!-- bg-overlay -->
-				<div class="bg-overlay-black"></div>
+			    
+			{% comment %} <div style="margin: 0px;height: 100vh;width: 100vw;padding-top: 0px;background-image:url({% static 'assets/images/img/sliders/slide_jaamalahi.png' %});background-repeat: no-repeat;background-size: 230vh 100vh;text-align: center;color: white;"> {% endcomment %}
+				
+					{% comment %} <h5>Hello World</h5> {% endcomment %}
+				
+					<section class="pos-rel bg-img-cover" style="background-image:url({% static 'assets/images/img/sliders/slide_jaamalahi.png' %})">
+					<!-- bg-overlay -->
+					<div class="bg-overlay-black"></div>
+					<!-- pos-rel start -->
+					<div class="pos-rel flex-min-height-10vh">
+						<!-- container start -->
+						<div style="width: 380px;"  class="container small padding-top-bottom-70 form-box">
+							<img class="header-logo__img white" style="margin-left: 100px;" src="{% static 'assets/images/slide/logo/logo-1.png' %}" alt="logo">
+							<br><br>
+							<h5 class="text-center ">Bienvenue sur notre plateforme d'accrédfitations des badges Presse</h5>
+							<br><br>
+							<h5 class="text-center ">Veiller vous Inscrire</h5>
+										<div class="contact-section">
+					            </div>  
+							{% include 'includes/messages.html' %}
+							<!-- flex-container start -->
+							<form action="{% url 'register' %}" method="POST" name="formobrsv" id="send_form" class="padding-top-5" style="padding: 10px; margin: 10px;">
+								{% csrf_token %}
+								<div class="four-columns" style="font-size: 15px;height: 05px;">
+									<div class="column-l-margin-5 js-pointer-small" style="font-size: 15px; height: 30px;">
+										<div style="text-align: center;">
+											<label for="profile">Entité</label>
+										</div>
+											<br>
+										<select name="profile" id="profile" style="color: black;" required placeholder="Presse" class="form-input js-pointer-small">
+											<option style="color: black; font-size: 18px;" value="" disabled selected class="w12 text-center">-----------</option>
+											<!-- <option style="color: black; font-size: 18px;" name="profile" class="w12 text-center" value="groupecentrale">groupecentrale</option> -->
+											<option style="color: black; font-size: 18px;" name="profile" class="w12 text-center" value="presse">presse</option>
+										</select>
+									</div>
+								</div>
+								<br><br><br><br><br>
+								<div class="four-columns" style="font-size: 15px;height: 05px;">
+									<div class="column-l-margin-5 js-pointer-small" style="font-size: 15px; height: 30px;">
+										<div style="text-align: center;">
+											<br><br>
+											<label for="profile">Organe</label>
+										</div>
+											<br>
+										<select name="organe" id="profile" style="color: black;" required placeholder="Organe" class="form-input js-pointer-small">
+											<option style="color: black; font-size: 18px;" value="" disabled selected class="w12 text-center">-----------</option>
+											<option style="color: black; font-size: 18px;" name="organe" class="w12 text-center">TFM</option>
+											<option style="color: black; font-size: 18px;" name="organe" class="w12 text-center">Seneweb</option>
+											<option style="color: black; font-size: 18px;" name="organe" class="w12 text-center">DakarActu</option>
+											<option style="color: black; font-size: 18px;" name="organe" class="w12 text-center">Walf</option>
+											<option style="color: black; font-size: 18px;" name="organe" class="w12 text-center">D-Média</option>
+											<option style="color: black; font-size: 18px;" name="organe" class="w12 text-center">Dakar Instant</option>
+											<option style="color: black; font-size: 18px;" name="organe" class="w12 text-center">Actu SN</option>
+											<option style="color: black; font-size: 18px;" name="organe" class="w12 text-center">2STV</option>
+											<option style="color: black; font-size: 18px;" name="organe" class="w12 text-center">SeneNews</option>
+											<option style="color: black; font-size: 18px;" name="organe" class="w12 text-center">DakarInstant</option>
+											<option style="color: black; font-size: 18px;" name="organe" class="w12 text-center">Autre</option>								
+										</select>
+									</div>
+								</div>
+								<br><br><br>
+								<div style="font-size: 15px;height: 30px;" class="four-columns">
+									<div class="column-l-margin-10">
+										<div style="text-align: center;">
+											<br><br>
+											<label for="firstname" style="text-align: center;">Nom</label>
+										</div>
+										<br>
+										<input type="text" name="firstname" id="firstname" placeholder="Nom" required class="form-input js-pointer-small">
+									</div>
+								</div>
+								<br><br><br>
+								<div style="font-size: 15px; height: 30px;" class="four-columns">
+									<div class="column-l-margin-10">
+										<div style="text-align: center;">
+											<br><br>
+											<label for="lastname">Prenom</label>
+										</div>
+											<br>
+										<input type="text" name="lastname" id="lastname" placeholder="Prenom" required class="form-input js-pointer-small">
+									</div>
+								</div>
+								<br><br><br>
+								<div style="font-size: 15px; height: 30px;" class="four-columns">
+									<div class="column-l-margin-10">
+										<div style="text-align: center;">
+											<br><br>
+											<label for="username">Username</label>
+										</div>
+											<br>
+										<input type="text" name="username" id="username" placeholder="Username" required class="form-input js-pointer-small">
+									</div>
+								</div>
+								<br><br><br>
+								<div style="font-size: 15px; height: 30px;" class="four-columns">
+									<div class="column-l-margin-10">
+										<div style="text-align: center;">
+											<br><br>
+											<label for="email">Email</label>
+										</div>
+											<br>
+										<input type="email" name="email" id="email" placeholder="Email" required class="form-input js-pointer-small">
+									</div>
+								</div>
+								<br><br><br>
+								<div style="font-size: 15px; height: 30px;" class="four-columns">
+									<div class="column-l-margin-10">
+										<div style="text-align: center;">
+											<br><br>
+											<label for="password">Mot de passe</label>
+										</div>
+											<br>
+										<input type="password" name="password" id="password" placeholder="Password" required class="form-input js-pointer-small">
+									</div>
+								</div>
+								<br><br><br>
+								<div style="font-size: 15px; height: 30px;" class="four-columns">
+									<div class="column-l-margin-10">
+										<div style="text-align: center;">
+											<br><br>
+											<label for="confirm_password">Confirmation Mot de passe</label>
+										</div>
+											<br>
+										<input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm Password" required class="form-input js-pointer-small">
+									</div>
+								</div>
+								<br><br><br>
+								<div style="margin-top: 35px;" class="twelve-columns text-center padding-top-30">
+									<button id="send" class="border-btn js-pointer-large">
+										<span class="border-btn__inner btn-outline-warning">S'Inscrire</span>
+										<span class="btn-wait">Wait</span>
+										<span class="border-btn__lines-1"></span>
+										<span class="border-btn__lines-2"></span>
+									</button>
+									<br><br>
+									<div class="extra-login clearfix">
+										<button style="color: white;" class="border-btn js-pointer-large">Ou <a class="btn-outline-warning" style="color: white;" href="{% url 'login' %}"> Se Connecter</a></button>
+									</div>
+								</div>
+								<!-- column end -->
+								<div class="clearfix"></div>
+								<ul class="social-list">
+								</ul>
+							</form>
+							
+						
+						</div><!-- container end -->
+
+						
+						<!-- alert start -->
+						<div class="js-popup-fade" id="m_sent">
+							<div class="js-popup">
+								<div class="popup-icon">
+									<i class="fas fa-check"></i>
+								</div>
+								<p class="popup-alert headline-xs">
+									Thank you!<br>
+									Your submission<br>
+									has been received!
+								</p>
+								<div class="js-popup-close js-pointer-large">
+									<div class="flip-btn" data-text="Close">Close</div>
+								</div>
+							</div>
+						</div><!-- alert end -->
+	
+						<!-- alert start -->
+						<div class="js-popup-fade" id="m_err">
+							<div class="js-popup">
+								<div class="popup-icon">
+									<i class="fas fa-times"></i>
+								</div>
+								<p class="popup-alert headline-xs">Error</p>
+								<div class="js-popup-close js-pointer-large">
+									<div class="flip-btn" data-text="Close">Close</div>
+								</div>
+							</div>
+						</div><!-- alert end -->
+					</div><!-- pos-rel end -->
+				</section>
+			</div>
+
+			{% comment %} <script>
+				$(document).ready(function() {
+				  $("#send").click(function(e) {
+					e.preventDefault(); // Empêchez le formulaire de se soumettre immédiatement
+				
+					// Désactivez le bouton pendant l'animation de chargement
+					$(this).prop("disabled", true);
+				
+					// Ajoutez la classe "loading" pour montrer l'animation de chargement
+					$(this).find(".btn-wait").addClass("active");
+				
+					// Récupérez les données du formulaire
+					var formData = {
+					  firstname: $("#firstname").val(),
+					  lastname: $("#lastname").val(),
+					  username: $("#username").val(),
+					  email: $("#email").val(),
+					  password: $("#password").val(),
+					  confirm_password: $("#confirm_password").val(),
+					  profile: $("#profile").val(),
+					  organe: $("#organe").val()
+					};
+				
+					// Envoyez les données du formulaire via AJAX
+					$.ajax({
+					  type: "POST",
+					  url: "{% url 'register' %}", // Remplacez par l'URL de votre vue de traitement
+					  data: formData,
+					  success: function(response) {
+						// Redirigez l'utilisateur après la réponse réussie (par exemple, vers la page de connexion)
+						window.location.href = "{% url 'login' %}"; // Remplacez par l'URL de redirection souhaitée
+					  },
+					  error: function(error) {
+						// Gérez les erreurs ici (par exemple, afficher un message d'erreur à l'utilisateur)
+						console.error(error);
+					  }
+					});
+				  });
+				});
+			</script> {% endcomment %}
+				
+			<!-- portfolio start -->
+			{% comment %} <section class="pos-rel section-bg-light-2" data-midnight="black">
 				<!-- pos-rel start -->
-				<div class="pos-rel flex-min-height-100vh">
-					<div class="padding-top-bottom-120 container small after-preloader-anim">
+				<div class="pos-rel padding-top-bottom-120">
+					<!-- title start -->
+					<h2 class="headline-xxxl text-color-black text-center hidden-box js-scrollanim">
+						<span class="anim-slide">
+							QUELQUES <span class="text-color-red">RÉALISATIONS</span>
+						</span>
+					</h2><!-- title end -->
+					</div><!-- filter-buttons end -->
+
+					<!-- js-isotope-filter-grid-box start -->
+					<div class="js-isotope-filter-grid-box container full">
+						<!-- empty grid -->
+						<div class="js-isotope-filter-grid-item empty-grid-1px-33-50-none"></div>
+						<div class="js-isotope-filter-grid-item empty-grid-200px-33-none"></div>
+						<div class="js-isotope-filter-grid-item empty-grid-100px-33-50-none"></div>
+
+						<!-- grid-item start -->
+						<div class="padding-top-60 grid-item-33-50-100 js-isotope-filter-grid-item branding">
+							<a href="" class="grid-margin-box hover-box js-animsition-link js-pointer-large">
+								<div class="anim-img-scale anim-img-scale_hover js-img-scale">
+									<img class="anim-img-scale__inner" src="{% static 'assets/images/slide/11.jpg' %}" alt="">
+								</div>
+								<div class="margin-top-10 js-scrollanim">
+									<span class="hidden-box d-block">
+										<span class="subhead-xxs text-color-red anim-slide"></span>
+									</span>
+									<h3 class="hidden-box" style="color: white;">
+										<span class="headline-xxxs text-color-black anim-slide tr-delay-02" style="color: white;"> KORI 2021</span>
+									</h3>
+								</div>
+							</a>
+						</div><!-- grid-item end -->
+
+						<!-- grid-item start -->
+						<div class="padding-top-60 grid-item-33-50-100 js-isotope-filter-grid-item marketing">
+							<a href="" class="grid-margin-box hover-box js-animsition-link js-pointer-large">
+								<div class="anim-img-scale anim-img-scale_hover js-img-scale">
+									<img class="anim-img-scale__inner" src="{% static 'assets/images/slide/2.jpg' %}" alt="">
+								</div>
+								<div class="margin-top-10 js-scrollanim">
+									<span class="hidden-box d-block">
+										<span class="subhead-xxs text-color-red anim-slide"></span>
+									</span>
+									<h3 class="hidden-box" style="color: white;">
+										<span class="headline-xxxs text-color-black anim-slide tr-delay-02" style="color: white;">KOOR 2021</span>
+									</h3>
+								</div>
+							</a>
+						</div><!-- grid-item end -->
+
+						<!-- grid-item start -->
+						<div class="padding-top-60 grid-item-33-50-100 js-isotope-filter-grid-item marketing">
+							<a href="" class="grid-margin-box hover-box js-animsition-link js-pointer-large">
+								<div class="anim-img-scale anim-img-scale_hover js-img-scale">
+									<img class="anim-img-scale__inner" src="{% static 'assets/images/slide/3.jpg' %}" alt="">
+								</div>
+								<div class="margin-top-10 js-scrollanim">
+									<span class="hidden-box d-block">
+										<span class="subhead-xxs text-color-red anim-slide"></span>
+									</span>
+									<h3 class="hidden-box" style="color: white;">
+										<span class="headline-xxxs text-color-black anim-slide tr-delay-02" style="color: white;">Xutba yawmal Jummah</span>
+									</h3>
+								</div>
+							</a>
+						</div><!-- grid-item end -->
+
+						<!-- grid-item start -->
+						<div class="padding-top-60 grid-item-33-50-100 js-isotope-filter-grid-item photoshoot">
+							<a href="" class="grid-margin-box hover-box js-animsition-link js-pointer-large">
+								<div class="anim-img-scale anim-img-scale_hover js-img-scale">
+									<img class="anim-img-scale__inner" src="{% static 'assets/images/images/slide/4.jpg' %}" alt="">
+								</div>
+								<div class="margin-top-10 js-scrollanim">
+									<span class="hidden-box d-block">
+										<span class="subhead-xxs text-color-red anim-slide"></span>
+									</span>
+									<h3 class="hidden-box" style="color: white;">
+										<span class="headline-xxxs text-color-black anim-slide tr-delay-02" style="color: white;">Xutba yawmal Jummah</span>
+									</h3>
+								</div>
+							</a>
+						</div><!-- grid-item end -->
+
+						<!-- grid-item start -->
+						<div class="padding-top-60 grid-item-33-50-100 js-isotope-filter-grid-item marketing">
+							<a href="" class="grid-margin-box hover-box js-animsition-link js-pointer-large">
+								<div class="anim-img-scale anim-img-scale_hover js-img-scale">
+									<img class="anim-img-scale__inner" src="{% static 'assets/images/slide/5.jpg' %}" alt="">
+								</div>
+								<div class="margin-top-10 js-scrollanim">
+									<span class="hidden-box d-block">
+										<span class="subhead-xxs text-color-red anim-slide"></span>
+									</span>
+									<h3 class="hidden-box" style="color: white;">
+										<span class="headline-xxxs text-color-black anim-slide tr-delay-02" style="color: white;">Xutba yawmal Jummah</span>
+									</h3>
+								</div>
+							</a>
+						</div><!-- grid-item end -->
+
+						<!-- grid-item start -->
+						<div class="padding-top-60 grid-item-33-50-100 js-isotope-filter-grid-item marketing">
+							<a href="" class="grid-margin-box hover-box js-animsition-link js-pointer-large">
+								<div class="anim-img-scale anim-img-scale_hover js-img-scale">
+									<img class="anim-img-scale__inner" src="{% static 'assets/images/slide/6.jpg' %}" alt="">
+								</div>
+								<div class="margin-top-10 js-scrollanim">
+									<span class="hidden-box d-block">
+										<span class="subhead-xxs text-color-red anim-slide"></span>
+									</span>
+									<h3 class="hidden-box" style="color: white;">
+										<span class="headline-xxxs text-color-black anim-slide tr-delay-02" style="color: white;">Xutba yawmal Jummah</span>
+									</h3>
+								</div>
+							</a>
+						</div><!-- grid-item end -->
+
+						<!-- grid-item start -->
+						<div class="padding-top-60 grid-item-33-50-100 js-isotope-filter-grid-item photoshoot">
+							<a href="" class="grid-margin-box hover-box js-animsition-link js-pointer-large">
+								<div class="anim-img-scale anim-img-scale_hover js-img-scale">
+									<img class="anim-img-scale__inner" src="{% static 'assets/images/slide/7.jpg' %}" alt="">
+								</div>
+								<div class="margin-top-10 js-scrollanim">
+									<span class="hidden-box d-block">
+										<span class="subhead-xxs text-color-red anim-slide"></span>
+									</span>
+									<h3 class="hidden-box" style="color: white;">
+										<span class="headline-xxxs text-color-black anim-slide tr-delay-02" style="color: white;">APPEL 2021</span>
+									</h3>
+								</div>
+							</a>
+						</div><!-- grid-item end -->
+
+						<!-- grid-item start -->
+						<div class="padding-top-60 grid-item-33-50-100 js-isotope-filter-grid-item photoshoot">
+							<a href="" class="grid-margin-box hover-box js-animsition-link js-pointer-large">
+								<div class="anim-img-scale anim-img-scale_hover js-img-scale">
+									<img class="anim-img-scale__inner" src="{% static 'assets/images/slide/8.jpg' %}" alt="">
+								</div>
+								<div class="margin-top-10 js-scrollanim">
+									<span class="hidden-box d-block">
+										<span class="subhead-xxs text-color-red anim-slide"></span>
+									</span>
+									<h3 class="hidden-box" style="color: white;">
+										<span class="headline-xxxs text-color-black anim-slide tr-delay-02" style="color: white;">Xutba yawmal Jummah</span>
+									</h3>
+								</div>
+							</a>
+						</div><!-- grid-item end -->
+
+						<!-- grid-item start -->
+						<div class="padding-top-60 grid-item-33-50-100 js-isotope-filter-grid-item branding">
+							<a href="" class="grid-margin-box hover-box js-animsition-link js-pointer-large">
+								<div class="anim-img-scale anim-img-scale_hover js-img-scale">
+									<img class="anim-img-scale__inner" src="{% static 'assets/images/slide/9.jpg' %}" alt="">
+								</div>
+								<div class="margin-top-10 js-scrollanim">
+									<span class="hidden-box d-block">
+										<span class="subhead-xxs text-color-red anim-slide"></span>
+									</span>
+									<h3 class="hidden-box" style="color: white;">
+										<span class="headline-xxxs text-color-black anim-slide tr-delay-02" style="color: white;">Xutba yawmal Jummah</span>
+									</h3>
+								</div>
+							</a>
+						</div><!-- grid-item end -->
+
+						<!-- grid-item start -->
+						<div class="padding-top-60 grid-item-33-50-100 js-isotope-filter-grid-item branding">
+							<a href="" class="grid-margin-box hover-box js-animsition-link js-pointer-large">
+								<div class="anim-img-scale anim-img-scale_hover js-img-scale">
+									<img class="anim-img-scale__inner" src="{% static 'assets/images/slide/10.jpg' %}" alt="">
+								</div>
+								<div class="margin-top-10 js-scrollanim">
+									<span class="hidden-box d-block">
+										<span class="subhead-xxs text-color-red anim-slide"></span>
+									</span>
+									<h3 class="hidden-box" style="color: white;">
+										<span class="headline-xxxs text-color-black anim-slide tr-delay-02" style="color: white;">APPEL 2021</span>
+									</h3>
+								</div>
+							</a>
+							<br><br>
+						</div><!-- grid-item end -->
+					</div><!-- js-isotope-filter-grid-box end -->
+				</div><!-- pos-rel end -->
+			</section><!-- portfolio end -->
+						<!-- recent posts start -->
+			<section class="pos-rel section-bg-dark-1">
+				<!-- pos-rel start -->
+				<div class="pos-rel padding-top-bottom-120">
+					<!-- title start -->
 						<!-- title start -->
-						<h2 class="headline-xl">
-							<span class="hidden-box d-block">
-								<span class="anim-slide">LAYENE DIGITAL</span>
-							</span>
-							<span class="hidden-box d-block">
-								<span class="anim-slide tr-delay-01">LE PORTAIL DIGITAL</span>
-							</span>
-							<span class="hidden-box d-block">
-								<span class="anim-slide tr-delay-02">DE LA COMMUNAUTÉ LAYENE</span>
+						<h2 class="headline-xxl text-color-black text-center hidden-box">
+							<span class="anim-slide js-scrollanim" style="color: white;">
+								QUELQUES <span class="text-color-red">ARTICLES</span>
 							</span>
 						</h2><!-- title end -->
-					</div>
+
+					<!-- js-2-view-slider start -->
+					<div class="js-2-view-slider padding-top-bottom-90 hidden-box pos-rel">
+						<!-- swiper-wrapper start -->
+						<div class="swiper-wrapper">
+
+							{% for bg in blog %}
+							<article class="swiper-slide">
+									<div class="hover-box hidden-box pos-rel margin-left-right-20">
+										<a href="{% url 'details' id=bg.id %}" class="d-block js-animsition-link js-pointer-large">
+											<img class="img-hover-scale" src="{{ bg.photo.url }}" alt="Post">
+											<h3 class="headline-xxxs pos-abs pos-left-bottom hover-move-right">
+												<span class="hidden-box d-block">
+													<span class="anim-slide">{{bg.tittle}}</span>
+												</span>
+												{{ form.media }}
+												<span class="hidden-box d-block">
+													<span class="anim-slide tr-delay-01">{{bg.text|safe|truncatewords:5 }}</span>
+												</span>
+											</h3>
+										</a>
+										<ul class="pos-abs pos-left-top list list_row list_margin-55px">
+											<li class="list__item">
+												<a href="#" class="subhead-xxs hover-text-fill js-pointer-small" data-text="{{ bg.auteur }}">{{ bg.auteur }}</a>
+											</li>
+											<li class="list__item">
+												<a href="#" class="subhead-xxs hover-text-fill tr-delay-02 js-pointer-small" data-text="{{ bg.auteur }}">{{ bg.auteur }}</a>
+											</li>
+										</ul>
+									</div>
+									
+								</article><!-- swiper-slide end -->
+								{% endfor %}
+						</div><!-- swiper-wrapper end -->
+
+						<!-- swiper-button-prev start -->
+						<div class="swiper-button-prev-box">
+							<div class="swiper-button-prev"></div>
+						</div><!-- swiper-button-prev end -->
+						<!-- swiper-button-next start -->
+						<div class="swiper-button-next-box">
+							<div class="swiper-button-next"></div>
+						</div><!-- swiper-button-next end -->
+
+						<!-- swiper-pagination start -->
+						<div class="pagination-box">
+							<div class="swiper-pagination counter-pagination"></div>
+						</div><!-- swiper-pagination end -->
+					</div><!-- js-2-view-slider end -->
 				</div><!-- pos-rel end -->
-			</section><!-- pos-rel end -->
+			</section><!-- recent posts end --> {% endcomment %}
 
+			{% comment %} <section class="pos-rel section-bg-light-2">
+					 <!-- js-infinite-slider start -->
+						<div class="js-infinite-slider hidden-box padding-top-120" >
+							<!-- swiper-wrapper start -->
+							<div class="swiper-wrapper">
+								<!-- swiper-slide start -->
+								<div class="swiper-slide text-center">
+									<img class="client-logo" src="{% static 'assets/images/img/commission/commission-2.jpg' %}" alt="clients logo">
+								</div><!-- swiper-slide end -->
 
-			<!-- form section start -->
-			<section class="pos-rel bg-img-cover" style="background-image:url({% static 'assets/images/slide/slide1.png' %})">
-				<!-- bg-overlay -->
-				<div class="bg-overlay-black"></div>
-				<!-- pos-rel start -->
-				<div class="pos-rel flex-min-height-100vh">
-					<!-- container start -->
-					<div class="container small padding-top-bottom-120 form-box">
-						<h4 class="headline-xxxxs text-center">Lets Get In Touch!</h4>
-                                    <div class="contact-section">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12 col-md-12">
-                            <div class="form-section">
-                                <div class="logo-2">
-                                    <a href="index.html">
-                                        <img src="{% static 'img/logos/black-logo.png' %}" alt="logo">
-                                    </a>
-                                </div>
-                                <h3>Create an account</h3>
+								<!-- swiper-slide start -->
+								<div class="swiper-slide text-center">
+									<img class="client-logo" src="{% static 'assets/images/img/commission/commission-2.jpg' %}" alt="clients logo">
+								</div><!-- swiper-slide end -->
 
-                                {% include 'includes/messages.html' %}
-                                <form action="{% url 'register' %}" method="POST">
-                                {% csrf_token %}
-                                    <div class="form-group form-box">
-                                        <input type="text" name="firstname" class="input-text" placeholder="First Name" required>
-                                        <i class="fa fa-user"></i>
-                                    </div>
-                                    <div class="form-group form-box">
-                                        <input type="text" name="lastname" class="input-text" placeholder="Last Name" required>
-                                        <i class="fa fa-user"></i>
-                                    </div>
-                                    <div class="form-group form-box">
-                                        <input type="text" name="username" class="input-text" placeholder="Username" required>
-                                        <i class="fa fa-user"></i>
-                                    </div>
-                                    <div class="form-group form-box">
-                                        <input type="email" name="email" class="input-text" placeholder="Email Address" required>
-                                        <i class="flaticon-mail"></i>
-                                    </div>
-                                    <div class="form-group form-box">
-                                        <input type="password" name="password" class="input-text" placeholder="Password" required>
-                                        <i class="flaticon-lock"></i>
-                                    </div>
-                                    <div class="form-group form-box">
-                                        <input type="password" name="confirm_password" class="input-text" placeholder="Confirm Password" required>
-                                        <i class="flaticon-lock"></i>
-                                    </div>
-                                    <div class="form-group mb-0 clearfix">
-                                        <button type="submit" class="btn-md btn-theme float-left">Register</button>
-                                    </div>
-                                    <div class="extra-login clearfix">
-                                        <span>Or Login With</span>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                    <ul class="social-list">
-                                    </ul>
-                                </form>
-                                <p>Already a member? <a href="{% url 'login' %}" class="thembo"> Login here</a></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-						<!-- flex-container start -->
-						<form action="#" method="post" name="formobrsv" id="send_form" class="flex-container padding-top-90">
-							<!-- column start -->
-							<div class="four-columns">
-								<div class="column-r-margin-10">
-									<input type="text" name="first_name" placeholder="Enter your name" id="first_name" required class="form-input js-pointer-small">
-								</div>
-							</div><!-- column end -->
-							<!-- column start -->
-							<div class="four-columns">
-								<div class="column-l-r-margin-5">
-									<input type="text" name="last_name" placeholder="Enter your last name" id="last_name" required class="form-input js-pointer-small">
-								</div>
-							</div><!-- column end -->
-							<!-- column start -->
-							<div class="four-columns">
-								<div class="column-l-margin-10">
-									<input type="email" name="email" placeholder="Enter your email address" id="email" required class="form-input js-pointer-small">
-								</div>
-							</div><!-- column end -->
-							<!-- column start -->
-							<div class="twelve-columns">
-								<textarea name="message" placeholder="Enter your message" id="message" required class="form-input js-pointer-small"></textarea>
-							</div><!-- column end -->
-							<!-- column start -->
-							<div class="twelve-columns text-center padding-top-90">
-								<button id="send" class="border-btn js-pointer-large">
-									<span class="border-btn__inner">submit</span>
-									<span class="btn-wait">Wait</span>
-									<span class="border-btn__lines-1"></span>
-									<span class="border-btn__lines-2"></span>
-								</button>
-							</div><!-- column end -->
-						</form><!-- flex-container end -->
-					</div><!-- container end -->
+								<!-- swiper-slide start -->
+								<div class="swiper-slide text-center">
+									<img class="client-logo" src="{% static 'assets/images/img/commission/commission-2.jpg' %}" alt="clients logo">
+								</div><!-- swiper-slide end -->
 
-					<!-- alert start -->
-					<div class="js-popup-fade" id="m_sent">
-						<div class="js-popup">
-							<div class="popup-icon">
-								<i class="fas fa-check"></i>
-							</div>
-							<p class="popup-alert headline-xs">
-								Thank you!<br>
-								Your submission<br>
-								has been received!
-							</p>
-							<div class="js-popup-close js-pointer-large">
-								<div class="flip-btn" data-text="Close">Close</div>
-							</div>
-						</div>
-					</div><!-- alert end -->
+								<!-- swiper-slide start -->
+								<div class="swiper-slide text-center">
+									<img class="client-logo" src="{% static 'assets/images/img/commission/commission-2.jpg' %}" alt="clients logo">
+								</div><!-- swiper-slide end -->
 
-					<!-- alert start -->
-					<div class="js-popup-fade" id="m_err">
-						<div class="js-popup">
-							<div class="popup-icon">
-								<i class="fas fa-times"></i>
-							</div>
-							<p class="popup-alert headline-xs">Error</p>
-							<div class="js-popup-close js-pointer-large">
-								<div class="flip-btn" data-text="Close">Close</div>
-							</div>
-						</div>
-					</div><!-- alert end -->
-				</div><!-- pos-rel end -->
-			</section><!-- form section end -->
+								<!-- swiper-slide start -->
+								<div class="swiper-slide text-center">
+									<img class="client-logo" src="{% static 'assets/images/img/commission/commission-2.jpg' %}" alt="clients logo">
+								</div><!-- swiper-slide end -->
 
-            <div class="sub-banner overview-bgi">
-                <div class="container breadcrumb-area">
-                    <div class="breadcrumb-areas">
-                        <h1>Register</h1>
-                        <ul class="breadcrumbs">
-                            <li><a href="{% url 'home' %}">Home</a></li>
-                            <li class="active">Register</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+								<!-- swiper-slide start -->
+								<div class="swiper-slide text-center">
+									<img class="client-logo" src="{% static 'assets/images/img/commission/commission-2.jpg' %}" alt="clients logo">
+								</div><!-- swiper-slide end -->
 
-            <br><br><br>
+								<!-- swiper-slide start -->
+								<div class="swiper-slide text-center">
+									<img class="client-logo" src="{% static 'assets/images/img/commission/commission-2.jpg' %}" alt="clients logo">
+								</div><!-- swiper-slide end -->
+
+								<!-- swiper-slide start -->
+								<div class="swiper-slide text-center">
+									<img class="client-logo" src="{% static 'assets/images/img/commission/commission-2.jpg' %}" alt="clients logo">
+								</div><!-- swiper-slide end -->
+
+								<!-- swiper-slide start -->
+								<div class="swiper-slide text-center">
+									<img class="client-logo" src="{% static 'assets/images/img/commission/commission-2.jpg' %}" alt="clients logo">
+								</div><!-- swiper-slide end -->
+							</div><!-- swiper-wrapper end -->
+						</div><!-- js-infinite-slider end -->
+						<br><br>
+			</section><!-- recent posts end --> {% endcomment %}
+
 		</main><!-- main end -->
-
-
 
 {% endblock %}

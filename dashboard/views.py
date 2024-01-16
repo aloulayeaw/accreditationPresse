@@ -9,8 +9,10 @@ import qrcode
 import qrcode.image.svg
 from io import BytesIO
 from django.contrib.auth.decorators import login_required
-from django.core.mail import send_mail
-
+from django.core.mail import EmailMessage
+from django.http import JsonResponse
+from django.db.models import Count
+from .twitter_utils import get_twitter_api
 # Create your views here.
 
 def banqueImage(request):
@@ -32,6 +34,31 @@ def banqueImagePhoto(request):
     }
 
     return render(request, 'dashboard/banque_image_photo.html', context)
+
+
+def pearson_chart_data(request):
+    # Récupérez les données de votre modèle Demande et agrégez-les par date
+    pearson_data = (
+        Demande.objects
+        .values('created_date')
+        .annotate(total_pearson=Count('pearson'))
+        .order_by('created_date')
+    )
+
+    # Préparez les données pour le graphique Highcharts
+    dates = [entry['created_date'].strftime('%Y-%m-%d') for entry in pearson_data]
+    pearson_counts = [entry['total_pearson'] for entry in pearson_data]
+
+    chart_data = {
+        'dates': dates,
+        'pearson_counts': pearson_counts,
+    }
+
+    return JsonResponse(chart_data)
+
+    # Redirigez vers le tableau de bord après avoir renvoyé les données
+    return redirect('dashboard')
+
 
 def banqueRessource(request):
     
@@ -60,12 +87,13 @@ def blog(request):
 
 def print_pdf(request, id):
     reponse = Demande.objects.get(pk=id)
+    print(reponse)
     factory = qrcode.image.svg.SvgImage
-    img = qrcode.make("http://127.0.0.1:8000/"+"/badge/"+ str(reponse.id) ,image_factory=factory, box_size=20)
+    img = qrcode.make("http://127.0.0.1:7000/"+"/badge/"+ str(reponse.id) ,image_factory=factory, box_size=40)
     stream = BytesIO()
     img.save(stream) 
-    print("print")
-    return render(request, 'dashboard/render.html', {'reponse': reponse, 'svg':stream.getvalue().decode()})
+    #print("print",stream.getvalue().decode())
+    return render(request, 'dashboard/render.html', {'reponse': reponse, 'qr_code_svg':stream.getvalue().decode()})
 
 
 
@@ -188,30 +216,36 @@ def deleteblog(request, id):
 def demande(request):
    #model = Declaration
    userd=request.user.id
+   organe=request.user.organe
+   print("user",userd)
    form = DemandeForm
+   print("form",form)
+   #organe = Demande.objects.filter(user=userd).values('user__organe')
    
    #form = form_class
    if request.method == 'POST' :
       form = DemandeForm(request.POST, request.FILES)
       if form.is_valid() :
-         form.save()
-        #  subject = 'Nouvelle Demande'
-        #  message_text = f'Nouvelle Demande, veillez-vous connecter'
-        #  from_email = 'alassane.aw1@ism.edu.sn'  # Remplacez par votre propre adresse e-mail
-        #  recipient_list = ['alassane.aw1@ism.edu.sn']  # Adresse e-mail de destination
-        #  send_mail(subject, message_text, from_email, recipient_list, fail_silently=False)
-         
+         form.save()  
+         subject = 'Demande Accréditation'
+         message = 'Voici une nouvelle demande de.'
+         message += f'Nom: {organe}\n'
+         from_email = 'alassane.aw1@ism.edu.sn'  # Remplacez par votre adresse e-mail
+         recipient_list = ['alassane.aw1@ism.edu.sn']
+         email = EmailMessage(subject, message, from_email, recipient_list)
+         email.send()
          return redirect('dashboard')
       else:
          form = DemandeForm(request.POST, request.FILES)
 
     
-   dempresse = Demande.objects.filter(statut="Accepted").count
+   dempresse = Demande.objects.filter(user=userd).count
 
    return render(request, 'dashboard/demande.html', {'form'  : form, 'userd': userd, 'dempresse': dempresse})
 
 
 def demandePresse(request):
+    
     
     demande = Demande.objects.all()
 
@@ -222,13 +256,18 @@ def demandePresse(request):
     return render(request, 'dashboard/demande_presse.html', context)
 
 def reponse(request):
-    
+    #userd=request.user.id
+    user = request.user
+    #demande = Demande.objects
     demand = Demande.objects.filter(statut="Accepted")
     dempresse = Demande.objects.filter(statut="Accepted").count
+    
+    demandes_user = Demande.objects.filter(user=user,statut="Accepted")
 
     context = {
         'demand': demand,
-        'dempresse': dempresse
+        'dempresse': dempresse,
+        'demandes_user':demandes_user,
     }
 
     return render(request, 'dashboard/reponse.html', context)

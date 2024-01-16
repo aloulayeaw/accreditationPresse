@@ -260,7 +260,7 @@ class DemandeForm(forms.ModelForm):
         model = Demande
         fields = '__all__'
         labels = {
-            'nom': 'Le nom de l\'organisation',
+            'nom': 'Nom et Prenom Demandeur',
             'email': 'Votre adresse email',
             'adresse': 'Votre adresse',
             'nbre': 'Le nombre de personnes envoyé',

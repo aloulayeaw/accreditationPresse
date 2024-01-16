@@ -3,6 +3,35 @@
 
 {% block title %} | Dashboard {% endblock %}
 {% block content %}
-    <div class="container-sm" style='max-width: 920px; margin: auto'>{% crispy form %}</div>
+    <div class="container-sm" style='max-width: 920px; margin: auto'>
+        {% crispy form %}
+    </div>
+    <button type="button" id="add-personne" class="btn btn-primary">Ajouter une personne</button>
+
+    <script>
+        $(document).ready(function() {
+            var formset = $('#personnes-formset');
+            var addButton = $('#add-personne');
+    
+            addButton.click(function() {
+                var personnesText = $('#personnes-input').val();
+                var personnesList = personnesText.split('\\n');
+                var newPerson = '';
+    
+                for (var i = 0; i < personnesList.length; i++) {
+                    var fields = personnesList[i].split('|');
+                    if (fields.length === 3) {
+                        newPerson += fields[0] + '|' + fields[1] + '|' + fields[2] + '\\n';
+                    }
+                }
+    
+                if (newPerson) {
+                    $('#personnes-input').val(personnesText + newPerson);
+                }
+            });
+        });
+    </script>
+    
+    
 {% endblock %}
 

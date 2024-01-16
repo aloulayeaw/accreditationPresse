@@ -3,7 +3,7 @@
 {% block title %} | Dashboard {% endblock %}
 {% block content %}
 
-{% if request.user.profil.profile == 'presse'%}
+{% if request.user.profile == 'presse'%}
 
     {% include 'dashboard/presse.html' %}
 
@@ -16,7 +16,7 @@
 
 {% endif %}
 
-{% if request.user.profil.profile == 'groupecentrale'%}
+{% if request.user.profile == 'groupecentrale'%}
 
     {% include 'dashboard/gcentrale.html' %}
 

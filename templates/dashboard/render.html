@@ -10,7 +10,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
-    <title>Espace Membre</title>
+    <title>Badge {{reponse.user.organe}}</title>
     <link rel="icon" type="image/x-icon" href="{% static 'assets/images/slide/logo/favicon2.png' %}"/>
     <link href="{% static 'admin/assets/css/loader.css' %}" rel="stylesheet" type="text/css" />
     <script src="{% static 'admin/assets/js/loader.js' %}"></script>
@@ -44,19 +44,22 @@
     </div>
     <img class="" style="height: 400px;width: 100%" src="{% static 'assets/images/slide/logo/FORUM-APPEL-2022.jpg' %}" alt="logo">
     <br><br>
+    <h3 class="" style="color: black; text-align: center;"> 144 ém Appel de Seydina Limamou LAHI (PSL)
+      <br>Comité d’Organisation
+      <br>Commission Communication</h3>
     <div class="row">
       <div class="col-sm-6">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title" style="color: black">Nom de l'entreprise</h5>
-            <p class="card-text" style="color: black">{{reponse.nom}}</p>
+            <h5 class="card-title" style="color: black">Organe Presse</h5>
+            <p class="card-text" style="color: black">{{reponse.user.organe}}</p>
           </div>
         </div>
       </div>
       <div class="col-sm-6">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title" style="color: black">Eamil</h5>
+            <h5 class="card-title" style="color: black">Email</h5>
             <p class="card-text" style="color: black">{{reponse.email}}</p>
           </div>
         </div>
@@ -120,12 +123,14 @@
         <div class="col-sm-6">
           <div class="">
             <div class="card-body">
-              <h5 class="card-title" style="color: black">{{ svg|safe }}</h5>
+              {% comment %} <h5 class="card-title" style="color: black; border: 1px solid green">{{ qr_code_svg|safe }}</h5> {% endcomment %}
+              <img class="card-title"style="width: 200px;height: 200px; float: left;" src="{% static 'assets/images/slide/qr_code.jpg' %}" alt="">
+
             </div>
           </div>
         </div>
     </div>
-    <p style="font-family: italic;color: black;">A présenter au groupement central pour recupérer son badge!</p>
+    <p style="font-family: italic;color: black;">A présenter à l'accueil pour recupérer son badge!</p>
     <br><br><br>
     <div class="footer-wrapper">
       <div class="footer-section f-section-1">

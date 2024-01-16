@@ -10,23 +10,27 @@
                             <table id="invoice-list" class="table table-hover" style="width:100%">
                                 <thead>
                                     <tr>
-                                        <th class="checkbox-column"> # </th>
-                                        <th>Nom de L'entreprise</th>
-                                        <th>Responsable</th>
-                                        <th>Téléphone</th>
-                                        <th>Action</th>
+                                        <th style="text-align: center;">Organe de Presse</th>
+                                        <th style="text-align: center;">Responsable</th>
+                                        <th style="text-align: center;">Téléphone</th>
+                                        <th style="text-align: center;">Statut</th>
+                                        <th style="text-align: center;">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
 
                                     {% for demand in demande %}                          
                                         <tr>
-                                            <td>{{demand.id }}</td>
-                                            <td class="checkbox-column">{{demand.nom|upper }}</td>
-                                            <td><span class="inv-number">{{demand.responsable|upper }}</span></td>
-                                            <td>{{demand.telephone }}</td>
-                                            <td><a href="{% url 'presse_detail' demand.id %}"><button class="btn btn-primary mb-2">Voir Plus</button></a></td>
-                                            <td><demand style="width: 40px; heigth: 40px; border-radius: 20px;" src="{{ demand.photo.url }}"></td>
+                                            <td style="text-align: center;" class="checkbox-column">{{demand.user.organe|upper }}</td>
+                                            <td style="text-align: center;"><span class="inv-number">{{demand.responsable|upper }}</span></td>
+                                            <td style="text-align: center;">{{demand.telephone }}</td>
+                                            <td style="text-align: center;">{{demand.statut }}</td>
+                                            {% if demand.statut == "Accepted" %}
+                                                <td style="text-align: center;"><button class="btn btn-success mb-2">Demande Traités</button></td>
+                                            {% else %}
+                                                <td style="text-align: center;"><a href="{% url 'presse_detail' demand.id %}"><button class="btn btn-primary mb-2">Voir Plus</button></a></td>
+                                            {% endif %}
+                                            <td style="text-align: center;"><demand style="width: 40px; heigth: 40px; border-radius: 20px;" src="{{ demand.photo.url }}"></td>
                                         </tr>
                                     {% endfor %}  
                                 </tbody>

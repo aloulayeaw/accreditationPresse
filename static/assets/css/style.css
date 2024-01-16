@@ -1806,6 +1806,33 @@ body.js-nav-active.js-page-in.js-page-out .preloader__logoload-box {
 }
 
 
+/* CSS pour l'animation de chargement */
+
+@keyframes loading {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* Style pour l'élément d'animation de chargement */
+
+.loading {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: loading 1s linear infinite;
+    margin: 0 auto;
+    display: none;
+    /* Masquez l'animation par défaut */
+}
+
+
 /* ==========================================================================
    8. Custom mouse cursor
    ========================================================================== */

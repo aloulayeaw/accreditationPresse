@@ -52,6 +52,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'ckeditor',
     'crispy_forms',
+    'bootstrap4',
+    'crispy_bootstrap4',
 ]
 
 MIDDLEWARE = [
@@ -98,21 +100,36 @@ BOOTSTRAP4 = {
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+
+#         'NAME': 'hvujbudx',
+
+#         'USER': 'hvujbudx',
+
+#         'PASSWORD': 'BFQSimMAfTKkZDu-r32JlgXFIiI7DytV',
+
+#         'HOST': 'tuffi.db.elephantsql.com',
+#     },
+# }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
 
-        'NAME': 'ld_badge',
+        'NAME': 'badge_isjj',
 
-        'USER': 'ld_badge',
+        'USER': 'badge',
 
-        'PASSWORD': 'tMEZe1yWvOV5Vdy9bUbwWusTNFEJgkDT',
+        'PASSWORD': 'sHIVRiZu7a3x276Chspgh1moXGQ3rXou',
 
-        'HOST': 'dpg-cm4tlsmn7f5s73c209eg-a.oregon-postgres.render.com',
+        'HOST': 'dpg-cm66dkgcmk4c73cu4ek0-a.oregon-postgres.render.com',
         
         'PORT': '5432'
     }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -132,7 +149,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-#AUTH_USER_MODEL = "accounts.CustomUser"
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
@@ -146,6 +162,8 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+AUTH_USER_MODEL = "accounts.CustomUser"
 
 
 # Static files (CSS, JavaScript, Images)
@@ -174,10 +192,9 @@ if os.environ.get('ENV') == 'PRODUCTION':
         os.path.join(PROJECT_ROOT, 'static'),
     )
     
-    
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_HOST = 'smtp.gmail.com'
-# EMAIL_PORT = 587
-# EMAIL_USE_TLS = True
-# EMAIL_HOST_USER = 'zblackofficiel@gmail.com'
-# EMAIL_HOST_PASSWORD = 'ujkq jwrl mkpc scge'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'alassane.aw1@ism.edu.sn'
+EMAIL_HOST_PASSWORD = 'exsk sboh opdf nncl'
