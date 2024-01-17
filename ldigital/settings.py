@@ -35,7 +35,7 @@ SECRET_KEY = 'django-insecure-j!bsu3y#xiex2nlz+f9zk93^b01)sg96fnqe$!qqk(#p-z^oam
 DEBUG = True
 
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*','accreditation-presse.com','accredidation-presse.onrender.com']
 
 
 # Application definition
