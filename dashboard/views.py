@@ -89,7 +89,7 @@ def print_pdf(request, id):
     reponse = Demande.objects.get(pk=id)
     print(reponse)
     factory = qrcode.image.svg.SvgImage
-    img = qrcode.make("http://127.0.0.1:7000/"+"/badge/"+ str(reponse.id) ,image_factory=factory, box_size=40)
+    img = qrcode.make("https://accreditation-presse.com/"+"/badge/"+ str(reponse.id) ,image_factory=factory, box_size=40)
     stream = BytesIO()
     img.save(stream) 
     #print("print",stream.getvalue().decode())
