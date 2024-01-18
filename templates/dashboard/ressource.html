@@ -2,31 +2,64 @@
 {% load static %}
 {% block title %} | Dashboard {% endblock %}
 {% block content %}
+<style>
+    /* Styles pour le popup */
+    .popup-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        justify-content: center;
+        align-items: center;
+    }
+
+    .popup-content {
+        background: #fff;
+        padding: 20px;
+        max-width: 80%;
+        max-height: 80%;
+        overflow: auto;
+    }
+</style>
                 <div class="card component-card_9">
                     <div class="card-group">
                     <div class="card" style="padding: 5px;">
                         <img class="card-img-top" src="{% static 'assets/images/img/gallery/ngor-7.jpg' %}" alt="Card image cap">
                         <div class="card-body">
-                        <h5 class="card-title">Soleil de l'occident</h5>
-                        <p class="card-text">Limamou Thiaw, plus connu sous le nom de Seydina Limamou Laye (ou Lahi ; 1843-1909), est une grande figure de l'islam au Sénégal, qui s’est proclamé l'imam mahdi et réincarnation du prophète de Mouhammad (PSL). Il est le guide de la communauté Ahlou Lahi, communément appelée layène (venant du nom dont s'est rebaptisé Limamou Thiaw, « Laye », qui est une déformation et un dérivé d’Allah en wolof</p>
-                        <p class="card-text"><small class="text-muted">il y a une semaine</small></p>
-                        </div>
-                    </div>
-                    <div class="card" style="padding: 5px;">
-                        <img class="card-img-top" src="{% static 'assets/images/img/gallery/ngor-7.jpg' %}" alt="Card image cap">
-                        <div class="card-body">
-                        <h5 class="card-title">Soleil de l'occident</h5>
-                        <p class="card-text">Limamou Thiaw, plus connu sous le nom de Seydina Limamou Laye (ou Lahi ; 1843-1909), est une grande figure de l'islam au Sénégal, qui s’est proclamé l'imam mahdi et réincarnation du prophète de Mouhammad (PSL). Il est le guide de la communauté Ahlou Lahi, communément appelée layène (venant du nom dont s'est rebaptisé Limamou Thiaw, « Laye », qui est une déformation et un dérivé d’Allah en wolof.</p>
-                        <p class="card-text"><small class="text-muted">il y a une semaine</small></p>
-                        </div>
-                    </div>
-                    <div class="card" style="padding: 5px;">
-                        <img class="card-img-top" src="{% static 'assets/images/img/gallery/ngor-7.jpg' %}" alt="Card image cap">
-                        <div class="card-body">
-                        <h5 class="card-title">Soleil de l'occident</h5>
-                        <p class="card-text">Limamou Thiaw, plus connu sous le nom de Seydina Limamou Laye (ou Lahi ; 1843-1909), est une grande figure de l'islam au Sénégal, qui s’est proclamé l'imam mahdi et réincarnation du prophète de Mouhammad (PSL). Il est le guide de la communauté Ahlou Lahi, communément appelée layène (venant du nom dont s'est rebaptisé Limamou Thiaw, « Laye », qui est une déformation et un dérivé d’Allah en wolof.</p>
-                        <p class="card-text"><small class="text-muted">il y a une semaine</small></p>
+                        <h5 class="card-title">LA COMMUNAUTÉ AHLOU LAHI </h5>
+                        <p class="card-text">Le 1er  Shabane 1301 de l’hégire (1883/1884), Limamou Thiaw un jeune pêcheur de Yoff (un village de la presqu'île de Cap-Vert, actuel Dakar)  reçut  l’injonction divine d’appeler son peuple au culte exclusif voué à Allah (SWT)...</p>
+                        <p class="card-text"><small class="text-muted">Commission Scinetifique</small></p>
+                        <button onclick="openPopup()">Lire Plus</button>
                         </div>
                     </div>
                 </div>
+
+                
+                <!-- Popup -->
+                <div class="popup-overlay" id="popupOverlay">
+                    <div class="popup-content">
+                        <p>
+                            Il lança son Appel à son peuple pour une adoration pure et sincère loin de toutes les innovations blâmables qui ternissaient l’image de l’islam.
+                            Sa mission consistait à revivifier la religion et de lui redonner son lustre d’antan comme l’avait laissé le Prophète Mohamed (PSL).
+                        </p>
+                        <!-- Bouton pour fermer le popup -->
+                        <button onclick="closePopup()">Fermer</button>
+                    </div>
+                </div>
+
+                <!-- Inclure cette balise <script> à la fin de votre <body> -->
+                <script>
+                    function openPopup() {
+                        document.getElementById("popupOverlay").style.display = "flex";
+                    }
+
+                    function closePopup() {
+                        document.getElementById("popupOverlay").style.display = "none";
+                    }
+                </script>
 {% endblock %}
+
+

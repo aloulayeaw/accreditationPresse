@@ -154,48 +154,23 @@ def dashboard(request):
 
     pearson_data = (
         Demande.objects
-        .values('nbre', 'user__organe')  # Sélectionnez uniquement 'nbre' et 'user__organe'
+        .values('nbre', 'user__organe') 
         .order_by('created_date')
     )
     nbre_data = (
         Demande.objects
-        .values('user__organe')  # Sélectionnez uniquement 'user__organe'
-        .annotate(total_nbre=Sum('nbre'))  # Calculez la somme de 'nbre' et nommez-la 'total_nbre'
+        .values('user__organe') 
+        .annotate(total_nbre=Sum('nbre')) 
     )
     
     somme_totale = 0
 
-    # Parcourez le queryset et additionnez les valeurs de 'total_nbre'
     for entry in nbre_data:
         somme_totale += entry['total_nbre']
         
-    #print(somme_totale)
-    # Préparez les données pour le graphique Highcharts
     nbre_values = [entry['nbre'] for entry in pearson_data]
     organe_values = [entry['user__organe'] for entry in pearson_data]
 
-    # consumer_key = 'Rd7iHj3yhLB6ScTz6qJ5TM7tD'
-    # consumer_secret = 'Cq71WBN6O1a8xBs8AN8WbfH3XBJKo9KuhnI1Xy0qRtripBY110'
-    # access_token = '1538613596-tmMNzbQFMi34UMAgRdlbEgEhrCfFt6f1kvUfM0r'
-    # access_token_secret = 'MIqJVxvRauM544KVe3U47MY6MhCDCtDQk9wRjdO46A0Gv'
-
-    # auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
-    # auth.set_access_token(access_token, access_token_secret)
-
-    # api = tweepy.API(auth)
-
-
-    # hashtag = 'Appel2023'  # Remplacez par le hashtag que vous souhaitez suivre
-    
-    # tweet_texts = [] 
-    # tweet_dates = [] 
-    
-    # tweets = tweepy.Cursor(api.search_tweets, q=f'#{hashtag}').items(10)  # Récupérer les 10 derniers tweets avec le hashtag
-    # tweet_texts = [tweet.text for tweet in tweets]
-    # tweet_dates = [tweet.created_at.strftime('%Y-%m-%d %H:%M:%S') for tweet in tweets]
-
-
-    # print("tweeets",tweets) 
 
     context = {
         'response': response,

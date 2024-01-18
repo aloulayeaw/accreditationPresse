@@ -230,7 +230,7 @@ def demande(request):
          subject = 'Demande Accréditation'
          message = 'Voici une nouvelle demande de.'
          message += f'Nom: {organe}\n'
-         from_email = 'alassane.aw1@ism.edu.sn'  # Remplacez par votre adresse e-mail
+         from_email = 'alassane.aw1@ism.edu.sn'
          recipient_list = ['alassane.aw1@ism.edu.sn']
          email = EmailMessage(subject, message, from_email, recipient_list)
          email.send()
