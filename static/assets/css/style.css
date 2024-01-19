@@ -10700,6 +10700,12 @@ input[type='submit']:hover {
     color: #000;
 }
 
+.login {
+    background-color: #f2f;
+    border-radius: 20px;
+    padding: 50px 40px;
+}
+
 .form-input:focus::-webkit-input-placeholder {
     opacity: 1;
 }

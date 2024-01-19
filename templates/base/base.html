@@ -10,47 +10,49 @@
 				
 					{% comment %} <h5>Hello World</h5> {% endcomment %}
 				
-					<section class="pos-rel bg-img-cover" style="background-image:url({% static 'assets/images/img/sliders/slide_jaamalahi.png' %})">
+					<section class="pos-rel bg-img-cover" style="background-image:url({% static 'assets/images/slide/slide_jaamalahi-4.jpg' %})">
 					<!-- bg-overlay -->
 					<div class="bg-overlay-black"></div>
 					<!-- pos-rel start -->
 					<div class="pos-rel flex-min-height-100vh">
 						<!-- container start -->
-						<div style="width: 350px;"  class="container small padding-top-bottom-120 form-box">
-							<img class="header-logo__img white" style="margin-left: 100px;" src="{% static 'assets/images/slide/logo/logo-1.png' %}" alt="logo">
+						<div style="width: 360px;"  class="container small padding-bottom-120 padding-top-60 form-box">
+							<div class="logo-gc">
+								<img class="header-logo__img white"
+									src="{% static 'assets/images/slide/logo/Logo-GC-white.png' %}" alt="logo">
+							</div>
 							<br><br>
 							<h5 class="text-center ">Bienvenue sur notre plateforme d'accrédfitations des badges Presse</h5>
 							<br><br>
-							<h5 class="text-center ">Veiller vous Connecter</h5>
 										<div class="contact-section">
 					            </div>  
 	
 						{% include 'includes/messages.html' %}
 							<!-- flex-container start -->
-							<form action="{% url 'login' %}" method="POST" name="formobrsv" id="send_form" class="padding-top-90">
+							<form action="{% url 'login' %}" method="POST" name="formobrsv" id="send_form" class="padding-top-90 login">
 							 {% csrf_token %}
 								<div class="four-columns">
 									<div class="column-l-margin-10">
-									 <input type="email" name="username" name="email" placeholder="Ton email" id="email" required class="form-input js-pointer-small">
+									 <input type="email" name="username" name="email" placeholder="Email" id="email" required class="form-input js-pointer-small">
 									</div>
 								</div><!-- column end -->
 								<!-- column start -->
 								<div class="four-columns">
 									<div class="column-l-margin-10">
-										<input type="password" name="password" placeholder="Ton mot de passe" id="mot de passe" required class="form-input js-pointer-small">
+										<input type="password" name="password" placeholder="Mot de passe" id="mot de passe" required class="form-input js-pointer-small">
 									</div>
 								</div><!-- column end -->
 								<!-- column start -->
-								<div style="margin-top: -30px;" class="twelve-columns text-center padding-top-30">
-									<button id="send" class="border-btn js-pointer-large">
-										<span class="border-btn__inner btn-outline-warning">Se Connecter</span>
+								<div class="twelve-columns text-center">
+									<button id="send" class="border-btn__inner border-btn js-pointer-large">
+										<span class="btn-outline-warning">Se Connecter</span>
 										<span class="btn-wait">Wait</span>
 										<span class="border-btn__lines-1"></span>
 										<span class="border-btn__lines-2"></span>
 									</button>
 									<br><br>
 									<div class="extra-login clearfix">
-										<button style="color: white;" class="border-btn js-pointer-large">Ou<a class="btn-outline-warning" style="color: white;" href="{% url "register" %}"> S'Inscrire</a></button>
+										<button style="color: #1D5E74;" class="js-pointer-large">Ou <br><a class="btn-outline-warning" style="color: #1D5E74; font-weight: 600;" href="{% url "register" %}"> S'inscrire</a></button>
 									</div>
 								</div><!-- column end -->
 							</form><!-- flex-container end -->

@@ -5,8 +5,8 @@
 		<!-- main start -->
 		<main class="js-animsition-overlay" data-animsition-overlay="true">
 			<!-- pos-rel start -->
-			<section id="up" class="pos-rel js-parallax-bg" style="background-image:url({% static 'assets/images/slide/1.jpg' %})">
-				<!-- bg-overlay -->
+			<section id="up" class="pos-rel js-parallax-bg" style="background-image:url({% static 'assets/images/slide/slide_jaamalahi-1.jpg' %})">
+				<!-- bg-overlay --
 				<div class="bg-overlay-black"></div>
 				<!-- pos-rel start -->
 				<div class="pos-rel flex-min-height-100vh">
@@ -29,7 +29,7 @@
 
 
 			<!-- form section start -->
-			<section class="pos-rel bg-img-cover" style="background-image:url({% static 'assets/images/slide/slide1.png' %})">
+			<section class="pos-rel bg-img-cover" style="background-image:url({% static 'assets/images/slide/slide_jaamalahi.png' %})">
 				<!-- bg-overlay -->
 				<div class="bg-overlay-black"></div>
 				<!-- pos-rel start -->
@@ -42,7 +42,8 @@
 
                     {% include 'includes/messages.html' %}
 						<!-- flex-container start -->
-						<form action="{% url 'login' %}" method="POST" name="formobrsv" id="send_form" class="padding-top-90">
+					<div class="form-login">
+						<form action="{% url 'login' %}" method="POST" name="formobrsv" id="send_form" class="padding-top-90 login">
                         {% csrf_token %}
 							<div class="four-columns">
 								<div class="column-l-margin-10">
@@ -65,6 +66,7 @@
 								</button>
 							</div><!-- column end -->
 						</form><!-- flex-container end -->
+						</div>
 					</div><!-- container end -->
 
 					<!-- alert start -->

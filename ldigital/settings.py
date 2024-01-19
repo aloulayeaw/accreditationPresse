@@ -19,8 +19,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 locale._getdefaultlocale = (lambda *args: ['en_US', 'utf8'])
 
 
-
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
@@ -35,7 +33,8 @@ SECRET_KEY = 'django-insecure-j!bsu3y#xiex2nlz+f9zk93^b01)sg96fnqe$!qqk(#p-z^oam
 DEBUG = True
 
 
-ALLOWED_HOSTS = ['*','accreditation-presse.com','accredidation-presse.onrender.com']
+ALLOWED_HOSTS = ['*', 'accreditation-presse.com',
+                 'accredidation-presse.onrender.com']
 
 
 # Application definition
@@ -89,12 +88,11 @@ WSGI_APPLICATION = 'ldigital.wsgi.application'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-#SECURE_SSL_REDIRECT = True # [1]
-#SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+# SECURE_SSL_REDIRECT = True # [1]
+# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 BOOTSTRAP4 = {
     'include_jquery': True,
 }
-
 
 
 # Database
@@ -125,7 +123,7 @@ DATABASES = {
         'PASSWORD': 'sHIVRiZu7a3x276Chspgh1moXGQ3rXou',
 
         'HOST': 'dpg-cm66dkgcmk4c73cu4ek0-a.oregon-postgres.render.com',
-        
+
         'PORT': '5432'
     }
 }
@@ -172,7 +170,7 @@ AUTH_USER_MODEL = "accounts.CustomUser"
 STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATICFILES_DIRS = [ 
+STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'ldigital/static'),
 ]
 
@@ -191,7 +189,7 @@ if os.environ.get('ENV') == 'PRODUCTION':
     STATICFILES_DIRS = (
         os.path.join(PROJECT_ROOT, 'static'),
     )
-    
+
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
