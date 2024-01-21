@@ -11,208 +11,221 @@
 				
 					<section class="pos-rel bg-img-cover" style="background-image:url({% static 'assets/images/slide/slide_jaamalahi-4.jpg' %})">
 					<!-- bg-overlay -->
-					<div class="bg-overlay-black"></div>
+
 					<!-- pos-rel start -->
 					<div class="pos-rel flex-min-height-10vh">
+
 						<!-- container start -->
-						<div style="width: 620px;"  class="container small padding-top-bottom-70 form-box">
-							<div class="logo-gc">
-								<img class="header-logo__img white" src="{% static 'assets/images/slide/logo/Logo-GC-white.png' %}" alt="logo">
-							</div>
-							<br><br>
-							<h5 class="text-center ">Bienvenue sur notre plateforme d'accrédfitations des badges Presse</h5>
-							<br><br>
+						<div class="container padding-top-bottom-70 form-box">
+
+							<div class="row">
+								<div class="col-lg-6">
+									<div class="reg-all-texte">
+										<div class="logo-gc">
+											<img class="header-logo__img white" src="{% static 'assets/images/slide/logo/Logo-GC-white.png' %}" alt="logo">
+										</div>
+										<h5 class="reg-texte">Bienvenue sur notre plateforme d'accrédfitations des badges Presse</h5>
+									</div>
+								</div>
 					
-								<div class="contact-section">
-					            </div>  
+							{% comment %}<div class="contact-section"></div>{% endcomment %}
 							{% include 'includes/messages.html' %}
 							<!-- flex-container start -->
-							<form action="{% url 'register' %}" method="POST" name="formobrsv" id="send_form" class="register padding-top-5">
-								{% csrf_token %}
+							<div class="col-lg-6">
+								<form action="{% url 'register' %}" method="POST" name="formobrsv" id="send_form" class="register padding-top-5">
+									{% csrf_token %}
 								
-								<div class="signup">
-									<h5 class="text-center ">S'inscrire</h5>
-								</div>
-								<div class="row">
-									<div class="col-lg-6 reg-input">
-										<div class="four-columns" style="font-size: 15px;">
-											<div class="column-l-margin-5 js-pointer-small" style="font-size: 15px;">
-												<div class="lab-text">
-													<label for="profile">Type de Presse</label>
+									<div class="signup">
+										<h5 class="text-center ">S'inscrire</h5>
+									</div>
+									<div class="row">
+										<div class="col-lg-6 reg-input">
+											<div class="four-columns" style="font-size: 15px;">
+												<div class="column-l-margin-5 js-pointer-small" style="font-size: 15px;">
+													<div class="lab-text">
+														<label for="profile">Type de Presse</label>
+													</div>
+							
+													<select name="profile" id="profile" style="color: black;" required placeholder="Presse"
+														class="form-input js-pointer-small">
+														<option style="color: black; font-size: 18px;" value="" disabled selected
+															class="w12 text-center">
+															Type de presse</option>
+														<option style="color: black; font-size: 18px;" name="profile" class="w12 text-center"
+															value="presse">Ecrite
+														</option>
+														<option style="color: black; font-size: 18px;" name="profile" class="w12 text-center"
+															value="presse">En
+															Ligne</option>
+													</select>
 												</div>
-												<br>
-												<select name="profile" id="profile" style="color: black;" required placeholder="Presse"
-													class="form-input js-pointer-small">
-													<option style="color: black; font-size: 18px;" value="" disabled selected class="w12 text-center">
-														Type de presse</option>
-													<option style="color: black; font-size: 18px;" name="profile" class="w12 text-center" value="presse">Ecrite
-													</option>
-													<option style="color: black; font-size: 18px;" name="profile" class="w12 text-center" value="presse">En
-														Ligne</option>
-												</select>
+											</div>
+										</div>
+										<div class="col-lg-6 reg-input">
+											<div class="four-columns" style="font-size: 15px;">
+												<div class="column-l-margin-5 js-pointer-small" style="font-size: 15px;">
+													<div class="lab-text">
+														<label for="profile">Organe</label>
+													</div>
+													<select name="organe" id="profile" style="color: black;" required placeholder="Organe"
+														class="form-input js-pointer-small">
+														<option style="color: black; font-size: 18px;" value="" disabled selected
+															class="w12 text-center">
+															Organe de presse</option>
+														<option style="color: black; font-size: 18px;" name="organe" class="w12 text-center">TFM
+														</option>
+														<option style="color: black; font-size: 18px;" name="organe" class="w12 text-center">Seneweb
+														</option>
+														<option style="color: black; font-size: 18px;" name="organe" class="w12 text-center">DakarActu
+														</option>
+														<option style="color: black; font-size: 18px;" name="organe" class="w12 text-center">Walf
+														</option>
+														<option style="color: black; font-size: 18px;" name="organe" class="w12 text-center">D-Média
+														</option>
+														<option style="color: black; font-size: 18px;" name="organe" class="w12 text-center">Dakar
+															Instant</option>
+														<option style="color: black; font-size: 18px;" name="organe" class="w12 text-center">Actu SN
+														</option>
+														<option style="color: black; font-size: 18px;" name="organe" class="w12 text-center">2STV
+														</option>
+														<option style="color: black; font-size: 18px;" name="organe" class="w12 text-center">SeneNews
+														</option>
+														<option style="color: black; font-size: 18px;" name="organe" class="w12 text-center">
+															DakarInstant</option>
+														<option style="color: black; font-size: 18px;" name="organe" class="w12 text-center">SeneNews
+														</option>
+														<option style="color: black; font-size: 18px;" name="organe" class="w12 text-center">Layene
+															Digital</option>
+														<option style="color: black; font-size: 18px;" name="organe" class="w12 text-center">Diamalaye
+															Event
+														</option>
+														<option style="color: black; font-size: 18px;" name="organe" class="w12 text-center">Layenne
+															News</option>
+														<option style="color: black; font-size: 18px;" name="organe" class="w12 text-center">Autre
+														</option>
+													</select>
+												</div>
 											</div>
 										</div>
 									</div>
-									<div class="col-lg-6 reg-input">
-										<div class="four-columns" style="font-size: 15px;">
-											<div class="column-l-margin-5 js-pointer-small" style="font-size: 15px;">
-												<div class="lab-text">
-													<label for="profile">Organe</label>
-												</div>
-												<br>
-												<select name="organe" id="profile" style="color: black;" required placeholder="Organe"
-													class="form-input js-pointer-small">
-													<option style="color: black; font-size: 18px;" value="" disabled selected class="w12 text-center">
-														Organe de presse</option>
-													<option style="color: black; font-size: 18px;" name="organe" class="w12 text-center">TFM</option>
-													<option style="color: black; font-size: 18px;" name="organe" class="w12 text-center">Seneweb</option>
-													<option style="color: black; font-size: 18px;" name="organe" class="w12 text-center">DakarActu</option>
-													<option style="color: black; font-size: 18px;" name="organe" class="w12 text-center">Walf</option>
-													<option style="color: black; font-size: 18px;" name="organe" class="w12 text-center">D-Média</option>
-													<option style="color: black; font-size: 18px;" name="organe" class="w12 text-center">Dakar Instant</option>
-													<option style="color: black; font-size: 18px;" name="organe" class="w12 text-center">Actu SN</option>
-													<option style="color: black; font-size: 18px;" name="organe" class="w12 text-center">2STV</option>
-													<option style="color: black; font-size: 18px;" name="organe" class="w12 text-center">SeneNews</option>
-													<option style="color: black; font-size: 18px;" name="organe" class="w12 text-center">DakarInstant</option>
-													<option style="color: black; font-size: 18px;" name="organe" class="w12 text-center">SeneNews</option>
-													<option style="color: black; font-size: 18px;" name="organe" class="w12 text-center">Layene Digital</option>
-													<option style="color: black; font-size: 18px;" name="organe" class="w12 text-center">Diamalaye Event
-													</option>
-													<option style="color: black; font-size: 18px;" name="organe" class="w12 text-center">Layenne News</option>
-													<option style="color: black; font-size: 18px;" name="organe" class="w12 text-center">Autre</option>
-												</select>
-											</div>
-										</div>
-									</div>
-								</div>
 								
-
-								<div class="row">
-									<div class="col-lg-6 reg-input">
-										<div style="font-size: 15px;" class="four-columns">
-											<div class="column-l-margin-10">
-												<div class="lab-text">
-													<br><br>
-													<label for="firstname">Nom</label>
+								
+									<div class="row">
+										<div class="col-lg-6 reg-input">
+											<div style="font-size: 15px;" class="four-columns">
+												<div class="column-l-margin-10">
+													<div class="lab-text">
+														<label for="firstname">Nom</label>
+													</div>
+													<input type="text" name="firstname" id="firstname" placeholder="Nom" required
+														class="form-input js-pointer-small">
 												</div>
-												<br>
-												<input type="text" name="firstname" id="firstname" placeholder="Nom" required
-													class="form-input js-pointer-small">
 											</div>
 										</div>
-									</div>
-
-									<div class="col-lg-6 reg-input">
-										<div style="font-size: 15px;" class="four-columns">
-											<div class="column-l-margin-10">
-												<div class="lab-text">
-													<br><br>
-													<label for="lastname">Prenom</label>
+								
+										<div class="col-lg-6 reg-input">
+											<div style="font-size: 15px;" class="four-columns">
+												<div class="column-l-margin-10">
+													<div class="lab-text">
+														<label for="lastname">Prenom</label>
+													</div>					
+													<input type="text" name="lastname" id="lastname" placeholder="Prenom" required
+														class="form-input js-pointer-small">
 												</div>
-												<br>
-												<input type="text" name="lastname" id="lastname" placeholder="Prenom" required
-													class="form-input js-pointer-small">
 											</div>
 										</div>
 									</div>
-								</div>
-
-
-								<div class="row">
-									<div class="col-lg-6 reg-input">
-										<div style="font-size: 15px;" class="four-columns">
-											<div class="column-l-margin-10">
-												<div class="lab-text">
-													<br><br>
-													<label for="username">Username</label>
+								
+								
+									<div class="row">
+										<div class="col-lg-6 reg-input">
+											<div style="font-size: 15px;" class="four-columns">
+												<div class="column-l-margin-10">
+													<div class="lab-text">
+														<label for="username">Username</label>
+													</div>
+													<input type="text" name="username" id="username" placeholder="Username" required
+														class="form-input js-pointer-small">
 												</div>
-												<br>
-												<input type="text" name="username" id="username" placeholder="Username" required
-													class="form-input js-pointer-small">
 											</div>
 										</div>
-									</div>
-
-									<div class="col-lg-6 reg-input">
-										<div style="font-size: 15px;" class="four-columns">
-											<div class="column-l-margin-10">
-												<div class="lab-text">
-													<br><br>
-													<label for="email">Email</label>
+								
+										<div class="col-lg-6 reg-input">
+											<div style="font-size: 15px;" class="four-columns">
+												<div class="column-l-margin-10">
+													<div class="lab-text">
+														<label for="email">Email</label>
+													</div>
+													<input type="email" name="email" id="email" placeholder="Email" required
+														class="form-input js-pointer-small">
 												</div>
-												<br>
-												<input type="email" name="email" id="email" placeholder="Email" required class="form-input js-pointer-small">
 											</div>
 										</div>
+								
 									</div>
-
-								</div>
-
-
-
-								<div class="row">
-									<div class="col-lg-6 reg-input">
-										<div style="font-size: 15px;" class="four-columns">
-											<div class="column-l-margin-10">
-												<div class="lab-text">
-													<br><br><br>
-													<label for="password">Mot de passe</label>
+								
+								
+								
+									<div class="row">
+										<div class="col-lg-6 reg-input">
+											<div style="font-size: 15px;" class="four-columns">
+												<div class="column-l-margin-10">
+													<div class="lab-text">
+														<label for="password">Mot de passe</label>
+													</div>
+													<input type="password" name="password" id="password" placeholder="Password" required
+														class="form-input js-pointer-small">
 												</div>
-												<br>
-												<input type="password" name="password" id="password" placeholder="Password" required
-													class="form-input js-pointer-small">
 											</div>
 										</div>
-									</div>
-
-									<div class="col-lg-6 reg-input">
-										<div style="font-size: 15px; height: 30px;" class="four-columns">
-											<div class="column-l-margin-10">
-												<div class="lab-text">
-													<br><br><br>
-													<label for="confirm_password">Confirmation Mot de passe</label>
+								
+										<div class="col-lg-6 reg-input">
+											<div style="font-size: 15px; height: 30px;" class="four-columns">
+												<div class="column-l-margin-10">
+													<div class="lab-text">
+														<label for="confirm_password">Confirmation Mot de passe</label>
+													</div>
+													<input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm Password"
+														required class="form-input js-pointer-small">
 												</div>
+											</div>
+										</div>
+								
+									</div>
+								
+								
+									<div class="row">
+										<div class="col-lg-12 reg-register">
+											<div class="sign-btn padding-top-20">
+												<button id="send" class="border-btn js-pointer-large">
+													<span class="border-btn__inner btn-outline-warning">S'inscrire</span>
+													<span class="btn-wait">Wait</span>
+													<span class="border-btn__lines-1"></span>
+													<span class="border-btn__lines-2"></span>
+												</button>
 												<br>
-												<input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm Password" required
-													class="form-input js-pointer-small">
 											</div>
 										</div>
 									</div>
-
-								</div>
-
-
-								<div class="row">
-									<div class="col-lg-12 reg-register">
-										<div class="sign-btn padding-top-60">
-											<button id="send" class="border-btn js-pointer-large">
-												<span class="border-btn__inner btn-outline-warning">S'inscrire</span>
-												<span class="btn-wait">Wait</span>
-												<span class="border-btn__lines-1"></span>
-												<span class="border-btn__lines-2"></span>
-											</button>
-											<br>
-										</div>
-									</div>
-								</div>
-
-								<div class="row">
-									<div class="col-lg-12">
-										<div class="">
-											<br><br>
-											<div class="extra-login clearfix">
-												<button class="border-btn js-pointer-large">ou <br><a class="btn-outline-warning"
-														 href="{% url 'login' %}"> Se Connecter</a></button>
+								
+									<div class="row">
+										<div class="col-lg-12">
+											<div class="">
+												<div class="extra-login clearfix">
+													<button class="border-btn js-pointer-large">ou <br><a class="btn-outline-warning"
+															href="{% url 'login' %}"> Se Connecter</a></button>
+												</div>
 											</div>
 										</div>
 									</div>
-								</div>
-
-								<!-- column end -->
-								<div class="clearfix"></div>
-								<ul class="social-list">
-								</ul>
-							</form>
+								
+									<!-- column end -->
+									<div class="clearfix"></div>
+									<ul class="social-list">
+									</ul>
+								</form>
+							</div>
+							</div>
 							
 						
 						</div><!-- container end -->
