@@ -231,7 +231,7 @@ def demande(request):
          message = 'Voici une nouvelle demande de.'
          message += f'Nom: {organe}\n'
          from_email = 'alassane.aw1@ism.edu.sn'
-         recipient_list = ['alassane.aw1@ism.edu.sn']
+         recipient_list = ['babacar.sow@senelec.sn','alassane.aw1@ism.edu.sn']
          email = EmailMessage(subject, message, from_email, recipient_list)
          email.send()
          return redirect('dashboard')
@@ -295,6 +295,15 @@ def presseAccepted(request, id):
     demande = Demande.objects.get(pk=id)
     demande.statut="Accepted"
     demande.save()
+    subject = 'Demande Accréditation'
+    message = 'Voici une nouvelle demande de.\n'
+    message += f'Nom: {demande.nom}\n'  # Assurez-vous que 'nom' est un attribut de Demande
+    from_email = 'alassane.aw1@ism.edu.sn'
+    recipient_list = [{demande.email}]
+
+
+    email = EmailMessage(subject, message, from_email, recipient_list)
+    email.send()
 
     return redirect('dashboard')
 
