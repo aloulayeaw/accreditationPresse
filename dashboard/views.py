@@ -222,6 +222,7 @@ def demande(request):
    print("form",form)
    #organe = Demande.objects.filter(user=userd).values('user__organe')
    
+   #babacar.sow.layene@gmail.com
    #form = form_class
    if request.method == 'POST' :
       form = DemandeForm(request.POST, request.FILES)
@@ -231,7 +232,7 @@ def demande(request):
          message = 'Voici une nouvelle demande de.'
          message += f'Nom: {organe}\n'
          from_email = 'alassane.aw1@ism.edu.sn'
-         recipient_list = ['babacar.sow@senelec.sn','alassane.aw1@ism.edu.sn']
+         recipient_list = ['babacar.sow.layene@gmail.com','alassane.aw1@ism.edu.sn']
          email = EmailMessage(subject, message, from_email, recipient_list)
          email.send()
          return redirect('dashboard')
@@ -296,10 +297,11 @@ def presseAccepted(request, id):
     demande.statut="Accepted"
     demande.save()
     subject = 'Demande Accréditation'
-    message = 'Voici une nouvelle demande de.\n'
-    message += f'Nom: {demande.nom}\n'  # Assurez-vous que 'nom' est un attribut de Demande
+    message = 'Bonjour,Vous avez une réponse de la part de la c.communication de.\n'
+    message += f'Nom: {demande.nom}\n'
     from_email = 'alassane.aw1@ism.edu.sn'
-    recipient_list = [{demande.email}]
+    recipient_list = [demande.email]
+    print("recipient_list",recipient_list)
 
 
     email = EmailMessage(subject, message, from_email, recipient_list)

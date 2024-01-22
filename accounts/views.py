@@ -98,7 +98,7 @@ def register(request):
                     message += f'Organe: {organe}\n'
 
                     from_email = 'alassane.aw1@ism.edu.sn'  # Remplacez par votre adresse e-mail
-                    recipient_list = ['alassane.aw1@ism.edu.sn']
+                    recipient_list = ['babacar.sow.layene@gmail.com','alassane.aw1@ism.edu.sn']
                     email = EmailMessage(subject, message, from_email, recipient_list)
                     email.send()
 
@@ -113,7 +113,7 @@ def register(request):
                     message += f'Organe: {organe}\n'
 
                     from_email = 'alassane.aw1@ism.edu.sn'  # Remplacez par votre adresse e-mail
-                    recipient_list = ['alassane.aw1@ism.edu.sn']
+                    recipient_list = ['babacar.sow.layene@gmail.com','alassane.aw1@ism.edu.sn']
                     email = EmailMessage(subject, message, from_email, recipient_list)
                     email.send()
                     messages.success(request, 'Votre compte sera activé prochainement.')
