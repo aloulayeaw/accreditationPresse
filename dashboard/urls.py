@@ -24,6 +24,7 @@ urlpatterns = [
     path('demandePresse', views.demandePresse, name='demandePresse'),
     path('presseviews', views.presseviews, name='presseviews'),
     path('<int:id>', views.presse, name='presse_detail'),
+    path('listeDemande', views.listeDemande, name='listeDemande'),
     path('Accepted/<str:id>', views.presseAccepted , name='presseAccepted'),
     path('Denied/<str:id>', views.presseDenied , name='presseDenied'),
     path('reponse', views.reponse , name='reponse'),

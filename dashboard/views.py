@@ -291,6 +291,14 @@ def presseviews(request):
 
     return render(request, 'dashboard/presse.html')
 
+def listeDemande(request):
+    demande = Demande.objects.all()
+
+    context = {
+        'demande': demande
+    }
+
+    return render(request, 'dashboard/liste_demande.html', context)
 
 def presseAccepted(request, id):
     demande = Demande.objects.get(pk=id)

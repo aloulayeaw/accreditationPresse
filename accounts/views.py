@@ -187,6 +187,8 @@ def dashboard(request):
 
     return render(request, 'accounts/dashboard.html', context)
 
+
+
 # def logout(request):
 #     if request.method == 'POST':
 #         auth.logout(request)
