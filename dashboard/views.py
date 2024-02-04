@@ -172,7 +172,7 @@ def gallery(request):
    return render(request, 'dashboard/gallery.html')
 
 
-#@login_required 
+@login_required 
 def viewImage(request):
     banqueImg = BanqueImange.objects.all()
 
@@ -291,6 +291,7 @@ def presseviews(request):
 
     return render(request, 'dashboard/presse.html')
 
+@login_required 
 def listeDemande(request):
     demande = Demande.objects.all()
 
@@ -300,6 +301,7 @@ def listeDemande(request):
 
     return render(request, 'dashboard/liste_demande.html', context)
 
+@login_required 
 def presseAccepted(request, id):
     demande = Demande.objects.get(pk=id)
     demande.statut="Accepted"
