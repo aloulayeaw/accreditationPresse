@@ -116,18 +116,22 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
 
-        'NAME': 'bd_presse',
+        'NAME': 'badge_isjj',
 
-        'USER': 'bd_presse_user',
+        'USER': 'badge',
 
-        'PASSWORD': 'a5QC9W5lMwAu1U6aVwOtP3rPbOAsUmgx',
+        'PASSWORD': 'sHIVRiZu7a3x276Chspgh1moXGQ3rXou',
 
-        'HOST': 'dpg-csuujpt2ng1s73dpujlg-a.oregon-postgres.render.com',
+        'HOST': 'dpg-cm66dkgcmk4c73cu4ek0-a.oregon-postgres.render.com',
 
         'PORT': '5432'
     }
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 071e5c1b8538db5420a7d6f42a02dd6ce6abf433
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
