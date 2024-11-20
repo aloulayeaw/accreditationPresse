@@ -116,11 +116,11 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
 
-        'NAME': 'badge_isjj',
+        'NAME': 'bd_presse',
 
-        'USER': 'badge',
+        'USER': 'bd_presse_user',
 
-        'PASSWORD': 'sHIVRiZu7a3x276Chspgh1moXGQ3rXou',
+        'PASSWORD': 'a5QC9W5lMwAu1U6aVwOtP3rPbOAsUmgx',
 
         'HOST': 'dpg-cm66dkgcmk4c73cu4ek0-a.oregon-postgres.render.com',
 
