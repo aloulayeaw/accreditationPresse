@@ -122,7 +122,7 @@ DATABASES = {
 
         'PASSWORD': 'a5QC9W5lMwAu1U6aVwOtP3rPbOAsUmgx',
 
-        'HOST': 'dpg-cm66dkgcmk4c73cu4ek0-a.oregon-postgres.render.com',
+        'HOST': 'dpg-csuujpt2ng1s73dpujlg-a.oregon-postgres.render.com',
 
         'PORT': '5432'
     }
