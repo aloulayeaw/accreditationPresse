@@ -1,0 +1,42 @@
+{% extends 'includes/admin/layout.html' %} 
+
+{% block title %} | Dashboard {% endblock %}
+{% block content %}
+            <div class="layout-px-spacing">
+                <div class="row layout-top-spacing">
+                
+                    <div class="col-xl-12 col-lg-12 col-sm-12 layout-spacing">
+                        <div class="widget-content widget-content-area br-6">
+                            <table id="invoice-list" class="table table-hover" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th style="text-align: center;">Organe de Presse</th>
+                                        <th style="text-align: center;">Responsable</th>
+                                        <th style="text-align: center;">Téléphone</th>
+                                        <th style="text-align: center;">Statut</th>
+                                        <th style="text-align: center;">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    {% for demand in demande %}                          
+                                        <tr>
+                                            <td style="text-align: center;" class="checkbox-column">{{demand.user.organe|upper }}</td>
+                                            <td style="text-align: center;"><span class="inv-number">{{demand.responsable|upper }}</span></td>
+                                            <td style="text-align: center;">{{demand.telephone }}</td>
+                                            <td style="text-align: center;">{{demand.statut }}</td>
+                                            {% if demand.statut == "Accepted" %}
+                                                <td style="text-align: center;"><button class="btn btn-success mb-2">Demande Traités</button></td>
+                                            {% else %}
+                                                <td style="text-align: center;"><a href="{% url 'presse_detail' demand.id %}"><button class="btn btn-primary mb-2">Voir Plus</button></a></td>
+                                            {% endif %}
+                                            <td style="text-align: center;"><demand style="width: 40px; heigth: 40px; border-radius: 20px;" src="{{ demand.photo.url }}"></td>
+                                        </tr>
+                                    {% endfor %}  
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+{% endblock %}

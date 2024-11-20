@@ -1,0 +1,412 @@
+{% extends 'index.html' %}
+{% block content %}
+
+{% load static %}
+
+		<!-- main start -->
+		<main class="js-animsition-overlay" data-animsition-overlay="true">
+			<!-- page head start -->
+			<section id="up" class="lines-section pos-rel anim-lines bg-img-cover" style="background-image:url({% static 'assets/images/slide/1.jpg' %} )">
+				<!-- bg-overlay -->
+				<div class="bg-overlay-black"></div>
+				<!-- lines-container start -->
+				<div class="lines-container pos-rel anim-lines flex-min-height-100vh border-box-bottom">
+					<div class="padding-top-bottom-120 container">
+						<!-- title start -->
+						<h2 class="headline-xl after-preloader-anim">
+							<span class="hidden-box d-block">
+								<span class="anim-slide">LAYENE DIGITAL</span>
+							</span>
+							<span class="hidden-box d-block">
+								<span class="anim-slide tr-delay-01">
+									<span class="text-color-red">LE PORTAIL DIGITAL</span>
+								</span>
+							</span>
+							<span class="hidden-box d-block">
+								<span class="anim-slide tr-delay-02">
+									DE LA COMMUNAUTÉ <span class="text-color-red">LAYENE</span>
+								</span>
+							</span>
+						</h2><!-- title end -->
+					</div>
+				</div><!-- lines-container end -->
+				<!-- particles -->
+				<div id="js-particles"></div>
+			</section><!-- page head end -->
+
+			<!-- about us start -->
+			<section id="down" class="lines-section pos-rel section-bg-dark-1">
+				<!-- lines-container start -->
+				<div class="lines-container pos-rel flex-min-height-100vh border-box-bottom">
+					<!-- padding-top-bottom-120 start -->
+					<div class="padding-top-bottom-120 width-100perc">
+						<!-- title start -->
+						<h2 class="headline-xxl text-center js-scrollanim">
+							<span class="hidden-box d-block">
+								<span class="anim-slide">
+									<span class="text-color-red">Designer</span>
+								</span>
+							</span>
+							<span class="hidden-box d-block">
+								<span class="anim-slide tr-delay-01 text-color-red">Layene Digital</span>
+							</span>
+						</h2><!-- title end -->
+
+						<!-- flex-container start -->
+						<div class="flex-container padding-top-30">
+							<!-- column start -->
+							<div class="four-columns column-100-100 padding-top-60">
+								<div class="line-col-l-r-margin-20 js-scrollanim">
+									<h6 class="hidden-box">
+										<span class="subhead-xs text-color-red anim-slide">Text</span>
+									</h6>
+									<p class="body-text-s margin-top-20 anim-text-reveal tr-delay-02">text</p>
+								</div>
+							</div><!-- column end -->
+
+							<!-- column start -->
+							<div class="four-columns column-50-100 padding-top-60">
+								<div class="line-col-l-r-margin-20 js-scrollanim">
+									<h6 class="hidden-box">
+										<span class="subhead-xs text-color-red anim-slide">text</span>
+									</h6>
+									<!-- list start -->
+									<ul class="list text-color-b0b0b0 margin-top-20 anim-text-reveal tr-delay-02">
+										<li class="list__item red dot">
+											<p class="subhead-xxs">text</p>
+										</li>
+										<li class="list__item red dot">
+											<p class="subhead-xxs">text</p>
+										</li>
+									</ul><!-- list end -->
+								</div>
+							</div><!-- column end -->
+
+							<!-- column start -->
+							<div class="four-columns column-50-100 padding-top-60">
+								<div class="line-col-l-r-margin-20 js-scrollanim">
+									<h6 class="hidden-box">
+										<span class="subhead-xs text-color-red anim-slide">text</span>
+									</h6>
+									<!-- list start -->
+									<ul class="list list_counter text-color-b0b0b0 margin-top-20 anim-text-reveal tr-delay-02">
+										<li class="list__item red">
+											<p class="subhead-xxs">text</p>
+										</li>
+										<li class="list__item red">
+											<p class="subhead-xxs">text</p>
+										</li>
+										</li>
+									</ul><!-- list end -->
+								</div>
+							</div><!-- column end -->
+						</div><!-- flex-container end -->
+					</div><!-- padding-top-bottom-120 end -->
+				</div><!-- lines-container end -->
+			</section><!-- about us end -->
+
+			<!-- portfolio start -->
+			<section class="lines-section pos-rel section-bg-dark-1">
+				<!-- lines-container start -->
+				<div class="lines-container pos-rel padding-top-bottom-120 border-box-bottom">
+					<!-- title start -->
+					<h2 class="headline-xxxl text-center border-box-l-r hidden-box js-scrollanim">
+						<span class="anim-slide">
+							QUELQUES <span class="text-color-red">RÉALISATIONS</span>
+						</span>
+					</h2><!-- title end -->
+
+					<!-- container start -->
+					<div class="container">
+						<!-- filter-buttons start -->
+						{% comment %} <div class="list list_row list_center list_margin-30px padding-top-90 js-filter-button-box js-scrollanim">
+							<button class="list__item js-filter-button anim-fade js-pointer-small js-filter-button-active" data-filter="*">
+								<span class="fill-btn" data-text="Everything">Everything</span>
+							</button>
+							<button class="list__item js-filter-button anim-fade tr-delay-01 js-pointer-small" data-filter=".marketing">
+								<span class="fill-btn" data-text="Marketing">Marketing</span>
+							</button>
+							<button class="list__item js-filter-button anim-fade tr-delay-02 js-pointer-small" data-filter=".photoshoot">
+								<span class="fill-btn" data-text="Photoshoot">Photoshoot</span>
+							</button>
+							<button class="list__item js-filter-button anim-fade tr-delay-03 js-pointer-small" data-filter=".branding">
+								<span class="fill-btn" data-text="Branding">Branding</span>
+							</button>
+						</div><!-- filter-buttons end --> {% endcomment %}
+
+						<!-- js-isotope-filter-grid-box start -->
+						<div class="js-isotope-filter-grid-box">
+							<!-- grid-item start -->
+							<div class="padding-top-60 grid-item-50-50-100 js-isotope-filter-grid-item marketing">
+								<a href="{% static 'assets/images/slide/11.jpg' %}" class="grid-margin-box js-photo-popup js-pointer-zoom">
+									<div class="border-box anim-overlay js-scrollanim">
+										<img src="{% static 'assets/images/slide/11.jpg' %}" alt="project">
+									</div>
+									<!-- content start -->
+									{% comment %} <div class="pos-abs pos-bottom-center text-center width-100perc border-box-l-r">
+										<h3 class="hidden-box d-inline-block">
+											<span class="headline-xxxs text-bg-red padding-left-right-30 hover-reveal">Camera lens</span>
+										</h3><br>
+										<span class="hidden-box d-inline-block">
+											<span class="subhead-xxs text-bg-black padding-left-right-30 hover-reveal tr-delay-02">Marketing</span>
+										</span>
+									</div><!-- content end --> {% endcomment %}
+								</a>
+							</div><!-- grid-item end -->
+
+							<!-- grid-item start -->
+							<div class="padding-top-60 grid-item-50-50-100 js-isotope-filter-grid-item branding">
+								<a href="{% static 'assets/images/slide/1.png' %}" class="grid-margin-box js-photo-popup js-pointer-zoom">
+									<div class="border-box anim-overlay js-scrollanim">
+										<img src="{% static 'assets/images/slide/1.png' %}" alt="project">
+									</div>
+									<!-- content start -->
+									{% comment %} <div class="pos-abs pos-bottom-center text-center width-100perc border-box-l-r">
+										<h3 class="hidden-box d-inline-block">
+											<span class="headline-xxxs text-bg-red padding-left-right-30 hover-reveal">Controller</span>
+										</h3><br>
+										<span class="hidden-box d-inline-block">
+											<span class="subhead-xxs text-bg-black padding-left-right-30 hover-reveal tr-delay-02">Branding</span>
+										</span>
+									</div><!-- content end --> {% endcomment %}
+								</a>
+							</div><!-- grid-item end -->
+
+							<!-- grid-item start -->
+							<div class="padding-top-60 grid-item-50-50-100 js-isotope-filter-grid-item photoshoot">
+								<a href="{% static 'assets/images/slide/2.jpg' %}" class="grid-margin-box js-photo-popup js-pointer-zoom">
+									<div class="border-box anim-overlay js-scrollanim">
+										<img src="{% static 'assets/images/slide/2.jpg' %}" alt="project">
+									</div>
+									<!-- content start -->
+									{% comment %} <div class="pos-abs pos-bottom-center text-center width-100perc border-box-l-r">
+										<h3 class="hidden-box d-inline-block">
+											<span class="headline-xxxs text-bg-red padding-left-right-30 hover-reveal">Laptop</span>
+										</h3><br>
+										<span class="hidden-box d-inline-block">
+											<span class="subhead-xxs text-bg-black padding-left-right-30 hover-reveal tr-delay-02">Photoshoot</span>
+										</span>
+									</div><!-- content end --> {% endcomment %}
+								</a>
+							</div><!-- grid-item end -->
+
+							<!-- grid-item start -->
+							<div class="padding-top-60 grid-item-50-50-100 js-isotope-filter-grid-item photoshoot">
+								<a href="{% static 'assets/images/slide/31.jpg' %}" class="grid-margin-box js-photo-popup js-pointer-zoom">
+									<div class="border-box anim-overlay js-scrollanim">
+										<img src="{% static 'assets/images/slide/31.jpg' %}" alt="project">
+									</div>
+									<!-- content start -->
+									{% comment %} <div class="pos-abs pos-bottom-center text-center width-100perc border-box-l-r">
+										<h3 class="hidden-box d-inline-block">
+											<span class="headline-xxxs text-bg-red padding-left-right-30 hover-reveal">Odonkor</span>
+										</h3><br>
+										<span class="hidden-box d-inline-block">
+											<span class="subhead-xxs text-bg-black padding-left-right-30 hover-reveal tr-delay-02">Photoshoot</span>
+										</span>
+									</div><!-- content end --> {% endcomment %}
+								</a>
+							</div><!-- grid-item end -->
+
+							<!-- grid-item start -->
+							<div class="padding-top-60 grid-item-50-50-100 js-isotope-filter-grid-item branding">
+								<a href="{% static 'assets/images/slide/6.jpg' %}" class="grid-margin-box js-photo-popup js-pointer-zoom">
+									<div class="border-box anim-overlay js-scrollanim">
+										<img src="{% static 'assets/images/slide/6.jpg' %}" alt="project">
+									</div>
+									<!-- content start -->
+									{% comment %} <div class="pos-abs pos-bottom-center text-center width-100perc border-box-l-r">
+										<h3 class="hidden-box d-inline-block">
+											<span class="headline-xxxs text-bg-red padding-left-right-30 hover-reveal">Swagger</span>
+										</h3><br>
+										<span class="hidden-box d-inline-block">
+											<span class="subhead-xxs text-bg-black padding-left-right-30 hover-reveal tr-delay-02">Branding</span>
+										</span>
+									</div><!-- content end --> {% endcomment %}
+								</a>
+							</div><!-- grid-item end -->
+
+							<!-- grid-item start -->
+							<div class="padding-top-60 grid-item-50-50-100 js-isotope-filter-grid-item marketing">
+								<a href="{% static 'assets/images/slide/weex.png' %}" class="grid-margin-box js-photo-popup js-pointer-zoom">
+									<div class="border-box anim-overlay js-scrollanim">
+										<img src="{% static 'assets/images/slide/weex.png' %}" alt="project">
+									</div>
+									<!-- content start -->
+									{% comment %} <div class="pos-abs pos-bottom-center text-center width-100perc border-box-l-r">
+										<h3 class="hidden-box d-inline-block">
+											<span class="headline-xxxs text-bg-red padding-left-right-30 hover-reveal">Venus</span>
+										</h3><br>
+										<span class="hidden-box d-inline-block">
+											<span class="subhead-xxs text-bg-black padding-left-right-30 hover-reveal tr-delay-02">Marketing</span>
+										</span>
+									</div><!-- content end --> {% endcomment %}
+								</a>
+							</div><!-- grid-item end -->
+							<!-- grid-item start -->
+							<div class="padding-top-60 grid-item-50-50-100 js-isotope-filter-grid-item marketing">
+								<a href="{% static 'assets/images/slide/32.jpg' %}" class="grid-margin-box js-photo-popup js-pointer-zoom">
+									<div class="border-box anim-overlay js-scrollanim">
+										<img src="{% static 'assets/images/slide/32.jpg' %}" alt="project">
+									</div>
+									<!-- content start -->
+									{% comment %} <div class="pos-abs pos-bottom-center text-center width-100perc border-box-l-r">
+										<h3 class="hidden-box d-inline-block">
+											<span class="headline-xxxs text-bg-red padding-left-right-30 hover-reveal">Venus</span>
+										</h3><br>
+										<span class="hidden-box d-inline-block">
+											<span class="subhead-xxs text-bg-black padding-left-right-30 hover-reveal tr-delay-02">Marketing</span>
+										</span>
+									</div><!-- content end --> {% endcomment %}
+								</a>
+							</div><!-- grid-item end -->
+							<!-- grid-item start -->
+							<div class="padding-top-60 grid-item-50-50-100 js-isotope-filter-grid-item marketing">
+								<a href="{% static 'assets/images/slide/33.jpg' %}" class="grid-margin-box js-photo-popup js-pointer-zoom">
+									<div class="border-box anim-overlay js-scrollanim">
+										<img src="{% static 'assets/images/slide/33.jpg' %}" alt="project">
+									</div>
+									<!-- content start -->
+									{% comment %} <div class="pos-abs pos-bottom-center text-center width-100perc border-box-l-r">
+										<h3 class="hidden-box d-inline-block">
+											<span class="headline-xxxs text-bg-red padding-left-right-30 hover-reveal">Venus</span>
+										</h3><br>
+										<span class="hidden-box d-inline-block">
+											<span class="subhead-xxs text-bg-black padding-left-right-30 hover-reveal tr-delay-02">Marketing</span>
+										</span>
+									</div><!-- content end --> {% endcomment %}
+								</a>
+							</div><!-- grid-item end -->
+							<!-- grid-item start -->
+							<div class="padding-top-60 grid-item-50-50-100 js-isotope-filter-grid-item marketing">
+								<a href="{% static 'assets/images/slide/34.jpg' %}" class="grid-margin-box js-photo-popup js-pointer-zoom">
+									<div class="border-box anim-overlay js-scrollanim">
+										<img src="{% static 'assets/images/slide/34.jpg' %}" alt="project">
+									</div>
+									<!-- content start -->
+									{% comment %} <div class="pos-abs pos-bottom-center text-center width-100perc border-box-l-r">
+										<h3 class="hidden-box d-inline-block">
+											<span class="headline-xxxs text-bg-red padding-left-right-30 hover-reveal">Venus</span>
+										</h3><br>
+										<span class="hidden-box d-inline-block">
+											<span class="subhead-xxs text-bg-black padding-left-right-30 hover-reveal tr-delay-02">Marketing</span>
+										</span>
+									</div><!-- content end --> {% endcomment %}
+								</a>
+							</div><!-- grid-item end -->
+							<!-- grid-item start -->
+							<div class="padding-top-60 grid-item-50-50-100 js-isotope-filter-grid-item marketing">
+								<a href="{% static 'assets/images/slide/35.jpg' %}" class="grid-margin-box js-photo-popup js-pointer-zoom">
+									<div class="border-box anim-overlay js-scrollanim">
+										<img src="{% static 'assets/images/slide/35.jpg' %}" alt="project">
+									</div>
+									<!-- content start -->
+									{% comment %} <div class="pos-abs pos-bottom-center text-center width-100perc border-box-l-r">
+										<h3 class="hidden-box d-inline-block">
+											<span class="headline-xxxs text-bg-red padding-left-right-30 hover-reveal">Venus</span>
+										</h3><br>
+										<span class="hidden-box d-inline-block">
+											<span class="subhead-xxs text-bg-black padding-left-right-30 hover-reveal tr-delay-02">Marketing</span>
+										</span>
+									</div><!-- content end --> {% endcomment %}
+								</a>
+								<ul class="list list_row list_margin-05px padding-top-30">
+										<li class="list__item">
+											<a href="{% url 'gallery' %}" class="border-btn js-pointer-large">
+												<span class="border-btn__inner" style="color: white;">Voir Plus</span>
+												<span class="border-btn__lines-1"></span>
+												<span class="border-btn__lines-2"></span>
+											</a>
+										</li>
+								</ul>
+							</div><!-- grid-item end -->
+						</div><!-- js-isotope-filter-grid-box end -->
+					</div><!-- container end -->
+				</div><!-- lines-container end -->
+			</section><!-- portfolio end -->
+		
+			<!-- portfolio start -->
+			<section class="lines-section pos-rel section-bg-dark-1">
+				<!-- lines-container start -->
+				<div class="lines-container pos-rel padding-top-bottom-120 border-box-bottom">
+					<!-- title start -->
+					<h2 class="headline-xxxl text-center border-box-l-r hidden-box js-scrollanim">
+						<span class="anim-slide">
+							QUELQUES <span class="text-color-red">PRODUCTION</span>
+						</span>
+					</h2><!-- title end -->
+
+					<!-- container start -->
+					<div class="container">
+						<!-- filter-buttons start -->
+						{% comment %} <div class="list list_row list_center list_margin-30px padding-top-90 js-filter-button-box js-scrollanim">
+							<button class="list__item js-filter-button anim-fade js-pointer-small js-filter-button-active" data-filter="*">
+								<span class="fill-btn" data-text="Everything">Everything</span>
+							</button>
+							<button class="list__item js-filter-button anim-fade tr-delay-01 js-pointer-small" data-filter=".marketing">
+								<span class="fill-btn" data-text="Marketing">Marketing</span>
+							</button>
+							<button class="list__item js-filter-button anim-fade tr-delay-02 js-pointer-small" data-filter=".photoshoot">
+								<span class="fill-btn" data-text="Photoshoot">Photoshoot</span>
+							</button>
+							<button class="list__item js-filter-button anim-fade tr-delay-03 js-pointer-small" data-filter=".branding">
+								<span class="fill-btn" data-text="Branding">Branding</span>
+							</button>
+						</div><!-- filter-buttons end --> {% endcomment %}
+
+						<!-- js-isotope-filter-grid-box start -->
+						<div class="js-isotope-filter-grid-box">
+							<!-- grid-item start -->
+							<div class="padding-top-60 grid-item-50-50-100 js-isotope-filter-grid-item marketing">
+								<p  class="grid-margin-box js-photo-popup">
+									<div class="border-box anim-overlay js-scrollanim">
+										<iframe width="570" height="435" src="https://www.youtube.com/embed/VOrZ-6GIIGA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+									</div>
+									<!-- content start -->
+									{% comment %} <div class="pos-abs pos-bottom-center text-center width-100perc border-box-l-r">
+										<h3 class="hidden-box d-inline-block">
+											<span class="headline-xxxs text-bg-red padding-left-right-30 hover-reveal">Camera lens</span>
+										</h3><br>
+										<span class="hidden-box d-inline-block">
+											<span class="subhead-xxs text-bg-black padding-left-right-30 hover-reveal tr-delay-02">Marketing</span>
+										</span>
+									</div><!-- content end --> {% endcomment %}
+								</p>
+							</div><!-- grid-item end -->
+
+							<!-- grid-item start -->
+							<div class="padding-top-60 grid-item-50-50-100 js-isotope-filter-grid-item marketing">
+								<p  class="grid-margin-box js-photo-popup">
+									<div class="border-box anim-overlay js-scrollanim">
+										<iframe width="570" height="435" src="https://www.youtube.com/embed/5HdcQq06o08" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+									</div>
+									<!-- content start -->
+									{% comment %} <div class="pos-abs pos-bottom-center text-center width-100perc border-box-l-r">
+										<h3 class="hidden-box d-inline-block">
+											<span class="headline-xxxs text-bg-red padding-left-right-30 hover-reveal">Camera lens</span>
+										</h3><br>
+										<span class="hidden-box d-inline-block">
+											<span class="subhead-xxs text-bg-black padding-left-right-30 hover-reveal tr-delay-02">Marketing</span>
+										</span>
+									</div><!-- content end --> {% endcomment %}
+								</p>
+							</div><!-- grid-item end -->
+						</div><!-- js-isotope-filter-grid-box end -->
+					</div><!-- container end -->
+				</div><!-- lines-container end -->
+			</section><!-- portfolio end -->
+
+			<!-- video content start -->
+			{% comment %} <div class="lines-section pos-rel bg-img-cover height-100vh" style="background-image:url(assets/images/projects/laptop/semi-opened-laptop-computer-turned-on-on-table-2047905.jpg)">
+				<!-- bg-overlay -->
+				<div class="bg-overlay-black"></div>
+				<div class="lines-container pos-rel no-lines height-100perc border-box-bottom">
+					<a href="https://www.youtube.com/watch?v=hitNXU4PoRU" class="play-button js-popup-youtube js-pointer-large">
+						<span class="play-button__inner"></span>
+					</a>
+				</div>
+			</div><!-- video content end --> {% endcomment %}
+
+		</main><!-- main end -->
+
+{% endblock %}

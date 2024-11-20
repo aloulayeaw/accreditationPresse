@@ -1,0 +1,112 @@
+{% extends 'index.html' %}
+{% block content %}
+
+{% load static %}
+		<!-- main start -->
+		<main class="js-animsition-overlay" data-animsition-overlay="true">
+			<!-- pos-rel start -->
+			<section id="up" class="pos-rel bg-img-cover" style="background-image:url({% static 'assets/images/img/sliders/slide1.png' %})">
+				<!-- bg-overlay -->
+				<div class="bg-overlay-black"></div>
+				<!-- pos-rel start -->
+				<div class="pos-rel flex-min-height-100vh">
+					<div class="padding-top-bottom-120 container small after-preloader-anim">
+						<!-- title start -->
+						<div class="text-center">
+						<!-- title start -->
+						<h2 class="headline-xl after-preloader-anim">
+							<span class="hidden-box d-block">
+								<span class="anim-slide tr-delay-01">
+									<font style="vertical-align: inherit;">
+										<font style="vertical-align: inherit;">LAYENE DIGITAL</font>
+									</font>
+								</span>
+							</span>
+							<span class="hidden-box d-block">
+								<span class="anim-slide tr-delay01">
+									<span class="text-color-red">
+										<font style="vertical-align: inherit;">
+											<font style="vertical-align: inherit;">LE PORTAIL DIGITAL</font>
+										</font>
+									</span>
+									<font style="vertical-align: inherit;">
+										<font style="vertical-align: inherit;">
+									</font></font>
+									</span>
+							</span>	
+							<span class="hidden-box d-block">
+								<span class="anim-slide tr-delay02">
+									<font style="vertical-align: inherit;"><span class="text-color-red"><font style="vertical-align: inherit;">DE LA COMMUNAUTÉ</font></span>
+									<font style="vertical-align: inherit;">LAYENE</font></font><span class="text-color-red"><font style="vertical-align: inherit;"></font></span>
+								</span>
+							</span>
+						</h2><!-- title end -->
+						</div><!-- title end -->
+
+						<!-- description start -->
+						<div class="flex-container description">
+							<div class="four-columns column-50-100 padding-top-1 text-center">
+								<span class="hidden-box d-inline-block">
+									<span class="subhead-xxs anim-reveal">{{blog.auteur}}</span>
+								</span>
+							</div>
+							<div class="four-columns column-50-100 padding-top-1 text-center">
+								<span class="hidden-box d-inline-block">
+									<span class="subhead-xxs anim-reveal tr-delay-04"></span>
+								</span>
+							</div>
+							<div class="four-columns column-50-100 padding-top-1 text-center">
+								<span class="hidden-box d-inline-block">
+									<span class="subhead-xxs anim-reveal tr-delay-04">{{blog.created_date}}</span>
+								</span>
+							</div>
+						</div><!-- description end -->
+					</div>
+				</div><!-- pos-rel end -->
+			</section><!-- pos-rel end -->
+
+			<!-- post start -->
+			<div id="down" class="pos-rel section-bg-light-1" data-midnight="black">
+				<!-- pos-rel start -->
+				<div class="pos-rel padding-top-bottom-120">
+					<!-- entry-content start -->
+					<article>
+						<div class="container small">
+							<h2 class="headline-s text-color-black text-center">{{blog.tittle}}</h2>
+							<p class="body-text-s text-color-black margin-top-20">{{blog.text|safe}}</p>
+						</div>
+						<!-- js-2-view-slider start -->
+						<div class="js-2-view-slider padding-top-30 padding-bottom-60 hidden-box pos-rel">
+							<!-- swiper-wrapper start -->
+							<div class="swiper-wrapper js-slider-scroll-anim">
+								<!-- swiper-slide start -->
+								<div class="swiper-slide">
+									<div class="margin-left-right-20 anim-img-scale">
+										<img class="anim-img-scale__inner" src="{% static 'assets/images/img/sliders/slide1.png' %}" alt="Post">
+									</div>
+								</div><!-- swiper-slide end -->
+
+							</div><!-- swiper-wrapper end -->
+
+							<!-- swiper-button-prev start -->
+							{% comment %} <div class="swiper-button-prev-box">
+								<div class="swiper-button-prev black"></div>
+							</div><!-- swiper-button-prev end --> {% endcomment %}
+							<!-- swiper-button-next start -->
+							{% comment %} <div class="swiper-button-next-box">
+								<div class="swiper-button-next black"></div>
+							</div><!-- swiper-button-next end --> {% endcomment %}
+
+							<!-- swiper-pagination start -->
+							{% comment %} <div class="pagination-box">
+								<div class="swiper-pagination counter-pagination black"></div>
+							</div><!-- swiper-pagination end --> {% endcomment %}
+						</div><!-- js-2-view-slider end -->
+					</article><!-- entry-content end -->
+
+				</div><!-- pos-rel end -->
+			</div><!-- post end -->
+
+		</main><!-- main end -->
+
+{% endblock %}

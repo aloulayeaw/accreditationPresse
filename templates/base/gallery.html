@@ -1,0 +1,119 @@
+{% extends 'index.html' %}
+{% block content %}
+
+{% load static %}
+		<!-- main start -->
+		<main class="js-animsition-overlay" data-animsition-overlay="true">
+			<!-- home slider start -->
+			<section id="up" class="lines-section pos-rel anim-lines bg-img-cover _mPS2id-t mPS2id-target mPS2id-target-first mPS2id-target-last" style="background-image:url({% static 'assets/images/slide/1.jpg' %})">
+			<!-- bg-overlay -->
+				<div class="bg-overlay-black"></div>
+			<!-- lines-container start -->
+				<div class="lines-container border-box-bottom pos-rel anim-lines flex-min-height-100vh ">
+				<div class="padding-top-bottom-120 container  text-left">
+			<!-- title start -->
+			<h2 class="headline-xl after-preloader-anim">
+				<span class="hidden-box d-block">
+					<span class="anim-slide tr-delay-01">
+						<font style="vertical-align: inherit;">
+							<font style="vertical-align: inherit;">LAYENE DIGITAL</font>
+						</font>
+					</span>
+				</span>
+				<span class="hidden-box d-block">
+					<span class="anim-slide tr-delay01">
+						<span class="text-color-red">
+							<font style="vertical-align: inherit;">
+								<font style="vertical-align: inherit;">LE PORTAIL DIGITAL</font>
+							</font>
+						</span>
+						<font style="vertical-align: inherit;">
+							<font style="vertical-align: inherit;">
+						</font></font>
+						</span>
+				</span>	
+				<span class="hidden-box d-block">
+					<span class="anim-slide tr-delay02">
+						<font style="vertical-align: inherit;"><span class="text-color-red"><font style="vertical-align: inherit;">DE LA COMMUNAUTÉ</font></span>
+						<font style="vertical-align: inherit;">LAYENE</font></font><span class="text-color-red"><font style="vertical-align: inherit;"></font></span>
+					</span>
+				</span>
+				</h2><!-- title end -->
+			</div>
+			</div><!-- lines-container end -->
+			<!-- particles -->				
+			<div id="js-particles"><canvas class="particles-js-canvas-el" width="478" height="826" style="width: 100%; height: 100%;"></canvas></div>															</section>
+		 <!-- photo gallery start -->
+			<section class="pos-rel section-bg-dark-2">
+				<!-- pos-rel start -->
+				<div class="pos-rel padding-top-bottom-120">
+					<!-- title start -->
+					<h2 class="headline-xxl text-center hidden-box">
+						<span class="anim-slide js-scrollanim">GALLERY  LAYENE</span>
+					</h2><!-- title end -->
+
+					<!-- js-isotope-grid-box start -->
+					<div class="js-isotope-grid-box container full padding-top-50">
+						<!-- empty grid -->
+						<div class="js-isotope-grid-item empty-grid-1px-33-50-none"></div>
+						<div class="js-isotope-grid-item empty-grid-200px-33-none"></div>
+						<div class="js-isotope-grid-item empty-grid-100px-33-50-none"></div>
+
+						<!-- grid-item start -->
+						{% for gal in gallery %}
+						<div class="padding-top-40 grid-item-33-50-100 js-isotope-grid-item">
+							<a href="{{ gal.photo.url }}" class="grid-margin-box js-photo-popup js-pointer-zoom">
+								<div class="anim-img-scale js-img-scale">
+									<img class="anim-img-scale__inner" src="{{ gal.photo.url }}" alt="Layene digital">
+								</div>
+							</a>
+						</div><!-- grid-item end -->
+						{% endfor %}
+
+<br><br><br>
+				<!-- Page navigation start -->
+                <div class="pagination-box text-center">
+                    <nav aria-label="swiper-pagination">
+                      {% if gallery.has_other_pages %}
+                        <ul class="pagination">
+                          {% if gallery.has_previous %}
+                              <li class="page-item">
+                                  <a class="page-link" href="?page={{gallery.previous_page_number}}"><i class="fa fa-angle-left"></i></a>
+                              </li>
+                          {% else %}
+                            <li class="page-item disabled">
+                                <a class="page-link"><i class="fa fa-angle-left"></i></a>
+                            </li>
+                          {% endif %}
+
+                          {% for i in gallery.paginator.page_range %}
+                            {% if gallery.number == i %}
+                              <li class="page-item"><a class="page-link active" href="#">{{i}}</a></li>
+                            {% else %}
+                              <li class="page-item"><a class="page-link" href="?page={{i}}">{{i}}</a></li>
+                            {% endif %}
+                          {% endfor %}
+
+                          {% if gallery.has_next %}
+                              <li class="page-item">
+                                  <a class="page-link" href="?page={{gallery.next_page_number}}"><i class="fa fa-angle-right"></i></a>
+                              </li>
+                          {% else %}
+                            <li class="page-item disabled">
+                                <a class="page-link"><i class="fa fa-angle-right"></i></a>
+                            </li>
+                          {% endif %}
+
+                        </ul>
+                      {% endif %}
+                    </nav>
+                </div>
+
+					</div><!-- js-isotope-grid-box end -->
+				</div><!-- pos-rel end -->
+			</section><!-- photo gallery end -->
+
+		</main><!-- main end -->
+
+
+{% endblock %}

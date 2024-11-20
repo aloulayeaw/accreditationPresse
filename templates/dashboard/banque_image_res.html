@@ -1,0 +1,64 @@
+{% extends 'includes/admin/layout.html' %} 
+
+{% block title %} | Dashboard {% endblock %}
+{% block content %}
+            <div class="layout-px-spacing">
+                <div class="row layout-top-spacing">
+
+                    <div class="col-xl-12 col-lg-12 col-sm-12 layout-spacing">
+                        <div class="row">
+                            <div class="" style="padding: 10px;">
+                                <div class="dt-buttons">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="dt-buttons">
+                                    <button class="dt-button btn btn-primary btn-sm" tabindex="0" aria-controls="invoice-list">
+                                        <span>
+                                            <font style="vertical-align: inherit;">
+                                                <font style="vertical-align: inherit;"><a href="{% url 'banqueRessourceAdd' %}">Ajouter un nouveau</a></font>
+                                            </font>
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="widget-content widget-content-area br-6">
+                            <table id="invoice-list" class="table table-hover" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th class="checkbox-column"> # </th>
+                                        <th style="text-align: center;">Prénom et Nom</th>
+                                        <th style="text-align: center;">Template</th>
+                                        <th style="text-align: center;">commentaire</th>
+                                        <th style="text-align: center;">Date</th>
+                                        <th style="text-align: center;">FICHIER</th>
+                                        <th style="text-align: center;">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    {% for img in image %}                          
+                                        <tr>
+                                            <td>{{img.id }}</td>
+                                            <td style="text-align: center;" class="checkbox-column">{{img.user.first_name|upper }} {{img.user.last_name|upper }} </td>
+                                            <td style="text-align: center;"><span class="inv-number">{{img.eventsss|upper }}</span></td>
+                                            <td style="text-align: center;">{{img.commentsss }}</td>
+                                            <td style="text-align: center;">{{img.created_date }}</td>
+                                            <td style="text-align: center;">
+                                                <a href="{{ img.photo.url }}" download="w3logo">
+                                                    <i class="fas fa-download"></i>
+                                                </a>
+                                            </td>
+                                            <td style="text-align: center;"><a href="{% url 'deleteres' id=img.id %}"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+                                        </tr>
+                                    {% endfor %}  
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+{% endblock %}

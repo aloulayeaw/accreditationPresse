@@ -1,0 +1,77 @@
+{% extends 'includes/admin/layout.html' %} 
+
+{% block title %} | Dashboard {% endblock %}
+{% block content %}
+            <div class="layout-px-spacing">
+                <div class="row layout-top-spacing">
+
+                    <div class="col-xl-12 col-lg-12 col-sm-12 layout-spacing">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <div class="dt-buttons">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="dt-buttons">
+                                    <button class="dt-button btn btn-primary btn-sm" tabindex="0" aria-controls="invoice-list">
+                                        <span>
+                                            <font style="vertical-align: inherit;">
+                                                <font style="vertical-align: inherit;"><a href="{% url 'imagePhotoAdd' %}">Ajouter un nouveau</a></font>
+                                            </font>
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="dt-buttons">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="dt-buttons">
+                                    <button class="dt-button btn btn-primary btn-sm" tabindex="0" aria-controls="invoice-list">
+                                        <span>
+                                            <font style="vertical-align: inherit;">
+                                                <font style="vertical-align: inherit;"><a href="{% url 'viewImagePhoto' %}">Voir album</a></font>
+                                            </font>
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="widget-content widget-content-area br-6">
+                            <table id="invoice-list" class="table table-hover" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th class="checkbox-column"> # </th>
+                                        <th>Prénom et Nom</th>
+                                        <th>ÉVENEMENTS</th>
+                                        <th>commentaire</th>
+                                        <th>STATUT</th>
+                                        <th>Date</th>
+                                        <th>IMAGE</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    {% for img in image %}                          
+                                        <tr>
+                                            <td>{{img.id }}</td>
+                                            <td class="checkbox-column">{{img.user.first_name|upper }} {{img.user.last_name|upper }} </td>
+                                            <td><span class="inv-number">{{img.eventss|upper }}</span></td>
+                                            <td>{{img.commentss }}</td>
+                                            <td>{{img.statut|upper }}</td>
+                                            <td>{{img.created_date }}</td>
+                                            <td><img style="width: 40px; heigth: 40px; border-radius: 20px;" src="{{ img.photo.url }}"></td>
+                                            <td><a href="{% url 'deletephoto' id=img.id %}"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+                                        </tr>
+                                    {% endfor %}  
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+{% endblock %}

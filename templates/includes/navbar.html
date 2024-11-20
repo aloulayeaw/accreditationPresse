@@ -1,0 +1,115 @@
+{% load static %}
+		<!-- navigation start -->
+		<nav class="nav-container pos-rel js-dropdown-active-box">
+			<!-- pos-rel start -->
+			<div class="pos-rel height-100perc">
+				<!-- dropdown close btn start -->
+				{% comment %} <div class="dropdown-close">
+					<div class="dropdown-close__inner js-dropdown-close js-pointer-large">
+						<span class="dropdown-close__arrow"></span>
+					</div>
+				</div><!-- dropdown close btn end --> {% endcomment %}
+
+				<!-- js-nav-slider-bg start -->
+				<div class="js-nav-slider-bg">
+					{% comment %} <!-- swiper-wrapper start -->
+					<div class="swiper-wrapper">
+						<!-- swiper-slide start -->
+						<div class="swiper-slide">
+							<div class="nav-slide-bg" style="background-image:url(assets/images/s/speakers/revolt-BMest61rcqs-unsplash.jpg)"></div>
+							<div class="bg-overlay-black"></div>
+						</div><!-- swiper-slide end -->
+						<!-- swiper-slide start -->
+						<div class="swiper-slide">
+							<div class="nav-slide-bg" style="background-image:url(assets/images/s/sneakers/revolt-164_6wVEHfI-unsplash.jpg)"></div>
+							<div class="bg-overlay-black"></div>
+						</div><!-- swiper-slide end -->
+						<!-- swiper-slide start -->
+						<div class="swiper-slide">
+							<div class="nav-slide-bg" style="background-image:url(assets/images/s/black-bike/josh-nuttall-pIwu5XNvXpk-unsplash.jpg)"></div>
+							<div class="bg-overlay-black"></div>
+						</div><!-- swiper-slide end -->
+						<!-- swiper-slide start -->
+						<div class="swiper-slide">
+							<div class="nav-slide-bg" style="background-image:url(assets/images/s/pexels/woman-in-black-sexy-top-2825034.jpg)"></div>
+							<div class="bg-overlay-black"></div>
+						</div><!-- swiper-slide end -->
+						<!-- swiper-slide start -->
+						<div class="swiper-slide">
+							<div class="nav-slide-bg" style="background-image:url(assets/images/s/furniture/goashape-RvyJGaoaWrs-unsplash.jpg)"></div>
+							<div class="bg-overlay-black"></div>
+						</div><!-- swiper-slide end -->
+					</div><!-- swiper-wrapper end --> {% endcomment %}
+				</div><!-- js-nav-slider-bg end -->
+
+				<!-- menu-box start -->
+				{% comment %} <ul class="menu-box">
+					<!-- nav-btn-box start -->
+					<li class="nav-btn-box">
+						<a href="{% url 'home' %}" class="nav-btn large dropdown-hidden-btn js-pointer-large">
+							<span class="nav-btn__inner" data-text="Accueil">Accueil</span>
+						</a>
+
+					</li><!-- nav-btn-box end -->
+
+									<ul class="list list_row list_margin-20px padding-top-30">
+										<li class="list__item">
+										 {% if user.is_authenticated %}
+											<a href="{% url 'dashboard' %}" class="border-btn js-pointer-large">
+												<span class="border-btn__inner" style="color: white;">Mon Espace</span>
+												<span class="border-btn__lines-1"></span>
+												<span class="border-btn__lines-2"></span>
+											</a>
+										{% else %}
+											<a href="{% url 'login' %}" class="border-btn js-pointer-large">
+												<span class="border-btn__inner" style="color: white;">Se Connecter</span>
+												<span class="border-btn__lines-1"></span>
+												<span class="border-btn__lines-2"></span>
+										    </a>
+										{% endif %}
+										</li>
+									</ul>
+
+								<!-- swiper-button-prev start -->
+								<div class="swiper-button-prev-box">
+									<div class="dropdown-slider-controls">
+										<div class="swiper-button-prev"></div>
+									</div>
+								</div><!-- swiper-button-prev end -->
+								<!-- swiper-button-next start -->
+								<div class="swiper-button-next-box">
+									<div class="dropdown-slider-controls">
+										<div class="swiper-button-next"></div>
+									</div>
+								</div><!-- swiper-button-next end -->
+
+								<!-- swiper-pagination start -->
+								<div class="pagination-box">
+									<div class="dropdown-slider-controls">
+										<div class="swiper-pagination counter-pagination"></div>
+									</div>
+								</div><!-- swiper-pagination end -->
+							</div><!-- js-nav-slider end -->
+						</div><!-- dropdown end -->
+					</li><!-- nav-btn-box end -->
+
+					<!-- nav-btn-box start -->
+					<li class="nav-btn-box">
+						<a href="#" class="nav-btn large dropdown-hidden-btn js-animsition-link js-pointer-large">
+							<span class="nav-btn__inner" data-text="Contact">Contact</span>
+						</a>
+					</li><!-- nav-btn-box end -->
+				</ul><!-- menu-box end --> {% endcomment %}
+
+				<!-- nav-information start -->
+				{% comment %} <div class="nav-information">
+				</div><!-- nav-information end --> {% endcomment %}
+
+				<!-- nav-copyright start -->
+				<div class="nav-copyright text-right">
+					<p class="copyright-style nav-fade-anim js-nav-anim">
+						&copy; Copyright 2023 LAYENE DIGITAL.
+					</p>
+				</div><!-- nav-copyright end -->
+			</div><!-- pos-rel end -->
+		</nav><!-- navigation end -->   

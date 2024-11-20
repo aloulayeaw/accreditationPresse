@@ -1,0 +1,20 @@
+{% extends 'includes/admin/layout.html' %} 
+
+{% block title %} | Dashboard {% endblock %}
+{% block content %}
+            <div class="layout-px-spacing">
+                <div class="row layout-top-spacing">
+                {% for demand in  demande%}
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                          <h5 class="card-title">Email: <br> <span class="btn btn-primary">{{demand.email}}</span></h5>
+                          <h5 class="card-title">Téléphone: <br> <span class="btn btn-primary">{{demand.telephone}}</span></h5>
+                          <h5 class="card-title">Responsable: <br> <span class="btn btn-primary">{{demand.responsable}}</span></h5>
+                          <h5 class="card-title">Nombre de Personne :<br> <span class="btn btn-primary">{{demand.nbre}}</span></h5>
+                        </div>
+                        <hr>
+                    </div>
+                {% endfor %}
+                </div>
+            </div>
+{% endblock %}
