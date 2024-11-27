@@ -83,6 +83,7 @@ class Demande(models.Model):
  
 
 class Personne(models.Model):
+    id = models.AutoField(primary_key=True)
     nom = models.CharField(max_length=255)
     prenom = models.CharField(max_length=255)
     fonction = models.CharField(max_length=255)

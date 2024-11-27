@@ -194,4 +194,4 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'alassane.aw1@ism.edu.sn'
-EMAIL_HOST_PASSWORD = 'exsk sboh opdf nncl'
+EMAIL_HOST_PASSWORD = 'dixm zbhj fzxx oqvm'
