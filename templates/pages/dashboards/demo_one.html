@@ -129,7 +129,7 @@
     <br>
     {% if request.user.profile == 'groupecentrale' %}
     <div class="container ap-po-details radius-xl justify-content-center align-items-center">
-        <div class="col-md-12 d-flex justify-content-center align-items-center" style="height: 200px;">
+        <div class="col-md-12 d-flex justify-content-center align-items-center" style="height: auto;">
             <div class="text-center">
                 <h1 style="font-size: 80px; font-weight: bold; margin: 0;">{{ total_dem }}</h1>
                 <p style="font-size: 18px; color: #666;">Nombre de Badge à tirer</p>
@@ -137,9 +137,10 @@
             <hr>
         </div>
         <p></p>
+        <p></p>
         <div class="row w-90">
             <!-- Section for displaying the centered number --> 
-            <div class="col-md-1 d-flex justify-content-center align-items-center" style="height: 400px;">
+            <div class="col-md-1 d-flex justify-content-center align-items-center">
                 <div class="text-center">
                 </div>
             </div>
