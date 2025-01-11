@@ -1,0 +1,199 @@
+<!doctype html>
+{% load static %}
+<html lang="fr" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Groupement Central Layene - Register</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/plugin.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/slide/logo/favicon2.png' %}">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.0/css/line.css">
+</head>
+<body>
+    <main class="main-content">
+        <div class="admin" style="background-image: url('{% static "img/slide/slide_jaamalahi-4.jpg" %}');">
+            <div class="container-fluid">
+                <div class="row justify-content-center align-items-center" style="height: 100vh;">
+                    <div class="col-xxl-8 col-xl-10 col-lg-12">
+                        <div class="d-flex flex-lg-row flex-column align-items-center justify-content-between">
+                            <!-- Left Section: Logo and Welcome Message -->
+                            <div class="logo-container text-center" style="flex: 1;">
+                                <img class="dark" style="width: 150px; height: auto; margin-bottom: -20px;" src="{% static 'img/slide/logo/Logo-GCL-white.png' %}" alt="Logo">
+                                <h3 class="mt-4" style="color: white;">Bienvenue sur notre plateforme d'accréditations des badges Presse</h3>
+                            </div>
+    
+                            <!-- Right Section: Form -->
+                            <div class="form-container card border-0 p-4" style="flex: 1; max-width: 700px; background-color: white;">
+                                <div style="width: 100%; text-align: center;">
+                                    <h5 class="text-dark">S'Inscrire</h5>
+                                </div>
+                                <div class="card-body">
+                                    <!-- Error Messages -->
+                                    {% if messages %}
+                                        <div class="alert alert-danger">
+                                            <ul>
+                                                {% for message in messages %}
+                                                    <li>{{ message }}</li>
+                                                {% endfor %}
+                                            </ul>
+                                        </div>
+                                    {% endif %}
+    
+                                    <form action="{% url 'register' %}" method="POST">
+                                        {% csrf_token %}
+                                        
+                                        <div class="row">
+                                            <div class="col-md-6 mb-3 form-group select-px-15">
+                                                <label for="type_presse" name="profile_organe" id="profile">Type de Presse</label>
+                                                <select id="type_presse" name="profile_organe" class="form-control" required>
+                                                    <option value="" disabled selected>Type de presse</option>
+                                                    <option value="Ecrite" name="profile_organe">Ecrite</option>
+                                                    <option value="En Ligne" name="profile_organe">En Ligne</option>
+                                                    <option value="TV" name="profile_organe">TV</option>
+                                                    <option value="Radio" name="profile_organe">Radio</option>
+                                                    <option value="Freelance" name="profile_organe">Freelance</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="organe">Organe</label>
+                                                <select name="organe" id="organe" class="form-control" required>
+                                                    <option value="" disabled selected>Organe de presse</option>
+                                                    <option value="LE SOLEIL">LE SOLEIL</option>
+                                                    <option value="RTS">RTS</option>
+                                                    <option value="GMC (Le TEMOIN)">GMC (Le TEMOIN)</option>
+                                                    <option value="Enquete">Enquete</option>
+                                                    <option value="SOODAAN Communication">SOODAAN Communication</option>
+                                                    <option value="Agence Presse Sénégalaise">Agence Presse Sénégalaise</option>
+                                                    <option value="Le Quotidien">Le Quotidien</option>
+                                                    <option value="L'As">L'As</option>
+                                                    <option value="2STV">2STV</option>
+                                                    <option value="ITV">ITV</option>
+                                                    <option value="Malikia TV">Malikia&nbsp;TV</option>
+                                                    <option value="GFM">GFM</option>
+                                                    <option value="GROUPE Walfadjiri">GROUPE Walfadjiri</option>
+                                                    <option value="GROUPE EMEDIA">GROUPE EMEDIA</option>
+                                                    <option value="Les Echos">Les Echos</option>
+                                                    <option value="L'evidence">L'evidence</option>
+                                                    <option value="Dakartimes">Dakartimes</option>
+                                                    <option value="WA GRAND PLACE">WA GRAND PLACE</option>
+                                                    <option value="DIRECT NEWS">DIRECT NEWS</option>
+                                                    <option value="SOURCE A<">SOURCE A</option>
+                                                    <option value="LIBERATION">LIBERATION</option>
+                                                    <option value="CONFIDENTIEL">CONFIDENTIEL</option>
+                                                    <option value="LA LETTRE QUOTIDIENNE">LA LETTRE QUOTIDIENNE</option>
+                                                    <option value="KRITIK">KRITIK</option>
+                                                    <option value="LE QUOTIDIEN">LE QUOTIDIEN</option>
+                                                    <option value="Layene Digital">Layene Digital</option>
+                                                    <option value="Autre">Autre</option>
+                                                </select>
+                                            </div>
+                                            <div id="other-organe-container" class="col-md-6 mb-3" style="display: none;">
+                                                <label for="other-organe">Nom de l'organe</label>
+                                                <input type="text" name="other_organe" id="other-organe" class="form-control" placeholder="Saisir le nom de l'organe">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="row">
+                                            <div class="col-md-6 mb-3">
+                                                <label for="nom">Nom</label>
+                                                <input type="text" id="lastname" name="lastname" class="form-control" placeholder="Nom" required>
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="prenom">Prenom</label>
+                                                <input type="text" id="firstname" name="firstname" class="form-control" placeholder="Prenom" required>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="row">
+                                            <div class="col-md-6 mb-3">
+                                                <label for="username">Username</label>
+                                                <input type="text" id="username" name="username"  class="form-control" placeholder="Username" required>
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="email">Email</label>
+                                                <input type="email" name="email" id="email" class="form-control" placeholder="Email" required>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="row">
+                                            <div class="col-md-6 mb-3">
+                                                <label for="password">Mot de passe</label>
+                                                <input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="password">Confirmation Mot de passe</label>
+                                                <input type="password" name="confirm_password" id="confirm_password" class="form-control" placeholder="Password" required>
+                                            </div>
+                                        </div>
+                                        
+                                        <br>
+                                        <div class="text-center mt-3">
+                                            <button type="submit" class="btn btn-primary btn-lg text-center" style="font-size: 18px; padding: 10px 30px;">
+                                                S'Inscrire
+                                            </button>
+                                        </div>                                        
+                                    </form>
+                                </div>
+                                <div class="text-center mt-3">
+                                    <p class="mb-0">
+                                        <a href="{% url 'login' %}" class="text-primary">
+                                            Se Connecter
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <script>
+        const organeSelect = document.getElementById('organe');
+        const otherOrganeContainer = document.getElementById('other-organe-container');
+        const otherOrganeInput = document.getElementById('other-organe');
+
+        console.log('Selected value:', organeSelect.value); 
+    
+        // Listen for changes on the "organe" dropdown
+        organeSelect.addEventListener('change', function () {
+            console.log('Selected value:', organeSelect.value); 
+            if (organeSelect.value === 'Autre') {
+                otherOrganeContainer.style.display = 'block';
+                otherOrganeInput.required = true; 
+                console.log('Showing custom input for "Autre"');
+            } else {
+                otherOrganeContainer.style.display = 'none';
+                otherOrganeInput.value = '';
+                otherOrganeInput.required = false; 
+                console.log('Hiding custom input, selected:', organeSelect.value);
+            }
+        });
+    </script>
+    
+    <div id="overlayer">
+        <div class="loader-overlay">
+            <div class="dm-spin-dots spin-lg">
+                <span class="spin-dot badge-dot dot-primary"></span>
+                <span class="spin-dot badge-dot dot-primary"></span>
+                <span class="spin-dot badge-dot dot-primary"></span>
+                <span class="spin-dot badge-dot dot-primary"></span>
+            </div>
+        </div>
+    </div>
+    <div class="enable-dark-mode dark-trigger">
+        <ul>
+          <li>
+            <a href="#">
+              <i class="uil uil-moon"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+      {% include 'partials/_scripts.html' %}
+</body>
+</html>

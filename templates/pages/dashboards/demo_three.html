@@ -1,0 +1,382 @@
+{% extends 'layout/app.html' %}
+
+{% block title %} Demo Three {% endblock %}
+{% load i18n %}
+{% load static %}
+
+{% block content %}
+<div class="demo3 mb-25 t-thead-bg">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xxl-12">
+                <div class="breadcrumb-main">
+                    <h4 class="text-capitalize breadcrumb-title">Mes Réponses</h4>
+                </div>
+            </div>
+
+            <div class="card-body"  style="">
+                <div class="tab-content">
+                    <div class="tab-pane fade active show selling-table-wrap" id="t_selling-today22" role="tabpanel">
+                        <div class="selling-table-wrap selling-table-wrap--source selling-table-wrap--member">
+                            <div class="table-responsiv">
+                                <div class="row mb-3">
+                                    <div class="col-md-3">
+                                        <input type="text" id="searchInput" class="form-control"
+                                               placeholder="Rechercher par Organe ou Profile..." value="{{ query }}">
+                                        <div id="loading" style="display: none;">
+                                            <span class="spinner-border spinner-border-sm"></span> Chargement...
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <table class="table table-hover table-striped table-bordered align-middle text-center">
+                                    <thead class="table-dark">
+                                        <tr>
+                                            {% if request.user.profile == 'presse' %}
+                                                <th style="color: white;">Organe de Presse</th>
+                                                <th style="color: white;">Responsable</th>
+                                                <th style="color: white;">Téléphone</th>
+                                                <th style="color: white;">Statut</th>
+                                                <th style="color: white;">Badge</th>
+                                            {% else %}
+                                                <th style="color: white;">Organe de Presse</th>
+                                                <th style="color: white;">Responsable</th>
+                                                <th style="color: white;">Téléphone</th>
+                                                <th style="color: white;">Statut</th>
+                                                <th style="color: white;">Badge</th>
+                                                <th style="color: white;">Action</th>
+                                            {% endif %}
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tableBody">
+                                        {% if request.user.profile == 'presse' %}
+                                            {% for demand in demande %}
+                                                <tr>
+                                                    <td>{{ demand.user.organe|upper }}</td>
+                                                    <td>{{ demand.responsable|upper }}</td>
+                                                    <td>{{ demand.telephone }}</td>
+                                                    {% if demand.statut != 'publié' %}
+                                                       <td>{{ demand.statut }}</td>
+                                                    {% else %}
+                                                       <td style="color: green;">En Attente</td>
+                                                    {% endif %} 
+                                                    <td>
+                                                        <a target="_blank" 
+                                                            class="btn btn-sm {% if demand.statut != 'Accepted' %}btn-warning disabled{% else %}btn-primary{% endif %}" 
+                                                            href="{% if demand.statut == 'Accepted' %}{% url 'dashboard:print_badge_pdf' demand.id %}{% else %}#{% endif %}" 
+                                                            {% if demand.statut != 'Accepted' %}aria-disabled="true" tabindex="-1"{% endif %}>
+                                                            Télécharger
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            {% endfor %} 
+                                        {% else %}
+                                            {% for demand in demande %}
+                                                <tr>
+                                                    <td>{{ demand.user.organe|upper }}</td>
+                                                    <td>{{ demand.responsable|upper }}</td>
+                                                    <td>{{ demand.telephone }}</td>
+                                                    {% if demand.statut != 'publié' %}
+                                                       <td>{{ demand.statut }}</td>
+                                                    {% else %}
+                                                       <td style="color: green;">En Attente</td>
+                                                    {% endif %} 
+                                                    <td>
+                                                        <a target="_blank" 
+                                                            class="btn btn-sm {% if demand.statut != 'Accepted' %}btn-warning disabled{% else %}btn-primary{% endif %}" 
+                                                            href="{% if demand.statut == 'Accepted' %}{% url 'dashboard:print_badge_pdf' demand.id  %}{% else %}#{% endif %}" 
+                                                            {% if demand.statut != 'Accepted' %}aria-disabled="true" tabindex="-1"{% endif %}>
+                                                            Télécharger
+                                                        </a>
+                                                    </td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-info view-details-btn"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#detailsModal"
+                                                                data-organe="{{ demand.user.organe }}"
+                                                                data-responsable="{{ demand.responsable }}"
+                                                                data-telephone="{{ demand.telephone }}"
+                                                                data-statut="{{ demand.statut }}"
+                                                                data-comments="{{ demand.comments }}"
+                                                                data-nbre="{{ demand.nbre }}"
+                                                                data-pearson="{{ demand.pearson }}"
+                                                                style="background-color: #015369">
+                                                            Voir Plus
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            {% endfor %}
+                                        {% endif %} 
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>            
+        </div>
+    </div>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const searchInput = document.getElementById("searchInput");
+        const tableBody = document.getElementById("tableBody");
+        const loading = document.getElementById("loading");
+    
+        let timeout = null;
+    
+        searchInput.addEventListener("input", function () {
+            const query = searchInput.value.trim();
+            console.log('Query en cours :', query);
+    
+            clearTimeout(timeout);
+    
+            if (query.length > 2 || query === "") {
+                loading.style.display = "block";
+                timeout = setTimeout(function () {
+                    const encodedQuery = encodeURIComponent(query);
+                    // console.log('Requête en cours :', `?query=${encodedQuery}`);
+                    
+                    fetch(`?query=${encodedQuery}`, { method: "GET" })
+                        .then(response => {
+                            console.log('Statut de la réponse :', response.status);
+                            if (!response.ok) {
+                                throw new Error(`Erreur HTTP : ${response.status}`);
+                            }
+                            return response.text();
+                        })
+                        .then(data => {    
+                            const parser = new DOMParser();
+                            const htmlDoc = parser.parseFromString(data, 'text/html');
+                            const newTableBody = htmlDoc.getElementById("tableBody");
+    
+                            if (newTableBody) {
+                                tableBody.innerHTML = newTableBody.innerHTML;
+                            } else {
+                                console.error("Élément #tableBody introuvable dans la réponse.");
+                            }
+                            loading.style.display = "none";
+                        })
+                        .catch(error => {
+                            console.error("Erreur lors de la recherche :", error);
+                            loading.style.display = "none";
+                        });
+                }, 500);
+            } else {
+                console.log("Requête ignorée : trop courte.");
+            }
+        });
+    });
+    
+</script>
+
+    
+<!-- Modal -->
+<div class="modal fade" id="detailsModal" tabindex="-1" aria-labelledby="detailsModalLabel" aria-hidden="true" style="height: auto;">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content shadow-lg border-0">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title fw-bold" id="detailsModalLabel">Détails de la Demande</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-4">
+                <div class="card shadow-sm border-0">
+                    <div class="card-body">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item d-flex justify-content-between align-items-center py-3">
+                                <strong class="fs-5">Organe de Presse:</strong>
+                                <span id="modal-organe" class="text-muted fs-5"></span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center py-3">
+                                <strong class="fs-5">Responsable:</strong>
+                                <span id="modal-responsable" class="text-muted fs-5"></span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center py-3">
+                                <strong class="fs-5">Téléphone:</strong>
+                                <span id="modal-telephone" class="text-muted fs-5"></span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center py-3">
+                                <strong class="fs-5">Statut:</strong>
+                                <span id="modal-statut" class="text-muted fs-5"></span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center py-3">
+                                <strong class="fs-5">Commentaires:</strong>
+                                <span id="modal-comments" class="text-muted fs-5"></span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center py-3">
+                                <strong class="fs-5">Nombre Personnes:</strong>
+                                <span id="modal-pearson" class="text-muted fs-5"></span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center py-3">
+                                <strong class="fs-5">Nombre de personnes:</strong>
+                                <span id="modal-nbre" class="text-muted fs-5"></span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center py-3">
+                                <strong class="fs-5" style="font-style: italic">Modifier le nombre de Personne</strong>
+                                <input 
+                                    type="number" 
+                                    id="modal-nbre-input" 
+                                    class="form-control w-25" 
+                                    value="1" 
+                                    min="1" 
+                                    data-demand-id="{{ demand.id }}" 
+                                    data-user-id="{{ demand.user.id }}" 
+                                    onchange="handleDemand(this)">   
+                            </li>              
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            {% if request.user.profile == 'groupecentrale'%}
+                <div class="modal-footer justify-content-center">     
+                    {% for demand in demande %}
+                        {% if demand.statut != "Accepted" %}
+                            <button 
+                                id="accept-btn-{{ demand.id }}" 
+                                class="btn btn-success btn-lg me-3" 
+                                data-demand-id="{{ demand.id }}" 
+                                data-user-id="{{ demand.user.id }}" 
+                                onclick="handleDemand(this)">
+                                <span class="default-text">Accepter</span>
+                                <span class="loading-text" style="display: none;">
+                                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                    Chargement...
+                                </span>
+                            </button>
+                                        
+                            <a href="{% url 'dashboard:presseDenied' %}" class="btn btn-danger btn-lg">Refuser</a>
+                            <br></br>
+                        {% endif %}
+                    {% endfor %} 
+                </div>
+            {% endif %}
+        
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary btn-lg" data-bs-dismiss="modal" style="background-color: #015369">Fermer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+    let newNbre = null;
+
+    function handleDemand(element) {
+        const url = "{% url 'dashboard:presseAccepted' %}"; 
+
+        const userId = element.getAttribute("data-user-id");
+        const demandId = element.getAttribute("data-demand-id");
+
+        if (element.tagName === "INPUT") {
+            newNbre = element.value;
+            console.log("Modification détectée - New Nbre :", newNbre);
+
+            if (newNbre < 1) {
+                alert("Le nombre de personnes doit être supérieur ou égal à 1.");
+                newNbre = null;
+                return;
+            }
+
+            console.log("Valeur de newNbre stockée :", newNbre);
+            return; 
+        }
+
+        if (element.tagName === "BUTTON") {
+            console.log("Envoi des données au backend - User ID:", userId, "Demand ID:", demandId, "New Nbre:", newNbre);
+
+            if (!userId || !demandId) {
+                alert("Informations utilisateur ou demande manquantes.");
+                return;
+            }
+
+
+            const defaultText = element.querySelector(".default-text");
+            const loadingText = element.querySelector(".loading-text");
+
+            element.disabled = true;
+            defaultText.style.display = "none";
+            loadingText.style.display = "inline-block";
+
+            const payload = {
+                user_id: userId,
+                demand_id: demandId,
+                new_nbre: newNbre,
+            };
+
+            console.log("Payload envoyé :", payload);
+
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': '{{ csrf_token }}',
+                },
+                body: JSON.stringify(payload),
+            })
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    } else {
+                        throw new Error('Erreur lors de la mise à jour.');
+                    }
+                })
+                .then(data => {
+                    console.log("Réponse du serveur :", data);
+                    alert(data.message || 'Action effectuée avec succès.');
+                    location.reload();
+                })
+                .catch(error => {
+                    console.error('Erreur:', error);
+                    alert('Une erreur est survenue.');
+                })
+                .finally(() => {
+                    element.disabled = false;
+                    defaultText.style.display = "inline-block";
+                    loadingText.style.display = "none";
+                });
+        }
+    }
+    
+</script>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const modal = document.getElementById('detailsModal');
+        modal.addEventListener('show.bs.modal', function (event) {
+            const button = event.relatedTarget; 
+
+            const organe = button.getAttribute('data-organe');
+            const responsable = button.getAttribute('data-responsable');
+            const telephone = button.getAttribute('data-telephone');
+            const statut = button.getAttribute('data-statut');
+            const comments = button.getAttribute('data-comments');
+            const nbre = button.getAttribute('data-nbre');
+            const pearson = button.getAttribute('data-pearson');
+
+            document.getElementById('modal-organe').textContent = organe;
+            document.getElementById('modal-responsable').textContent = responsable;
+            document.getElementById('modal-telephone').textContent = telephone;
+            document.getElementById('modal-statut').textContent = statut;
+            document.getElementById('modal-comments').textContent = comments;
+            document.getElementById('modal-nbre').textContent = nbre;
+            document.getElementById('modal-pearson').textContent = pearson;
+        });
+    });
+</script>
+
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        $('#datatable').DataTable({
+            language: {
+                url: "//cdn.datatables.net/plug-ins/1.13.6/i18n/fr-FR.json"
+            }
+        });
+    });
+</script>
+{% endblock %}
+

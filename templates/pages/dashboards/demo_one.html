@@ -1,0 +1,319 @@
+{% extends 'layout/app.html' %}
+
+{% block title %} Demo One {% endblock %}
+
+{% load i18n %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="crm demo6 mb-25">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb-main">
+                    <h4 class="text-capitalize breadcrumb-title">{% translate "Statistiques" %}</h4>
+                    <div class="breadcrumb-action justify-content-center flex-wrap">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a href="{% url 'dashboard:demo_one' %}">
+                                        <i class="las la-home"></i>{% translate "Statistiques" %}
+                                    </a>
+                                </li>
+                                <li class="breadcrumb-item active" aria-current="page"></li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xxl-12">
+                <div class="row">
+                    <!-- Première statistique -->
+                    <div class="{% if request.user.profile == 'groupecentrale' %}col-sm-3{% else %}col-sm-4{% endif %} mb-25">
+                        <div class="ap-po-details ap-po-details--2 p-25 radius-xl d-flex justify-content-between">
+                            <div class="overview-content w-100">
+                                <div class="ap-po-details-content d-flex flex-wrap justify-content-between">
+                                    <div class="ap-po-details__titlebar">
+                                        <h1>{{ demandes_user }}</h1>
+                                        {% if request.user.profile == 'presse' %}
+                                            <p>Nombre de demandes</p>
+                                        {% else %}
+                                            <p>Nombre de demandes Total</p>
+                                        {% endif %}
+                                    </div>
+                                    <div class="ap-po-details__icon-area">
+                                        <div class="svg-icon order-bg-opacity-primary color-primary">
+                                            <i class="uil uil-users-alt"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Deuxième statistique -->
+                    <div class="{% if request.user.profile == 'groupecentrale' %}col-sm-3{% else %}col-sm-4{% endif %} mb-25">
+                        <div class="ap-po-details ap-po-details--2 p-25 radius-xl d-flex justify-content-between">
+                            <div class="overview-content w-100">
+                                <div class="ap-po-details-content d-flex flex-wrap justify-content-between">
+                                    <div class="ap-po-details__titlebar">
+                                        <h1>{{ demandes_user_stat }}</h1>
+                                        {% if request.user.profile == 'presse' %}
+                                            <p>Nombre de réponses</p>
+                                        {% else %}
+                                            <p>Nombre de demandes traités</p>
+                                        {% endif %}
+                                    </div>
+                                    <div class="ap-po-details__icon-area">
+                                        <div class="svg-icon order-bg-opacity-info color-info">
+                                            <i class="uil uil-users-alt"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Condition spéciale pour groupecentrale -->
+                    {% if request.user.profile == 'groupecentrale' %}
+                    <div class="col-sm-3 mb-25">
+                        <div class="ap-po-details ap-po-details--2 p-25 radius-xl d-flex justify-content-between">
+                            <div class="overview-content w-100">
+                                <div class="ap-po-details-content d-flex flex-wrap justify-content-between">
+                                    <div class="ap-po-details__titlebar">
+                                        <h1>{{ demande_waitting }}</h1>
+                                        <p>Demandes En Cours</p>
+                                    </div>
+                                    <div class="ap-po-details__icon-area">
+                                        <div class="svg-icon order-bg-opacity-info color-info">
+                                            <i class="uil uil-users-alt"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    <!-- Dernière statistique -->
+                    <div class="{% if request.user.profile == 'groupecentrale' %}col-sm-3{% else %}col-sm-4{% endif %} mb-25">
+                        <div class="ap-po-details ap-po-details--2 p-25 radius-xl d-flex justify-content-between">
+                            <div class="overview-content w-100">
+                                <div class="ap-po-details-content d-flex flex-wrap justify-content-between">
+                                    <div class="ap-po-details__titlebar">
+                                        {% if request.user.profile == 'presse' %}
+                                            <h1>03</h1>
+                                            <p>Nombre d'articles</p>
+                                        {% else %}
+                                            <h1>0</h1>
+                                            <p>Demandes non traitées</p>
+                                        {% endif %}
+                                    </div>
+                                    <div class="ap-po-details__icon-area">
+                                        <div class="svg-icon order-bg-opacity-secondary color-secondary">
+                                            <i class="uil uil-users-alt"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- Fin de row -->
+            </div> <!-- Fin de col-xxl-12 -->
+        </div>
+    </div>
+
+    <br>
+    {% if request.user.profile == 'groupecentrale' %}
+    <div class="container ap-po-details radius-xl justify-content-center align-items-center">
+        <div class="col-md-12 d-flex justify-content-center align-items-center" style="height: 200px;">
+            <div class="text-center">
+                <h1 style="font-size: 80px; font-weight: bold; margin: 0;">{{ total_dem }}</h1>
+                <p style="font-size: 18px; color: #666;">Nombre de Badge à tirer</p>
+            </div>
+            <hr>
+        </div>
+        <p></p>
+        <div class="row w-90">
+            <!-- Section for displaying the centered number --> 
+            <div class="col-md-1 d-flex justify-content-center align-items-center" style="height: 400px;">
+                <div class="text-center">
+                </div>
+            </div>
+    
+            <!-- Section for the first chart -->
+            <div class="col-md-10 d-flex justify-content-center align-items-center" style="height: 400px;">
+                <div id="Personne-chart" style="width: 90%; height: 120%;"></div>
+            </div>
+    
+            <!-- Section for the second chart -->
+            {% comment %} <div class="col-md-5 d-flex justify-content-center align-items-center" style="height: 400px;">
+                <div id="Personne-organe" style="width: 100%; height: 100%;"></div>
+            </div> {% endcomment %}
+            <div class="col-md-1 d-flex justify-content-center align-items-center" style="height: 400px;">
+                <div class="text-center">
+                </div>
+            </div>
+        </div>
+        <p></p>
+    </div>
+    
+    {% endif %}
+    
+    <script>
+    // Appliquez un thème moderne avec des couleurs et styles améliorés
+    Highcharts.setOptions({
+        chart: {
+            style: {
+                fontFamily: 'Arial, sans-serif'
+            }
+        },
+        colors: ['#00C49F', '#0088FE', '#FFBB28', '#FF8042', '#A5C6FF']
+    });
+    
+    Highcharts.chart('Personne-chart', {
+        chart: {
+            type: 'column',
+            backgroundColor: '#F7F9FC', // Fond doux
+            borderRadius: 10,           // Coins arrondis
+            shadow: true                // Ombre légère
+        },
+        title: {
+            text: 'Nombre de Personne par Organe',
+            style: {
+                fontSize: '18px',
+                fontWeight: 'bold',
+                color: '#333333'
+            }
+        },
+        xAxis: {
+            categories: {{ organe_values|safe }},
+            title: { text: null },
+            lineColor: '#CCCCCC',
+            labels: {
+                style: { color: '#666666', fontSize: '12px' }
+            }
+        },
+        yAxis: {
+            title: { text: 'Nombre de Personne' },
+            gridLineColor: '#EEEEEE',
+            labels: {
+                style: { color: '#666666' }
+            }
+        },
+        legend: {
+            enabled: false
+        },
+        plotOptions: {
+            column: {
+                borderRadius: '10%',      // Barres arrondies
+                borderWidth: 0,
+                dataLabels: {
+                    enabled: true,
+                    style: { fontWeight: 'bold', color: '#333333' }
+                }
+            },
+            series: {
+                cursor: 'pointer',
+                animation: {
+                    duration: 1500
+                },
+                point: {
+                    events: {
+                        mouseOver: function () {
+                            this.graphic.attr({ opacity: 0.7 });
+                        },
+                        mouseOut: function () {
+                            this.graphic.attr({ opacity: 1 });
+                        }
+                    }
+                }
+            }
+        },
+        series: [{
+            name: 'Nombre de Personne',
+            data: {{ nbre_values|safe }},
+            colorByPoint: true
+        }],
+        credits: {
+            enabled: false
+        }
+    });
+
+    {% comment %} Highcharts.chart('Personne-organe', {
+        chart: {
+            type: 'column',
+            backgroundColor: '#F7F9FC',
+            borderRadius: 10,
+            shadow: true
+        },
+        title: {
+            text: 'Nombre de Personne par Type de presse',
+            style: {
+                fontSize: '18px',
+                fontWeight: 'bold',
+                color: '#333333'
+            }
+        },
+        xAxis: {
+            categories: JSON.parse('{{ organe_values_profile|safe }}'),
+            title: { text: null },
+            lineColor: '#CCCCCC',
+            labels: {
+                style: { color: '#666666', fontSize: '12px' }
+            }
+        },
+        yAxis: {
+            title: { text: 'Nombre de Personne' },
+            gridLineColor: '#EEEEEE',
+            labels: {
+                style: { color: '#666666' }
+            }
+        },
+        legend: {
+            enabled: false
+        },
+        plotOptions: {
+            column: {
+                borderRadius: '10%',
+                borderWidth: 0,
+                dataLabels: {
+                    enabled: true,
+                    style: { fontWeight: 'bold', color: '#333333' }
+                }
+            },
+            series: {
+                cursor: 'pointer',
+                animation: {
+                    duration: 1500
+                },
+                point: {
+                    events: {
+                        mouseOver: function () {
+                            this.graphic.attr({ opacity: 0.7 });
+                        },
+                        mouseOut: function () {
+                            this.graphic.attr({ opacity: 1 });
+                        }
+                    }
+                }
+            }
+        },
+        series: [{
+            name: 'Nombre de Personne',
+            data: JSON.parse('{{ nbre_values|safe }}'),
+            colorByPoint: true
+        }],
+        credits: {
+            enabled: false
+        }
+    }); {% endcomment %}
+    
+    </script>
+    
+</div>
+
+{% endblock %}

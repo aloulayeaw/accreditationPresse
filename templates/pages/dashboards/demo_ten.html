@@ -1,0 +1,20 @@
+{% extends 'layout/app.html' %}
+
+{% block title %} Demo Ten {% endblock %}
+
+{% load i18n %}
+
+{% load static %}
+
+{% block content %}
+<div class="demo5 mt-30 mb-25">
+    <div class="container-fluid">
+        <div class="row ">
+
+            <div class="col-xxl-4 col-lg-6 mb-25">
+                {% include 'components/dashboard/demo_ten/blog_two.html' %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

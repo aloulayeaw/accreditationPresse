@@ -1,0 +1,22 @@
+{% extends 'layout/app.html' %}
+
+{% block title %} Ressources {% endblock %}
+
+{% load i18n %}
+
+{% load static %}
+
+{% block content %}
+    <div class="demo5 mt-30 mb-25">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xxl-12 mb-25">
+                    {% include 'components/dashboard/demo_five/greetings_banner.html' %}
+                </div>
+                <h3>Voir Articles</h3>
+                {% include 'components/dashboard/demo_five/blog_cards.html' %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

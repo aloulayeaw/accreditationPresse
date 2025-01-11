@@ -1,0 +1,213 @@
+{% comment %} {% extends 'layout/app.html' %} {% endcomment %}
+{% load crispy_forms_tags %}
+{% load static %}
+<div class="container-fluid">
+
+    <div class="form-element">
+        <div class="row">
+            <div class="col-lg-12">
+            </div>
+            <div class="col-lg-12">
+                <div class="row">
+                    <div class="col-lg-2">
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="card card-default card-md mb-4" style="padding: 15px;" >
+                            {% if dempresse == 0 %}
+                                <form action="demande" method="POST" enctype="multipart/form-data" style="padding: 20px;">
+                                    {% csrf_token %}
+                                    
+                                    <div class="form-group mb-20 d-flex justify-content-between">
+                                        <div style="flex: 1; margin-right: 10px;">
+                                            <label for="nom">Nom</label>
+                                            <input type="text" name="nom" id="nom" class="form-control" placeholder="Nom" required>
+                                        </div>
+                                        <div style="flex: 1; margin-left: 10px;">
+                                            <label for="prenom">Prenom</label>
+                                            <input type="text" name="prenom" id="prenom" class="form-control" placeholder="Prenom" required>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group mb-20 d-flex justify-content-between">
+                                        <div style="flex: 1; margin-right: 10px;">
+                                            <label for="adresse">Votre adresse</label>
+                                            <input type="text" name="adresse" id="adresse" class="form-control" placeholder="Adresse" required>
+                                        </div>
+                                        <div style="flex: 1; margin-left: 10px;">
+                                            <label for="email">Votre adresse email</label>
+                                            <input type="email" name="email" id="email" class="form-control" placeholder="Email" required>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group mb-20 d-flex justify-content-between">
+                                        <div style="flex: 1; margin-right: 10px;">
+                                            <label for="nbre">Le nombre de personnes envoyé</label>
+                                            <input type="number" name="nbre" id="nbre" class="form-control" placeholder="Nombre de personnes" required>
+                                        </div>
+                                        <div style="flex: 1; margin-left: 10px;">
+                                            <label for="telephone">Téléphone</label>
+                                            <input type="text" name="telephone" id="telephone" class="form-control" placeholder="Téléphone" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group mb-20">
+                                        <label for="pearson" id="pearson">Les noms</label>
+                                        <div class="d-flex align-items-center" style="gap: 10px;">
+                                            <input type="text" class="form-control" placeholder="Ajouter un nom" id="new-person" style="flex: 1;">
+                                            <button type="button" id="add-name-btn" class="btn btn-secondary btn-sm" style="background-color: #015369">Ajouter Nom</button>
+                                        </div>
+                                        
+                                        <div id="names-container" class="form-control mt-3" style="height: auto; min-height: 100px; overflow-y: auto;"></div>
+                                        <input type="hidden" name="pearson" id="hidden-pearson">
+
+                                    </div>
+                                    
+                                    <div class="form-group mb-20">
+                                        <label for="responsable">Le responsable de l'équipe</label>
+                                        <input type="text" name="responsable" id="responsable" class="form-control" placeholder="Responsable" required>
+                                    </div>
+
+                                    {% if request.user.profile_organe == 'freelancer'%}
+                                        <div class="form-group mb-20 d-flex justify-content-between">
+                                            <div style="flex: 1; margin-right: 10px;">
+                                                <label for="link_website">Lien SiteWeb</label>
+                                                <input type="text" name="link_website" id="link_website" class="form-control" placeholder="Lien Website" required>
+                                            </div>
+                                            <div style="flex: 1; margin-left: 10px;">
+                                                <label for="link_intagram">Lien Instagram</label>
+                                                <input type="text" name="link_intagram" id="link_intagram" class="form-control" placeholder="Lien Intagram" required>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+
+                                    <div class="form-group mb-20">
+                                        <label for="comments">Les commentaires</label>
+                                        <textarea name="comments" id="comments" class="form-control" placeholder="Commentaires" rows="3"></textarea>
+                                    </div>
+
+                                    <div class="form-group mb-20 mt-3">
+                                        <button type="submit" class="btn btn-primary">Envoyer</button>
+                                    </div>
+                                </form>
+                            {% else %}                            
+                                {% for demand in demande %}
+                                    {% if demand.statut == 'Accepted' %}
+                                    <div class="container-sm" style='max-width: 1020px; margin: auto,text-align: justify;'>
+                                        <div class="card" style="padding: 10px; ">
+                                            <h5></h5>
+                                        </div>
+                                    </div>
+                                    {% elif demand.statut != 'Accepted' %}
+                                    <div class="container-sm" style='max-width: 1020px; margin: auto,text-align: justify;'>
+                                        <div class="card" style="padding: 10px; ">
+                                            <h5>Votre demande a déjà été envoyée. Vous serez notifié dès qu'une réponse sera apportée par le Groupement Central Layène.<br>Merci</h5>
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                {% endfor %}
+                                <table class="table table-hover table-striped table-bordered align-middle text-center">
+                                    <thead class="table-dark">
+                                        <tr>
+                                            {% if request.user.profile == 'presse' %}
+                                                <th style="color: white;">Organe de Presse</th>
+                                                <th style="color: white;">Responsable</th>
+                                                <th style="color: white;">Téléphone</th>
+                                                <th style="color: white;">Statut</th>
+                                                <th style="color: white;">Badge</th>
+                                            {% endif %}
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% if request.user.profile == 'presse' %}
+                                            {% for demand in demande %}
+                                                <tr>
+                                                    <td>{{ demand.user.organe|upper }}</td>
+                                                    <td>{{ demand.responsable|upper }}</td>
+                                                    <td>{{ demand.telephone }}</td>
+                                                    {% if demand.statut != 'publié' %}
+                                                       <td>{{ demand.statut }}</td>
+                                                    {% else %}
+                                                       <td style="color: green;">En Attente</td>
+                                                    {% endif %} 
+                                                    <td>
+                                                        <a target="_blank" 
+                                                            class="btn btn-sm {% if demand.statut != 'Accepted' %}btn-warning disabled{% else %}btn-primary{% endif %}" 
+                                                            href="{% if demand.statut == 'Accepted' %}{% url 'dashboard:print_badge_pdf' demand.id %}{% else %}#{% endif %}" 
+                                                            {% if demand.statut != 'Accepted' %}aria-disabled="true" tabindex="-1"{% endif %}>
+                                                            Télécharger
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            {% endfor %} 
+                                        {% endif %} 
+                                    </tbody>
+                                </table>
+                            {% endif %}
+                            {% comment %} <div class="card-body pb-md-30">
+                                {% if dempresse == 0 %}
+                                    <div class="container-sm" style='max-width: 920px; margin: auto'>{% crispy form %}</div>
+                                {% else %}
+                                    <div class="container-sm" style='max-width: 1020px; margin: auto'>
+                                        <div class="card" style="padding: 10px; ">
+                                            <h5>Votre demande a été déja envoyé.<br> Vous serez notifié s'il y a une réponse de la part du groupement central layene<br>Merci</h5>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            </div> {% endcomment %}
+                </div>
+                </div>
+            <div class="col-lg-2">
+            </div>
+         </div>
+                <script>
+                    const addNameBtn = document.getElementById('add-name-btn');
+                    const nameInput = document.getElementById('new-person');
+                    const namesContainer = document.getElementById('names-container');
+                    const hiddenPearson = document.getElementById('hidden-pearson');
+
+                    // Function to update the hidden input field with all names
+                    function updateHiddenInput() {
+                        const names = [];
+                        const nameElements = namesContainer.querySelectorAll('span');
+                        nameElements.forEach(el => names.push(el.textContent.trim()));
+                        hiddenPearson.value = names.join(','); // Store names as a comma-separated string
+                    }
+
+                    // Add Name
+                    addNameBtn.addEventListener('click', function () {
+                        if (nameInput.value.trim() !== '') {
+                            const name = nameInput.value.trim();
+
+                            // Create a new name element with a delete icon
+                            const nameDiv = document.createElement('div');
+                            nameDiv.className = 'd-flex justify-content-between align-items-center mb-2';
+                            nameDiv.style.borderBottom = "1px solid #ccc";
+                            nameDiv.style.padding = "5px 0";
+
+                            nameDiv.innerHTML = `
+                                <span>${name}</span>
+                                <i class="fa fa-times text-danger remove-icon" style="cursor: pointer;"></i>
+                            `;
+
+                            // Append the name to the container
+                            namesContainer.appendChild(nameDiv);
+
+                            // Add event listener to the delete icon
+                            nameDiv.querySelector('.remove-icon').addEventListener('click', function () {
+                                namesContainer.removeChild(nameDiv);
+                                updateHiddenInput(); // Update hidden input when a name is removed
+                            });
+
+                            // Update hidden input
+                            updateHiddenInput();
+
+                            // Clear the input field
+                            nameInput.value = '';
+                        }
+                    });
+                </script>
+                
+            </div>
+        </div>
+    </div>
+</div>

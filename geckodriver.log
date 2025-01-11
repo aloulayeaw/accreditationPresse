@@ -1,0 +1,115 @@
+1734079366073	geckodriver	INFO	Listening on 127.0.0.1:62285
+1734079369120	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--start-maximized" "--remote-debugging-por ... 286" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\aaw\\AppData\\Local\\Temp\\rust_mozprofilel3O42l"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+Dynamically enable window occlusion 0
+1734079369623	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-start-maximized"
+1734079369834	Marionette	INFO	Listening on port 62298
+WebDriver BiDi listening on ws://127.0.0.1:62286
+Read port: 62298
+1734079369982	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:62286/devtools/browser/e325947c-d945-4fdd-aaf8-fb9cd9c9e8b0
+JavaScript warning: https://rom.mob.proxad.net/js-common/alljs.php?v=5.2, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://rom.mob.proxad.net."
+JavaScript warning: https://rom.mob.proxad.net/js-common/extjs4/ext-all.js, line 21: unreachable code after return statement
+JavaScript warning: https://rom.mob.proxad.net/js-common/extjs4/ext-all.js, line 47: Using //@ to indicate sourceURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://rom.mob.proxad.net/js-common/extjs4/ext-all.js, line 55: Using //@ to indicate sourceURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://rom.mob.proxad.net/js-common/extjs4/ext-all.js, line 381: Using //@ to indicate sourceURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://rom.mob.proxad.net/js-common/extjs4/ext-all.js, line 214: Using //@ to indicate sourceURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://rom.mob.proxad.net/js-common/alljs.php?v=5.2, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://rom.mob.proxad.net/js-common/extjs4/ext-all.js, line 173: Using //@ to indicate sourceURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://rom.mob.proxad.net/js-common/extjs4/ext-all.js, line 18: Using //@ to indicate sourceURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://rom.mob.proxad.net/js-common/extjs4/ext-all.js, line 26: Using //@ to indicate sourceURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://rom.mob.proxad.net/js-common/extjs4/ext-all.js, line 47: Using //@ to indicate sourceURL pragmas is deprecated. Use //# instead
+1734079399931	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
+1734080483255	Marionette	INFO	Stopped listening on port 62298
+Dynamically enable window occlusion 1
+1735548324604	geckodriver	INFO	Listening on 127.0.0.1:61333
+1735548327647	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--start-maximized" "--remote-debugging-por ... 334" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\aaw\\AppData\\Local\\Temp\\rust_mozprofile7m1iD8"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+Dynamically enable window occlusion 0
+1735548328161	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-start-maximized"
+1735548328399	Marionette	INFO	Listening on port 61367
+WebDriver BiDi listening on ws://127.0.0.1:61334
+Read port: 61367
+1735548328553	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:61334/devtools/browser/e0a5cdee-ae21-409f-8a91-1f8ab854f54e
+JavaScript warning: https://rom.mob.proxad.net/js-common/alljs.php?v=5.2, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://rom.mob.proxad.net."
+JavaScript warning: https://rom.mob.proxad.net/js-common/alljs.php?v=5.2, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1735548340801	Marionette	INFO	Stopped listening on port 61367
+Dynamically enable window occlusion 1
+1735548405137	geckodriver	INFO	Listening on 127.0.0.1:61530
+1735548408184	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--start-maximized" "--remote-debugging-por ... 531" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\aaw\\AppData\\Local\\Temp\\rust_mozprofilebwWmUQ"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+Dynamically enable window occlusion 0
+1735548408533	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-start-maximized"
+1735548408720	Marionette	INFO	Listening on port 61540
+WebDriver BiDi listening on ws://127.0.0.1:61531
+Read port: 61540
+1735548408871	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:61531/devtools/browser/6bb243af-17fc-4259-9f86-001210764595
+JavaScript warning: https://rom.mob.proxad.net/js-common/alljs.php?v=5.2, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://rom.mob.proxad.net."
+JavaScript warning: https://rom.mob.proxad.net/js-common/alljs.php?v=5.2, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1735548420496	Marionette	INFO	Stopped listening on port 61540
+Dynamically enable window occlusion 1
+1735549788279	geckodriver	INFO	Listening on 127.0.0.1:60121
+1735549791304	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--start-maximized" "--remote-debugging-por ... 122" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\aaw\\AppData\\Local\\Temp\\rust_mozprofileSsqjIr"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+Dynamically enable window occlusion 0
+1735549791674	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-start-maximized"
+1735549791869	Marionette	INFO	Listening on port 60134
+WebDriver BiDi listening on ws://127.0.0.1:60122
+Read port: 60134
+1735549792011	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:60122/devtools/browser/083b1397-0115-4e9a-adf9-f99241fbd025
+JavaScript warning: https://rom.mob.proxad.net/js-common/alljs.php?v=5.2, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://rom.mob.proxad.net."
+JavaScript warning: https://rom.mob.proxad.net/js-common/extjs4/ext-all.js, line 21: unreachable code after return statement
+JavaScript warning: https://rom.mob.proxad.net/js-common/extjs4/ext-all.js, line 47: Using //@ to indicate sourceURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://rom.mob.proxad.net/js-common/extjs4/ext-all.js, line 55: Using //@ to indicate sourceURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://rom.mob.proxad.net/js-common/extjs4/ext-all.js, line 381: Using //@ to indicate sourceURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://rom.mob.proxad.net/js-common/extjs4/ext-all.js, line 214: Using //@ to indicate sourceURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://rom.mob.proxad.net/js-common/alljs.php?v=5.2, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://rom.mob.proxad.net/js-common/extjs4/ext-all.js, line 173: Using //@ to indicate sourceURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://rom.mob.proxad.net/js-common/extjs4/ext-all.js, line 18: Using //@ to indicate sourceURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://rom.mob.proxad.net/js-common/extjs4/ext-all.js, line 26: Using //@ to indicate sourceURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://rom.mob.proxad.net/js-common/extjs4/ext-all.js, line 47: Using //@ to indicate sourceURL pragmas is deprecated. Use //# instead
+1735549822899	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
+1735550894247	Marionette	INFO	Stopped listening on port 60134
+Dynamically enable window occlusion 1
+1735805883625	geckodriver	INFO	Listening on 127.0.0.1:64791
+1735805886683	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--start-maximized" "--remote-debugging-por ... 792" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\aaw\\AppData\\Local\\Temp\\rust_mozprofileZpeGox"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+Dynamically enable window occlusion 0
+1735805887300	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-start-maximized"
+1735805887495	Marionette	INFO	Listening on port 64828
+WebDriver BiDi listening on ws://127.0.0.1:64792
+Read port: 64828
+1735805887643	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:64792/devtools/browser/e8d01d19-18e4-4150-8063-83f5d8b9fcdf
+JavaScript warning: https://rom.mob.proxad.net/js-common/alljs.php?v=5.2, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://rom.mob.proxad.net."
+JavaScript warning: https://rom.mob.proxad.net/js-common/extjs4/ext-all.js, line 21: unreachable code after return statement
+JavaScript warning: https://rom.mob.proxad.net/js-common/extjs4/ext-all.js, line 47: Using //@ to indicate sourceURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://rom.mob.proxad.net/js-common/extjs4/ext-all.js, line 55: Using //@ to indicate sourceURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://rom.mob.proxad.net/js-common/extjs4/ext-all.js, line 381: Using //@ to indicate sourceURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://rom.mob.proxad.net/js-common/extjs4/ext-all.js, line 214: Using //@ to indicate sourceURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://rom.mob.proxad.net/js-common/alljs.php?v=5.2, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://rom.mob.proxad.net/js-common/extjs4/ext-all.js, line 173: Using //@ to indicate sourceURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://rom.mob.proxad.net/js-common/extjs4/ext-all.js, line 18: Using //@ to indicate sourceURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://rom.mob.proxad.net/js-common/extjs4/ext-all.js, line 26: Using //@ to indicate sourceURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://rom.mob.proxad.net/js-common/extjs4/ext-all.js, line 47: Using //@ to indicate sourceURL pragmas is deprecated. Use //# instead
+1735805918553	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
+1735806919670	Marionette	INFO	Stopped listening on port 64828
+Dynamically enable window occlusion 1

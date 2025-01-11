@@ -1,0 +1,197 @@
+{% load static %}
+<script type="text/javascript">
+  window.onload = printDiv;
+</script>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
+    <title>Badge {{reponse.user.organe}}</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'img/slide/logo/favicon2.png' %}"/>
+
+    <!-- Fonts and Bootstrap CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/static/css/styletable.css" media="print" />
+
+    <style>
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .header-logo__img {
+            max-height: 80px;
+        }
+        .card {
+            border: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+        .footer-wrapper {
+            background-color: #343a40;
+            color: #fff;
+            padding: 20px 0;
+        }
+        .footer-wrapper a {
+            color: #ffc107;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body onload="printDiv('printableArea');">
+<div id="printableArea">
+    <div class="container py-5">
+        <div class="row align-items-center mb-4">
+            <div class="col-6">
+                <img class="header-logo__img" src="{% static 'img/slide/logo/logo-1.png' %}" alt="Logo">
+            </div>
+            <div class="col-6 text-end">
+                <img class="img-fluid" style="max-height: 130px;" src="{% static 'img/slide/logo/khalif.png' %}" alt="Logo">
+            </div>
+        </div>
+
+        <div class="mb-4">
+            <img class="img-fluid" src="{% static 'img/slide/logo/FORUM-APPEL-2024.jpg' %}" alt="Header Image">
+        </div>
+
+        <h3 class="text-center text-dark">145ème Appel de Seydina Limamou LAHI (PSL)<br>Commission Communication</h3>
+
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title text-dark">Organe Presse</h5>
+                        <p class="card-text text-dark">{{reponse.user.organe}}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title text-dark">Email</h5>
+                        <p class="card-text text-dark">{{reponse.email}}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title text-dark">Adresse</h5>
+                        <p class="card-text text-dark">{{reponse.adresse}}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title text-dark">Contact</h5>
+                        <p class="card-text text-dark">{{reponse.telephone}}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title text-dark">Nombre de Journalistes</h5>
+                        <p class="card-text text-dark">{{reponse.nbre}}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title text-dark">Noms des Journalistes</h5>
+                        <p class="card-text text-dark">{{reponse.pearson}}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title text-dark">Nom du Responsable</h5>
+                        <p class="card-text text-dark">{{reponse.responsable}}</p>
+                    </div>
+                </div>
+            </div>
+
+            {% if reponse.user.profile_organe == 'freelancer'%}
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title text-dark">Lien SiteWeb</h5>
+                        <a class="card-text text-dark" href="https://{{ reponse.link_website }}">{{ reponse.link_website }}</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title text-dark">Lien Instagram</h5>
+                        <a class="card-text text-dark" href"{{reponse.link_intagram}}">{{reponse.link_intagram}}</a>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title text-dark">Date Demande</h5>
+                        <p class="card-text text-dark">{{reponse.created_date}}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title text-dark">Statut</h5>
+                        <p class="card-text text-dark">{{reponse.statut}}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <img src="{{ qr_code_svg }}" alt="QR Code" class="img-fluid" style="max-width: 250px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <p class="text-center text-dark fst-italic mt-4">À présenter à l'accueil pour récupérer son badge!</p>
+
+        <div class="footer-wrapper text-center mt-5">
+            <p>Copyright &copy; 2024 <a target="_blank" href="#">LAYENE DIGITAL</a></p>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    function printDiv(divName) {
+        var printContents = document.getElementById(divName).innerHTML;
+        var originalContents = document.body.innerHTML;
+        document.body.innerHTML = printContents;
+        window.print();
+        document.body.innerHTML = originalContents;
+    }
+</script>
+</body>
+</html>
