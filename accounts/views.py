@@ -14,7 +14,7 @@ import random
 from django.utils.crypto import get_random_string
 from django.core.mail import send_mail
 #from dashboard.twitter_utils import get_twitter_api
-import tweepy
+#import tweepy
 
 # Create your views here.
 
