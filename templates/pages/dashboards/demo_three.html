@@ -89,7 +89,8 @@
                                                             Télécharger
                                                         </a>
                                                     </td>
-                                                    <td>
+                                                    <td style="text-align: center;"><a href="{% url 'dashboard:presse_detail' demand.id %}"><button class="btn btn-primary mb-2">Voir Plus</button></a></td>
+                                                    {% comment %} <td>
                                                         <button class="btn btn-sm btn-info view-details-btn"
                                                                 data-bs-toggle="modal"
                                                                 data-bs-target="#detailsModal"
@@ -103,7 +104,7 @@
                                                                 style="background-color: #015369">
                                                             Voir Plus
                                                         </button>
-                                                    </td>
+                                                    </td> {% endcomment %}
                                                 </tr>
                                             {% endfor %}
                                         {% endif %} 
@@ -135,7 +136,6 @@
                 loading.style.display = "block";
                 timeout = setTimeout(function () {
                     const encodedQuery = encodeURIComponent(query);
-                    // console.log('Requête en cours :', `?query=${encodedQuery}`);
                     
                     fetch(`?query=${encodedQuery}`, { method: "GET" })
                         .then(response => {

@@ -17,6 +17,7 @@ urlpatterns = [
     path('demo-nine', views.demoNine, name='demo_nine'),
     path('actualite', views.demoTen, name='demo_ten'),
     path('changelog', views.changelog, name='changelog'),
+    path('<int:id>', views.presse, name='presse_detail'),
     path('Accepted/', views.presseAccepted, name='presseAccepted'),
     path('Denied/', views.presseDenied, name='presseDenied'),
     path('<int:id>/badge/pdf', views.print_pdf, name="print_badge_pdf",),

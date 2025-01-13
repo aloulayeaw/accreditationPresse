@@ -13,6 +13,7 @@ from django.db.models import Count,Sum
 import random
 from django.utils.crypto import get_random_string
 from django.core.mail import send_mail
+from django.conf import settings
 #from dashboard.twitter_utils import get_twitter_api
 #import tweepy
 
@@ -130,6 +131,20 @@ def verify(request):
             user.is_active = True
             user.save()
             verification.delete()
+            
+            subject = "Un Nouveau Organe"
+            message = f"Un nouveau Organe a été activé avec les détails suivants:\n\nOrgane: {user.organe}\nEmail: {user.email}\nProfile: {user.profile}\nType_Organe: {user.profile_organe}\nDate: {user.date_joined}\nMerci,"
+            recipient_list = [
+                'alassane.aw1@ism.edu.sn',
+                'mamerane1003@gmail.com',
+                'fatoulayem2@gmail.com',
+                'babacar.sow@senelec.sn',
+                'papylahi@gmail.com',
+                'aliousow.ardo@gmail.com',
+                'layeabibou@gmail.com'
+                
+            ]
+            send_mail(subject, message, settings.DEFAULT_FROM_EMAIL, recipient_list, fail_silently=False)
             messages.success(request, 'Votre compte a été activé. Vous pouvez maintenant vous connecter.')
             return redirect('login')
         except VerificationCode.DoesNotExist:

@@ -394,6 +394,18 @@ def demandePresse(request):
     return render(request, 'pages/dashboards/demo_three.html', context)
 
 
+
+def presse(request, id):
+    
+    presse_detail = get_object_or_404(Demande, pk=id)
+
+    context = {
+        'presse_detail': presse_detail
+    }
+
+    return render(request, 'pages/dashboards/demo_seven.html', context)
+
+
 @csrf_exempt
 @login_required
 def presseAccepted(request):

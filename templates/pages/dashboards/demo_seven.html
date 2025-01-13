@@ -12,42 +12,243 @@
         <div class="row ">
             <div class="col-lg-12">
                 <div class="breadcrumb-main">
-                    <h4 class="text-capitalize breadcrumb-title">{% translate "dashboard-menu-title" %}</h4>
+                    <h4 class="text-capitalize breadcrumb-title">{% translate "Informations de la demande" %}</h4>
                     <div class="breadcrumb-action justify-content-center flex-wrap">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="#"><i class="las la-home"></i>{% translate "dashboard-menu-title" %}</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">{% translate "Demo 7" %}</li>
+                                <li class="breadcrumb-item"><a href="#"><i class="las la-home"></i>{% translate "Informations de la demande" %}</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">
+                                    <button style="background-color: #015369" class="btn btn-link text-decoration-none" onclick="history.back();">
+                                        {% translate "Retour" %}
+                                    </button>
+                                </li>
                             </ol>
                         </nav>
                     </div>
                 </div>
             </div>
-            <div class="col-xxl-3 col-sm-6  col-ssm-12 mb-25">
-                {% include 'components/dashboard/demo_seven/total_product.html' %}
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 col-ssm-12 mb-25">
+                            <div class="ap-po-details ap-po-details--2 p-25 radius-xl d-flex justify-content-between">
+                                <div class="overview-content w-100">
+                                    <div class="ap-po-details-content d-flex flex-wrap justify-content-between">
+                                        <div class="ap-po-details__titlebar">
+                                            <p>Organe de Presse</p>
+                                            <h3>{{presse_detail.user.organe}}</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-ssm-12 mb-25">
+                            <div class="ap-po-details ap-po-details--2 p-25 radius-xl d-flex justify-content-between">
+                                <div class="overview-content w-100">
+                                    <div class="ap-po-details-content d-flex flex-wrap justify-content-between">
+                                        <div class="ap-po-details__titlebar">
+                                            <p>Responsable</p>
+                                            <h3>{{presse_detail.responsable}}</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 col-ssm-12 mb-25">
+                            <div class="ap-po-details ap-po-details--2 p-25 radius-xl d-flex justify-content-between">
+                                <div class="overview-content w-100">
+                                    <div class="ap-po-details-content d-flex flex-wrap justify-content-between">
+                                        <div class="ap-po-details__titlebar">
+                                            <p>Téléphone</p>
+                                            <h3>{{presse_detail.telephone}}</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-ssm-12 mb-25">
+                            <div class="ap-po-details ap-po-details--2 p-25 radius-xl d-flex justify-content-between">
+                                <div class="overview-content w-100">
+                                    <div class="ap-po-details-content d-flex flex-wrap justify-content-between">
+                                        <div class="ap-po-details__titlebar">
+                                            <p>Statut</p>
+                                            {% if presse_detail.statut != 'publié' %}
+                                                <h3>{{ presse_detail.statut }}</h3>
+                                            {% else %}
+                                                <h3 style="color: green;">En Attente</h3>
+                                            {% endif %} 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 col-ssm-12 mb-25">
+                            <div class="ap-po-details ap-po-details--2 p-25 radius-xl d-flex justify-content-between">
+                                <div class="overview-content w-100">
+                                    <div class="ap-po-details-content d-flex flex-wrap justify-content-between">
+                                        <div class="ap-po-details__titlebar">
+                                            <p>Commentaires</p>
+                                            <h3>{{presse_detail.comments}}</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-ssm-12 mb-25">
+                            <div class="ap-po-details ap-po-details--2 p-25 radius-xl d-flex justify-content-between">
+                                <div class="overview-content w-100">
+                                    <div class="ap-po-details-content d-flex flex-wrap justify-content-between">
+                                        <div class="ap-po-details__titlebar">
+                                            <p>Nombre Personnes</p>
+                                            <h3>{{presse_detail.nbre}}</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 col-ssm-12 mb-25">
+                            <div class="ap-po-details ap-po-details--2 p-25 radius-xl d-flex justify-content-between">
+                                <div class="overview-content w-100">
+                                    <div class="ap-po-details-content d-flex flex-wrap justify-content-between">
+                                        <div class="ap-po-details__titlebar">
+                                            <li class="list-group-item d-flex justify-content-between align-items-center py-3">
+                                                <strong class="fs-5" style="font-style: italic">Modifier le nombre de Personne</strong>
+                                                <input 
+                                                    type="number" 
+                                                    id="modal-nbre-input" 
+                                                    class="form-control w-25" 
+                                                    value="1" 
+                                                    min="1" 
+                                                    data-demand-id="{{ presse_detail.id }}" 
+                                                    data-user-id="{{ presse_detail.user.id }}" 
+                                                    onchange="handleDemand(this)">   
+                                            </li> 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-xxl-3 col-sm-6  col-ssm-12 mb-25">
-                {% include 'components/dashboard/demo_seven/total_order.html' %}
-            </div>
-            <div class="col-xxl-3 col-sm-6  col-ssm-12 mb-25">
-                {% include 'components/dashboard/demo_seven/total_sale.html' %}
-            </div>
-            <div class="col-xxl-3 col-sm-6  col-ssm-12 mb-25">
-                {% include 'components/dashboard/demo_seven/new_customer.html' %}
-            </div>
-            <div class="col-xxl-6 mb-25">
-                {% include 'components/dashboard/demo_seven/sales_revenue.html' %}
-            </div>
-            <div class="col-xxl-6 mb-25">
-                {% include 'components/dashboard/demo_seven/revenue_generated.html' %}
-            </div>
-            <div class="col-xxl-4 mb-25">
-                {% include 'components/dashboard/demo_seven/new_product.html' %}
-            </div>
-            <div class="col-xxl-8 mb-25">
-                {% include 'components/dashboard/demo_seven/best_seller.html' %}
-            </div>
+            
+
+                                    
+                                        <div class="d-flex align-items-center justify-content-center" style="">
+                                        {% if request.user.profile == 'groupecentrale'%}
+                                            <div class="modal-footer justify-content-center">     
+                                                    {% if presse_detail.statut != "Accepted" %}
+                                                        <button 
+                                                            id="accept-btn-{{ presse_detail.id }}" 
+                                                            class="btn btn-success btn-lg me-3 justify-content-center" 
+                                                            data-demand-id="{{ presse_detail.id }}" 
+                                                            data-user-id="{{ presse_detail.user.id }}" 
+                                                            onclick="handleDemand(this)"
+                                                            style="background-color: #087491; border: 1px solid #087491">
+                                                            <span class="default-text">Accepter</span>
+                                                            <span class="loading-text" style="display: none;">
+                                                                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                                                Chargement...
+                                                            </span>
+                                                        </button>
+                                                                    
+                                                        <a style="background-color: #ab2d1c; border: 1px solid #ab2d1c" href="{% url 'dashboard:presseDenied' %}" class="btn btn-danger btn-lg">Refuser</a>
+                                                        <br></br>
+                                                    {% endif %}
+                                            </div>
+                                        {% endif %}
+                                        </div>
+
+
         </div>
     </div>
 </div>
+<script>
+
+    let newNbre = null;
+
+    function handleDemand(element) {
+        const url = "{% url 'dashboard:presseAccepted' %}"; 
+
+        const userId = element.getAttribute("data-user-id");
+        const demandId = element.getAttribute("data-demand-id");
+
+        if (element.tagName === "INPUT") {
+            newNbre = element.value;
+            console.log("Modification détectée - New Nbre :", newNbre);
+
+            if (newNbre < 1) {
+                alert("Le nombre de personnes doit être supérieur ou égal à 1.");
+                newNbre = null;
+                return;
+            }
+
+            console.log("Valeur de newNbre stockée :", newNbre);
+            return; 
+        }
+
+        if (element.tagName === "BUTTON") {
+            console.log("Envoi des données au backend - User ID:", userId, "Demand ID:", demandId, "New Nbre:", newNbre);
+
+            if (!userId || !demandId) {
+                alert("Informations utilisateur ou demande manquantes.");
+                return;
+            }
+
+
+            const defaultText = element.querySelector(".default-text");
+            const loadingText = element.querySelector(".loading-text");
+
+            element.disabled = true;
+            defaultText.style.display = "none";
+            loadingText.style.display = "inline-block";
+
+            const payload = {
+                user_id: userId,
+                demand_id: demandId,
+                new_nbre: newNbre,
+            };
+
+            console.log("Payload envoyé :", payload);
+
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': '{{ csrf_token }}',
+                },
+                body: JSON.stringify(payload),
+            })
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    } else {
+                        throw new Error('Erreur lors de la mise à jour.');
+                    }
+                })
+                .then(data => {
+                    console.log("Réponse du serveur :", data);
+                    alert(data.message || 'Action effectuée avec succès.');
+                    location.reload();
+                })
+                .catch(error => {
+                    console.error('Erreur:', error);
+                    alert('Une erreur est survenue.');
+                })
+                .finally(() => {
+                    element.disabled = false;
+                    defaultText.style.display = "inline-block";
+                    loadingText.style.display = "none";
+                });
+        }
+    }
+    
+</script>
 {% endblock %}
