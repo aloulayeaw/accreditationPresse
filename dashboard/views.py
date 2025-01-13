@@ -209,9 +209,9 @@ def changelog(request):
         if service == "Commission Scientifique":
             recipient_list = ['mamerane1003@gmail.com']
         elif service == "Commission Communication":
-            recipient_list = ['alassane.aw1@ism.edu.sn']
+            recipient_list = ['babacar.sow@senelec.sn']
         elif service == "Support":
-            recipient_list = ['test01@gmail.com']
+            recipient_list = ['mamerane1003@gmail.com']
         else:
             messages.error(request, "Service inconnu. Veuillez choisir un service valide.")
             return HttpResponseRedirect(reverse('dashboard:changelog'))
