@@ -342,25 +342,14 @@ def demande(request):
 
         # Send email notification
         subject = 'Demande Accréditation'
-        message = f'''Bonjour,
-            La commission presse de l’appel de Seydina Limamou Laye vous remercie de l’intérêt que vous portez pour la couverture et au succès de cet évènement.
-            Nous avons bien reçu votre demande et après traitement le nombre de journalistes accrédités pour votre organe est de {nbre}.
-
-            Le retrait des badges se fera à partir du ... à ... . Veuillez contacter 
-            • ...
-            • ...
-            • ...
-
-            Pour trouver un hébergement contactez
-            • ...
-            • ...
-            • ...
-
-            Si vous avez des questions supplémentaires ou des besoins n’hésitez pas à nous contacter. Nous sommes là pour vous aider et faciliter votre travail de reportage.
-            Veuillez agréer, chers membres de la presse, nos salutations les plus respectueuses.'''
+        message = f'''Laye Makhtar, Cher partenaire,
+        Votre demande d’accréditation dans la plateforme Appel 2025 a été bien enregistrée et est en cours de traitement.
+        Nous allons vous revenir après traitement et vous remercions de l’intérêt que vous portez à la couverture de l’Appel de Seydina Limamou Lahi (Psl).
+        
+        La Commission communication'''
 
         from_email = 'alassane.aw1@ism.edu.sn'
-        recipient_list = ['alassane.aw1@ism.edu.sn']
+        recipient_list = email
         email = EmailMessage(subject, message, from_email, recipient_list)
         email.send()
 
@@ -425,20 +414,21 @@ def presseAccepted(request):
         qr_code_png = stream.getvalue()
 
         # Prepare email content
-        subject = 'Demande Accréditation'
+        subject = 'Réponse Commission Communication Layéne'
         html_content = f"""
         <html>
             <body>
-                <p>Bonjour,</p>
-                <p>Vous avez une réponse de la part de la communication centrale :</p>
-                <p><strong>Nom:</strong> {demande.nom}</p>
-                <p><strong>Responsable:</strong> {demande.responsable}</p>
-                <p><strong>Téléphone:</strong> {demande.telephone}</p>
-                <p><strong>Statut:</strong> {demande.statut}</p>
+                <p>Laye Makhtar, Cher Partenaire,</p>
+                <p>La commission Communication de l’Appel de Seydina Limamou Laye (Psl) vous remercie de l’intérêt que vous portez pour la couverture et au succès de cet évènement.</p>
+                <p>Après traitement, la Commission a retenu de vous octroyer {demande.nbre} badges à votre organe.</p>
+                <p>Pour des raisons de sécurité, vous pouvez aussi télécharger vos badges suivant le QR Code ci-joint.</p>
+                <p>Le retrait des badges se fera à partir du … ……………..à ………………, veuillez contacter :</p>
+                <p><strong>•Fatou Laye Mbaye : 77 640 60 32</strong></p>
+                <p><strong>•Babacar SOW : 77 333 38 89</strong></p>
+                <p><strong>• Abibou DIOP : 77 727 26 84</strong></p>
                 <p>Voici votre QR Code d'accréditation :</p>
                 <img src="cid:qr_code_image" alt="QR Code" style="width: 250px; height: 250px;">
-                <p>Merci,</p>
-                <p>Equipe Centrale</p>
+                <p>La Commission Communication,</p>
             </body>
         </html>
         """

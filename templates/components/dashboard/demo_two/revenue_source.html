@@ -159,6 +159,14 @@
             <div class="col-lg-2">
             </div>
          </div>
+            <script>
+                const telephoneInput = document.getElementById('telephone');
+
+                telephoneInput.addEventListener('input', function (e) {
+                    this.value = this.value.replace(/[^0-9]/g, '');
+                });
+            </script>
+        
                 <script>
                     const addNameBtn = document.getElementById('add-name-btn');
                     const nameInput = document.getElementById('new-person');
