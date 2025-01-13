@@ -342,14 +342,21 @@ def demande(request):
 
         # Send email notification
         subject = 'Demande Accréditation'
-        message = f'''Laye Makhtar, Cher partenaire,
-        Votre demande d’accréditation dans la plateforme Appel 2025 a été bien enregistrée et est en cours de traitement.
-        Nous allons vous revenir après traitement et vous remercions de l’intérêt que vous portez à la couverture de l’Appel de Seydina Limamou Lahi (Psl).
-        
-        La Commission communication'''
+        message = """\
+        Cher(e) partenaire,
+
+        Nous accusons réception de votre demande d’accréditation dans la plateforme **Appel 2025**. 
+        Votre demande a été bien enregistrée et est actuellement en cours de traitement. 
+
+        Nous vous tiendrons informé(e) dès que le traitement sera finalisé.
+
+        Nous vous remercions pour l’intérêt que vous portez à la couverture de l’Appel de Seydina Limamou Lahi (PSL).
+
+        La Commission Communication
+        """
 
         from_email = 'alassane.aw1@ism.edu.sn'
-        recipient_list = email
+        recipient_list = [email]
         email = EmailMessage(subject, message, from_email, recipient_list)
         email.send()
 
@@ -420,11 +427,11 @@ def presseAccepted(request):
             <body>
                 <p>Laye Makhtar, Cher Partenaire,</p>
                 <p>La commission Communication de l’Appel de Seydina Limamou Laye (Psl) vous remercie de l’intérêt que vous portez pour la couverture et au succès de cet évènement.</p>
-                <p>Après traitement, la Commission a retenu de vous octroyer {demande.nbre} badges à votre organe.</p>
+                <p>Après traitement, la Commission a retenu de vous octroyer <strong>{demande.nbre}</strong> badges à votre organe.</p>
                 <p>Pour des raisons de sécurité, vous pouvez aussi télécharger vos badges suivant le QR Code ci-joint.</p>
                 <p>Le retrait des badges se fera à partir du … ……………..à ………………, veuillez contacter :</p>
-                <p><strong>•Fatou Laye Mbaye : 77 640 60 32</strong></p>
-                <p><strong>•Babacar SOW : 77 333 38 89</strong></p>
+                <p><strong>• Fatou Laye Mbaye : 77 640 60 32</strong></p>
+                <p><strong>• Babacar SOW : 77 333 38 89</strong></p>
                 <p><strong>• Abibou DIOP : 77 727 26 84</strong></p>
                 <p>Voici votre QR Code d'accréditation :</p>
                 <img src="cid:qr_code_image" alt="QR Code" style="width: 250px; height: 250px;">
