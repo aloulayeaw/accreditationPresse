@@ -8,9 +8,102 @@
     <div class="blog-card__details">
         <div class="blog-card__content">
             <h4 class="blog-card__title">
-                <a href="#" class="entry-title" rel="bookmark" style="font-size: 19px;">#𝗔𝗽𝗽𝗲𝗹𝟮𝟬𝟮𝟱 - 𝗥𝗲𝘂𝗻𝗶𝗼𝗻 𝗱𝘂 𝗰𝗼𝗺𝗶𝘁𝗲 𝗱𝗲 𝘀𝘂𝗶𝘃𝗶 </a>
+                <a href="#" class="entry-title" rel="bookmark" style="font-size: 19px;">#𝗔𝗽𝗽𝗲𝗹𝟮𝟬𝟮𝟱 - Journée Nationale de versement des localités Layènes</a>
             </h4>
-            <p style="text-align: justify;">Sur convocation du Prefet de Dakar, s'est tenue dans la salle de réunion de la prefecture le 25 novembre 2024 une rencontre réunissant des membres du comité de suivi des projets locaux envisagés dans le cadre de l'organisation de l'Appel de Seydina Limamou Lahi al Mahdi (PSL) prévu les 30 et 31 janvier 2025</p>
+            <p style="text-align: justify;">Comme à l’accoutumé, en prélude de l’organisation de l’Appel, le Groupement Central des Layènes organise depuis 2018, la journée de collecte des contributions financières des localités layènes...</p>
+            <button class="btn-view-more" onclick="openModal()" style="float: right">Voir plus</button>
+            <br><br>
         </div>
     </div>
 </div>
+
+<div id="textModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h4>Journée Nationale de versement des localités Layènes</h4>
+        <p style="text-align: justify;">
+            Comme à l’accoutumé, en prélude de l’organisation de l’Appel, le Groupement Central des Layènes organise depuis 2018, la journée de collecte des contributions financières des localités layènes. 
+            <br>
+            Cette année, la journée a été accueillie par le regroupement des layènes de Dakar dirigé sous la direction du représentant du Khalif El Hadj Cheikh Galo Laye. La journée a été placée sous la presence effective des chérifs Idrissa Thiaw et Serigne Magoume Keur fils de Chérif Abdoulaye Thiaw Laye.
+            <br>
+            Après l’arrivée et l’installation des chérifs, et des différentes délégations, Moustapha Dème a procédé par une présentation des autorités du Groupement Central conduit par le président Ibrahima Diadiou Laye, Daouda Mbaye Laye, vice-président, Babacar Fall, secrétaire général et Babacar Sow représentant de la commission communication. Seydina Issa Laye Diop a marqué l’ouverture de la journée par un rappel historique qui lien Dakar et la communauté Layène depuis les adhésions en la véracité de la mission prophétique de Seydina Limamou Laye al Mahdi (PSL).
+            <br><br>
+            Serigne Idrissa Thiaw a insisté sur l’importance des liens qui lient Dakar à la communauté Layènes vis-à-vis des différents khalifs en rappelant que le Khalifs Seydina Mouhamadou Makhtar Lahi s’inscrit dans cette dynamique. Chérif Idrissa a rappelé l’importance des dynamiques collectives qui reste la base des logiques d’actions des Layènes. En cela, il a formulé ses encouragements à l’endroit du Groupement Central sans oublier de formuler des prières pour le défunt Seydina Issa Kane, ancien président du Groupement Central. 
+            <br><br>
+            Serigne Magoume Keur prenant la parole à son tour a insisté sur la nécessité de renforcer les stratégies d’autofinancement des projets communautaires. Ainsi, il a procédé à une présentation du projet Taaral Diamalaye avec un cout budgétaire estimatif de plus d’1 milliards FCFA lancé depuis l’année dernière. Rappelant que la première phase avait permis de mobiliser plus de 200 millions FCFA, il a annoncé que la deuxième phase sera lancée après la tenue de l’Appel en remerciant tous les layènes.
+            <br><br>
+            Daouda Mbaye, au nom du Groupement Central s’est félicité de la tenue de la journée en insistant sur son importance. Il a rappelé que cette journée annuelle en prélude de l’Appel s’inscrit dans une stratégie d’autonomisation de la communauté vis-à-vis de l’organisation de l’Appel. Lancé depuis 2018, le Groupement Central, le taux de croissance du montant global est de 102%. En effet, de 19 millions 200 milles de FCFA collectés en 2018, le Groupement Central a réussi à collecté plus de 40 millions de FCFA sur place, sans tenir compte des versements anticipés. Ce qui témoigne d’un excellent niveau de progression, même si, a-t-il rappelé, ces montants reste en deçà des ambitions du Groupement Central, mais signale que la cadence reste très positive. Le record de cette année a été réalisé par le regroupement des Layènes de Dakar avec un montant de 14 millions de FCFA versés.
+            <br><br>
+            La journée a été clôturée par des prières faites par Cherif Idrissa qui a réaffirmé ses remerciements en rappelant les encouragements de Chérif Baye Ndjine Thiaw à l’endroit du Groupement Central avant de formuler des prières pour Dakar et une bonne organisation de l’Appel 2025 prévue les 30 et 31 janvier prochains. 
+        </p>
+    </div>
+</div>
+
+<style>
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-content {
+        background-color: #fff;
+        margin: 10% auto;
+        padding: 20px;
+        border-radius: 5px;
+        width: 70%;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .btn-view-more {
+        background-color: #015369;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
+    }
+
+    .btn-view-more:hover {
+        background-color: #015369;
+    }
+</style>
+
+<script>
+    function openModal() {
+        document.getElementById("textModal").style.display = "block";
+    }
+
+    function closeModal() {
+        document.getElementById("textModal").style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        const modal = document.getElementById("textModal");
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    };
+</script>
