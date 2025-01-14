@@ -136,7 +136,6 @@ def verify(request):
             message = f"Un nouveau Organe a été activé avec les détails suivants:\n\nOrgane: {user.organe}\nEmail: {user.email}\nProfile: {user.profile}\nType_Organe: {user.profile_organe}\nDate: {user.date_joined}\nMerci,"
             recipient_list = [
                 'alassane.aw1@ism.edu.sn',
-                'mamerane1003@gmail.com',
                 'fatoulayem2@gmail.com',
                 'babacar.sow@senelec.sn',
                 'papylahi@gmail.com',

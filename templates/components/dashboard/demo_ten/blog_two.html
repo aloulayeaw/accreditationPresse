@@ -1,10 +1,40 @@
 {% load static %}
 <div class="blog-card">
     <div class="blog-card__thumbnail" style="width:100%">
-        <a href="#">
-            <img src="{% static "img/img/photo_2025-01-01_20-05-32.jpg" %}" style="height:500px;" alt="">
-        </a>
+        <img src="{% static 'img/img/WhatsApp Image 2025-01-14 à 14.11.06_5124fd32.jpg' %}" style="height:500px;" alt="" onclick="openGalleryModal()">
     </div>
+    
+    <div id="galleryModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeGalleryModal()">&times;</span>
+            <div class="gallery">
+                <img src="{% static 'img/img/WhatsApp Image 2025-01-14 à 14.11.07_c6cae663.jpg' %}" style="width:100%">
+                <img src="{% static 'img/img/WhatsApp Image 2025-01-14 à 14.11.07_c6cae663.jpg' %}" style="width:100%">
+                <img src="{% static 'img/img/WhatsApp Image 2025-01-14 à 14.11.07_c6cae663.jpg' %}" style="width:100%">
+            </div>
+        </div>
+    </div>
+    
+
+    <script>
+        function openGalleryModal() {
+            console.log("Modal ouvert !");
+            document.getElementById("galleryModal").style.display = "block";
+        }
+
+        function closeGalleryModal() {
+            console.log("Modal fermé !");
+            document.getElementById("galleryModal").style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById("galleryModal");
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        };
+    </script>
+    
     <div class="blog-card__details">
         <div class="blog-card__content">
             <h4 class="blog-card__title">
@@ -21,21 +51,25 @@
     <div class="modal-content">
         <span class="close" onclick="closeModal()">&times;</span>
         <h4>Journée Nationale de versement des localités Layènes</h4>
-        <p style="text-align: justify;">
-            <br><br>
-            Comme à l’accoutumé, en prélude de l’organisation de l’Appel, le Groupement Central des Layènes organise depuis 2018, la journée de collecte des contributions financières des localités layènes. 
+        <p style="text-align: justify; color: black">
             <br>
-            Cette année, la journée a été accueillie par le regroupement des layènes de Dakar dirigé sous la direction du représentant du Khalif El Hadj Cheikh Galo Laye. La journée a été placée sous la presence effective des chérifs Idrissa Thiaw et Serigne Magoume Keur fils de Chérif Abdoulaye Thiaw Laye.
-            <br>
-            Après l’arrivée et l’installation des chérifs, et des différentes délégations, Moustapha Dème a procédé par une présentation des autorités du Groupement Central conduit par le président Ibrahima Diadiou Laye, Daouda Mbaye Laye, vice-président, Babacar Fall, secrétaire général et Babacar Sow représentant de la commission communication. Seydina Issa Laye Diop a marqué l’ouverture de la journée par un rappel historique qui lien Dakar et la communauté Layène depuis les adhésions en la véracité de la mission prophétique de Seydina Limamou Laye al Mahdi (PSL).
+            Comme à l’accoutumé, en prélude à l’organisation de l’Appel, le Groupement Central des Layènes organise depuis 2018, la journée de collecte des contributions financières des localités layènes.
+            Cette année, la journée a été accueillie par le regroupement des layènes de Dakar dirigé par le représentant du Khalif, El Hadj Cheikh Galo Laye. 
             <br><br>
-            Serigne Idrissa Thiaw a insisté sur l’importance des liens qui lient Dakar à la communauté Layènes vis-à-vis des différents khalifs en rappelant que le Khalifs Seydina Mouhamadou Makhtar Lahi s’inscrit dans cette dynamique. Chérif Idrissa a rappelé l’importance des dynamiques collectives qui reste la base des logiques d’actions des Layènes. En cela, il a formulé ses encouragements à l’endroit du Groupement Central sans oublier de formuler des prières pour le défunt Seydina Issa Kane, ancien président du Groupement Central. 
+            La journée a enregistré la présence effective des chérifs Idrissa Thiaw et Serigne Magoume Keur fils de Chérif Abdoulaye Thiaw Laye.
+            Après l’arrivée et l’installation des chérifs et des différentes délégations, Moustapha Dème a procédé à 
+            la présentation des autorités du Groupement Central conduit par le président El Hadji Oumar Ndoye Diadiou, 
+            Daouda Mbaye Laye, vice-président, Babacar Fall, secrétaire général et Babacar Sow représentant de la commission communication. Seydina Issa Laye Diop a marqué l’ouverture de la journée par un rappel historique qui lie Dakar et la communauté Layène dès les premières adhésions reconnaissant  la mission prophétique de Seydina Limamou Laye al Mahdi (PSL).
+            Serigne Idrissa Thiaw a insisté sur l’importance des liens étroits entre la communauté Layène de Dakar et les différents khalifs en rappelant que le Khalifs Seydina Mouhamadou Makhtar Lahi s’inscrit dans cette dynamique. 
             <br><br>
-            Serigne Magoume Keur prenant la parole à son tour a insisté sur la nécessité de renforcer les stratégies d’autofinancement des projets communautaires. Ainsi, il a procédé à une présentation du projet Taaral Diamalaye avec un cout budgétaire estimatif de plus d’1 milliards FCFA lancé depuis l’année dernière. Rappelant que la première phase avait permis de mobiliser plus de 200 millions FCFA, il a annoncé que la deuxième phase sera lancée après la tenue de l’Appel en remerciant tous les layènes.
+            Chérif Idrissa a rappelé l’importance des dynamiques collectives qui restent la base des logiques d’actions des Layènes. En cela, il a formulé ses encouragements à l’endroit du Groupement Central sans oublier de formuler des prières pour le défunt Seydina Issa Kane, ancien président du Groupement Central.
+            Serigne Magoume Keur, prenant la parole à son tour, a insisté sur la nécessité de renforcer les stratégies d’autofinancement des projets communautaires. Ainsi, il a procédé à une présentation du projet Taaral Diamalaye avec un coût estimé à plus d’1 milliard FCFA lancé depuis l’année dernière. Rappelant que la première phase avait permis de mobiliser plus de 200 millions FCFA, il a annoncé que la deuxième phase sera lancée après la tenue de l’Appel en remerciant tous les layènes.
             <br><br>
-            Daouda Mbaye, au nom du Groupement Central s’est félicité de la tenue de la journée en insistant sur son importance. Il a rappelé que cette journée annuelle en prélude de l’Appel s’inscrit dans une stratégie d’autonomisation de la communauté vis-à-vis de l’organisation de l’Appel. Lancé depuis 2018, le Groupement Central, le taux de croissance du montant global est de 102%. En effet, de 19 millions 200 milles de FCFA collectés en 2018, le Groupement Central a réussi à collecté plus de 40 millions de FCFA sur place, sans tenir compte des versements anticipés. Ce qui témoigne d’un excellent niveau de progression, même si, a-t-il rappelé, ces montants reste en deçà des ambitions du Groupement Central, mais signale que la cadence reste très positive. Le record de cette année a été réalisé par le regroupement des Layènes de Dakar avec un montant de 14 millions de FCFA versés.
+            Daouda Mbaye, au nom du Groupement Central s’est félicité de la tenue de la journée en insistant sur son importance. Il a rappelé que cette journée annuelle en prélude à l’Appel s’inscrit dans une stratégie d’autonomisation de la communauté vis-à-vis de l’organisation de l’Appel. Lancé depuis 2018 par le Groupement Central, le taux de croissance du montant global est de 102%. 
+            <br><br>En effet, de 19 millions 200 milles de FCFA collectés en 2018, le Groupement Central a réussi à collecter plus de 40 millions de FCFA sur place, sans tenir compte des versements anticipés. 
+            <br>Ce qui témoigne d’un excellent niveau de progression, même si, a-t-il rappelé, ces montants reste en-deçà des ambitions du Groupement Central, mais,  la cadence reste très positive. Le record de cette année a été réalisé par le regroupement des Layènes de Dakar avec un montant de 14 millions de FCFA versés.
+            La journée a été clôturée par des prières formulées par Cherif Idrissa qui a réitéré ses remerciements en rappelant les encouragements de Chérif Baye Ndjine Thiaw à l’endroit du Groupement Central.
             <br><br>
-            La journée a été clôturée par des prières faites par Cherif Idrissa qui a réaffirmé ses remerciements en rappelant les encouragements de Chérif Baye Ndjine Thiaw à l’endroit du Groupement Central avant de formuler des prières pour Dakar et une bonne organisation de l’Appel 2025 prévue les 30 et 31 janvier prochains. 
             <span style="float: right; color: black">Dimanche, 05 janvier 2025 à Dakar, Médina, Gouye Mariama Layène</span>
         </p>
     </div>
