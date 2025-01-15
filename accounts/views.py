@@ -101,14 +101,12 @@ def register(request):
                     is_active=False
                 )
                 
-                # Generate a 6-digit verification code
                 verification_code = random.randint(100000, 999999)
-                # Save the verification code to the database
                 VerificationCode.objects.create(user=user, code=verification_code)
-                # Send the verification code to the user's email
                 subject = 'Activez votre compte'
-                message = f'Bonjour {firstname},\n\nUtilisez le code suivant pour activer votre compte:\n\n{verification_code}\n\nThank you!'
-                email = EmailMessage(subject, message, 'your-email@example.com', [email])
+                message = f'Bonjour {firstname},\n\nUtilisez le code suivant pour activer votre compte:\n\n{verification_code}\n\nMerci'
+                from_email = 'no-reply@layene-digital.com' 
+                email = EmailMessage(subject, message, from_email, [email])
                 email.send()
                 
                 messages.success(request, 'Un email vous a été envoyé avec un code de vérification.')

@@ -39,9 +39,10 @@
         <div class="blog-card__content">
             <h4 class="blog-card__title">
                 <a href="#" class="entry-title" rel="bookmark" style="font-size: 19px;">#𝗔𝗽𝗽𝗲𝗹𝟮𝟬𝟮𝟱 - Journée Nationale de versement des localités Layènes</a>
-            </h4>
+            </h4>demo_nine
             <p style="text-align: justify;">Comme à l’accoutumé, en prélude de l’organisation de l’Appel, le Groupement Central des Layènes organise depuis 2018, la journée de collecte des contributions financières des localités layènes...</p>
-            <button class="btn-view-more" onclick="openModal()" style="float: right">Voir plus</button>
+            {% comment %} <button class="btn-view-more" onclick="openModal()" style="float: right">Voir plus</button> {% endcomment %}
+            <a class="btn-view-more" href="{% url 'dashboard:demo_nine' %}" style="float: right">Voir plus</a>
             <br><br>
         </div>
     </div>

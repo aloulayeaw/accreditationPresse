@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'bootstrap4',
     'crispy_bootstrap4',
+    'ckeditor',
 ]
 
 MIDDLEWARE = [
@@ -174,5 +175,5 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'alassane.aw1@ism.edu.sn'
-EMAIL_HOST_PASSWORD = 'dixm zbhj fzxx oqvm'
+EMAIL_HOST_USER = 'info.layenedigital@gmail.com'
+EMAIL_HOST_PASSWORD = 'cefp nasu bmfr ukha'

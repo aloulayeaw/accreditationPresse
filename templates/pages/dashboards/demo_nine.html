@@ -7,86 +7,46 @@
 {% load static %}
 
 {% block content %}
-<div class="demo4">
-    <div class="container-fluid">
-        <div class="row ">
-            <div class="col-lg-12">
-                <div class="breadcrumb-main">
-                    <h4 class="text-capitalize breadcrumb-title">{% translate "dashboard-menu-title" %}</h4>
-                    <div class="breadcrumb-action justify-content-center flex-wrap">
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="#"><i class="las la-home"></i>{% translate "dashboard-menu-title" %}</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">{% translate "Demo Nine" %}</li>
-                            </ol>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xxl-4 col-lg-6 mb-25">
-                <div class="card banner-feature banner-feature--5 mb-0">
-                    <div class="banner-feature__shape">
-                        <img src="{% static 'img/svg/group3320.svg' %}" alt="img" class="svg">
-                    </div>
-                    <div class="d-flex justify-content-center">
-                        <div class="card-body">
-                            <h1 class="banner-feature__heading color-white">Congratulations Jhon!</h1>
-                            <p class="banner-feature__para ">Best Seller on the last month.</p>
-                            <button class="banner-feature__btn btn color-secondary btn-md px-20 bg-white radius-xs fs-15" type="button">Learn More</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xxl-4 col-lg-6 mb-25">
-                <div class="device-chart-box">
-                    {% include 'components/dashboard/demo_nine/performance_overview.html' %}
-                </div>
-            </div>
-            <div class="col-xxl-4 col-xl-6 col-lg-12 mb-25">
-                <div class="row">
-                    <div class="col-md-6">
-                        {% include 'components/dashboard/demo_nine/total_products.html' %}
-                    </div>
-                    <div class="col-md-6">
-                        {% include 'components/dashboard/demo_nine/total_awards.html' %}
-                    </div>
-                    <div class="col-12 mt-25">
-                        {% include 'components/dashboard/demo_nine/newsletter.html' %}
-                    </div>
-                </div>
-            </div>
-            <div class="col-xxl-8 col-lg-6 mb-25">
-                {% include 'components/dashboard/demo_nine/tasks.html' %}
-            </div>
-            <div class="col-xxl-4 col-lg-6 mb-25">
-                {% include 'components/dashboard/demo_nine/marketing_campaigns.html' %}
-            </div>
-            <div class="col-xxl-4 col-lg-6 mb-25">
-                {% include 'components/dashboard/demo_nine/todo.html' %}
-            </div>
-            <div class="col-xxl-4 col-lg-6 mb-25">
-                {% include 'components/dashboard/demo_nine/team_members.html' %}
-            </div>
-            <div class="col-xxl-4 col-xl-6 mb-25">
-                {% include 'components/dashboard/demo_nine/profile.html' %}
-            </div>
-            <div class="col-xxl-4 mb-25">
-                {% include 'components/dashboard/demo_nine/chat.html' %}
-            </div>
-            <div class="col-xxl-8 mb-25">
-                <div class="row">
-                    <div class="col-xxl-6 mb-25">
-                        {% include 'components/dashboard/demo_nine/social_media_traffic.html' %}
-                    </div>
-                    <div class="col-xxl-6 mb-25">
-                        {% include 'components/dashboard/demo_nine/location.html' %}
-                    </div>
-                    <div class="col-xxl-12 mb-25">
-                        {% include 'components/dashboard/demo_nine/recent_seller.html' %}
-                    </div>
-                </div>
-            </div>
-        </div>
+<div class="d-flex justify-content-center">
+    <div class="article-container px-md-2" style="max-width: 960px;">
+        <header class="article-header text-center">
+            <h1>Journée Nationale de Versement des Localités Layènes</h1>
+        </header>
+        <br></br>
+        <section class="article-section">
+            <p style="text-align: justify;color: black">Comme à l’accoutumé, en prélude à l’organisation de l’Appel, le Groupement Central des Layènes organise depuis 2018, la journée de collecte des contributions financières des localités layènes.
+                Cette année, la journée a été accueillie par le regroupement des layènes de Dakar dirigé par le représentant du Khalif, El Hadj Cheikh Galo Laye. 
+                </p>
+        </section>
+
+        <section class="article-section">
+            <img src="{% static 'img/img/WhatsApp Image 2025-01-14 à 14.11.07_c6cae663.jpg' %}" style="height:350px;" alt="Illustration de l'événement" class="img-fluid rounded mx-auto d-block">
+            <br></br>
+            <p style="text-align: justify;color: black">La journée a enregistré la présence effective des chérifs Idrissa Thiaw et Serigne Magoume Keur fils de Chérif Abdoulaye Thiaw Laye.
+            </p>
+        </section>
+
+        <section class="article-section">
+            <p style="text-align: justify;color: black">Après l’arrivée et l’installation des chérifs et des différentes délégations, Moustapha Dème a procédé à la présentation des autorités du Groupement Central conduit par le président El Hadji Oumar Ndoye Diadiou, Daouda Mbaye Laye, vice-président, Babacar Fall, secrétaire général et Babacar Sow représentant de la commission communication. Seydina Issa Laye Diop a marqué l’ouverture de la journée par un rappel historique qui lie Dakar et la communauté Layène dès les premières adhésions reconnaissant  la mission prophétique de Seydina Limamou Laye al Mahdi (PSL).
+                Serigne Idrissa Thiaw a insisté sur l’importance des liens étroits entre la communauté Layène de Dakar et les différents khalifs en rappelant que le Khalifs Seydina Mouhamadou Makhtar Lahi s’inscrit dans cette dynamique.
+                <br>
+                Chérif Idrissa a rappelé l’importance des dynamiques collectives qui restent la base des logiques d’actions des Layènes. En cela, il a formulé ses encouragements à l’endroit du Groupement Central sans oublier de formuler des prières pour le défunt Seydina Issa Kane, ancien président du Groupement Central.</p>
+        </section>
+
+        <section class="article-section">
+            <img src="{% static 'img/img/WhatsApp Image 2025-01-14 à 14.11.05_63db8184.jpg' %}" style="height:350px;" alt="Illustration de l'événement" class="img-fluid rounded mx-auto d-block">
+            <br></br>
+            <p style="text-align: justify;color: black">
+                Serigne Magoume Keur, prenant la parole à son tour, a insisté sur la nécessité de renforcer les stratégies d’autofinancement des projets communautaires. Ainsi, il a procédé à une présentation du projet Taaral Diamalaye avec un coût estimé à plus d’1 milliard FCFA lancé depuis l’année dernière.</p>
+        </section>
+
+
+        <footer class="article-footer text-center">
+            <p style="text-align: justify;color: black">Rappelant que la première phase avait permis de mobiliser plus de 200 millions FCFA, il a annoncé que la deuxième phase sera lancée après la tenue de l’Appel en remerciant tous les layènes.
+                <img src="{% static 'img/img/WhatsApp Image 2025-01-14 à 14.11.06_5124fd32.jpg' %}" style="height:350px;" alt="Illustration de l'événement" class="img-fluid rounded mx-auto d-block">
+                <br></br>Daouda Mbaye, au nom du Groupement Central s’est félicité de la tenue de la journée en insistant sur son importance. Il a rappelé que cette journée annuelle en prélude à l’Appel s’inscrit dans une stratégie d’autonomisation de la communauté vis-à-vis de l’organisation de l’Appel. Lancé depuis 2018 par le Groupement Central, le taux de croissance du montant global est de 102%. En effet, de 19 millions 200 milles de FCFA collectés en 2018, le Groupement Central a réussi à collecter plus de 40 millions de FCFA sur place, sans tenir compte des versements anticipés. Ce qui témoigne d’un excellent niveau de progression, même si, a-t-il rappelé, ces montants reste en-deçà des ambitions du Groupement Central, mais,  la cadence reste très positive. Le record de cette année a été réalisé par le regroupement des Layènes de Dakar avec un montant de 14 millions de FCFA versés.
+                <br></br>La journée a été clôturée par des prières formulées par Cherif Idrissa qui a réitéré ses remerciements en rappelant les encouragements de Chérif Baye Ndjine Thiaw à l’endroit du Groupement Central.</p>
+        </footer>
     </div>
 </div>
 {% endblock %}

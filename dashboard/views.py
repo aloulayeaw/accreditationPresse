@@ -185,6 +185,12 @@ def demoEight(request):
 # demo nine dashboard page
 @login_required
 def demoNine(request):
+    #presse_detail = get_object_or_404(Demande, pk=id)
+
+    # context = {
+    #     'presse_detail': presse_detail
+    # }
+    
     return render(request, 'pages/dashboards/demo_nine.html')
 
 # demo ten dashboard page
