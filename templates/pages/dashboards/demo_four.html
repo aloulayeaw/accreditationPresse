@@ -7,35 +7,58 @@
 {% load static %}
 
 {% block content %}
-<style>
-    /* Style du modal */
-    #imageModal {
-        display: none;
-        position: fixed;
-        z-index: 1000;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.8);
-        justify-content: center;
-        align-items: center;
-    }
+    <style>
+        /* Grid Styling */
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+        }
 
-    #imageModal img {
-        max-width: 90%;
-        max-height: 90%;
-    }
+        .col-md-6 {
+            flex: 1 0 33%; /* 3 colonnes */
+            max-width: 33%;
+            padding: 10px;
+        }
 
-    #imageModal .close {
-        position: absolute;
-        top: 10px;
-        right: 20px;
-        font-size: 30px;
-        color: white;
-        cursor: pointer;
-    }
-</style>
+        .blog-card img {
+            width: 100%;
+            cursor: pointer;
+        }
+
+        /* Modal Styling */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            max-width: 80%;
+            max-height: 80%;
+            margin: auto;
+            display: block;
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: white;
+            font-size: 30px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+    </style>
+
     <div class="demo4 crm">
         <div class="container-fluid">
             <div class="row">
@@ -52,74 +75,74 @@
                     </div>
                 </div>
                 
-                <div class="col-xxl-4 col-lg-6 mb-25">
-                    <div class="blog-card">
-                        <div class="blog-card__thumbnail">
-                            <img src="{% static 'img/slide/photo_2021-07-28_12-39-49.jpg' %}" alt="" onclick="showImageModal(this)">
+                <div class="row">
+                    <div class="col-md-6 col-lg-6 mb-25">
+                        <div class="blog-card">
+                            <img src="{% static 'img/slide/Layene-Digital-1.jpg' %}" alt="Image 1" onclick="showImageModal(this">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 mb-25">
+                        <div class="blog-card">
+                            <img src="{% static 'img/slide/Layene-Digital-2.jpg' %}" alt="Image 2" onclick="showImageModal(this">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 mb-25">
+                        <div class="blog-card">
+                            <img src="{% static 'img/slide/Layene-Digital-3.jpg' %}" alt="Image 3" onclick="showImageModal(this">
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 col-lg-6 mb-25">
+                        <div class="blog-card">
+                            <img src="{% static 'img/slide/Layene-Digital-4.jpg' %}" alt="Image 1" onclick="showImageModal(this">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 mb-25">
+                        <div class="blog-card">
+                            <img src="{% static 'img/slide/Layene-Digital-5.jpg' %}" alt="Image 2" onclick="showImageModal(this">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 mb-25">
+                        <div class="blog-card">
+                            <img src="{% static 'img/slide/Layene-Digital-6.jpg' %}" alt="Image 3" onclick="showImageModal(this">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 mb-25">
+                        <div class="blog-card">
+                            <img src="{% static 'img/slide/Layene-Digital-7.jpg' %}" alt="Image 2" onclick="showImageModal(this">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 mb-25">
+                        <div class="blog-card">
+                            <img src="{% static 'img/slide/Layene-Digital-8.jpg' %}" alt="Image 3" onclick="showImageModal(this">
                         </div>
                     </div>
                 </div>
-                <div class="col-xxl-4 col-lg-6 mb-25">
-                    <div class="blog-card">
-                        <div class="blog-card__thumbnail">
-                            <img src="{% static 'img/slide/photo_2021-07-28_12-39-49.jpg' %}" alt="" onclick="showImageModal(this)">
-                        </div>
-                    </div>
+                
+                <!-- Modal -->
+                <div id="imageModal" class="modal">
+                    <span class="close" onclick="closeImageModal()">&times;</span>
+                    <img class="modal-content" id="modalImage">
                 </div>
-                <div class="col-xxl-4 col-lg-6 mb-25">
-                    <div class="blog-card">
-                        <div class="blog-card__thumbnail">
-                            <img src="{% static 'img/slide/photo_2021-07-28_12-39-49.jpg' %}" alt="" onclick="showImageModal(this)">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xxl-4 col-lg-6 mb-25">
-                    <div class="blog-card">
-                        <div class="blog-card__thumbnail">
-                            <img src="{% static 'img/slide/photo_2021-07-28_12-39-49.jpg' %}" alt="" onclick="showImageModal(this)">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xxl-4 col-lg-6 mb-25">
-                    <div class="blog-card">
-                        <div class="blog-card__thumbnail">
-                            <img src="{% static 'img/slide/photo_2021-07-28_12-39-49.jpg' %}" alt="" onclick="showImageModal(this)">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xxl-4 col-lg-6 mb-25">
-                    <div class="blog-card">
-                        <div class="blog-card__thumbnail">
-                            <img src="{% static 'img/slide/photo_2021-07-28_12-39-49.jpg' %}" alt="" onclick="showImageModal(this)">
-                        </div>
-                    </div>
-                </div>
-            
-
+                  
             </div>
         </div>
     </div>
 
-                    <!-- Conteneur Modal -->
-                    <div id="imageModal">
-                        <span class="close" onclick="closeImageModal()">&times;</span>
-                        <img id="modalImage" src="" alt="Modal Image">
-                    </div>
                     
     <script>
-        // Fonction pour afficher le modal
-        function showImageModal(image) {
-            const modal = document.getElementById('imageModal');
-            const modalImg = document.getElementById('modalImage');
-            modalImg.src = image.src;
-            modal.style.display = 'flex';
+        function showImageModal(img) {
+            var modal = document.getElementById('imageModal');
+            var modalImg = document.getElementById('modalImage');
+            modal.style.display = "flex";
+            modalImg.src = img.src;
         }
-
-        // Fonction pour fermer le modal
+        
         function closeImageModal() {
-            const modal = document.getElementById('imageModal');
-            modal.style.display = 'none';
+            var modal = document.getElementById('imageModal');
+            modal.style.display = "none";
         }
+        
     </script>
 {% endblock %}
 
